@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-08-08T01:47:29+0530",
+  "file": "clone_attack.mp3",
+  "score": 1.0,
+  "crop_scores": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "model": "AASIST-hindi (3-crop majority vote)",
+  "latency_ms": 84.9,
+  "chain": [
+    "audio_in",
+    "crop_1",
+    "crop_2",
+    "crop_3",
+    "vote",
+    "verdict",
+    "intervention"
+  ]
+}

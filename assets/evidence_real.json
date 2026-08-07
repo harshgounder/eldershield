@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-08-08T01:47:30+0530",
+  "file": "real_call_hindi.wav",
+  "score": 0.0,
+  "crop_scores": [
+    0.0,
+    0.0,
+    0.0001
+  ],
+  "model": "AASIST-hindi (3-crop majority vote)",
+  "latency_ms": 84.7,
+  "chain": [
+    "audio_in",
+    "crop_1",
+    "crop_2",
+    "crop_3",
+    "vote",
+    "verdict",
+    "intervention"
+  ]
+}
