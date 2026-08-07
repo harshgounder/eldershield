@@ -27,6 +27,8 @@ call audio → mel-spectrogram → anti-spoof model (AASIST-hindi, 3-crop majori
 - Attack generator: `gen_attack()` — Hindi voice-clone via edge-tts (demo tooling, disclosed)
 - Screenshots: `assets/shot_01_landing.png` (UI), `shot_02_attack_detected.png` (SPOOF 1.000 → PAUSE), `shot_03_real_bonafide.png` (BONAFIDE 0.000 → PASS)
 - Evidence packets: `assets/evidence_attack.json`, `assets/evidence_real.json`
+- Demo video: `assets/demo_video.mp4` (37s, real UI walkthrough)
+- IIC 3.0 submission deck: `assets/ElderShield_IIC3_deck.pptx` (9 slides, template-locked)
 
 ## Verified results (measured 2026-08-08)
 
