@@ -1,0 +1,64 @@
+[
+  {
+    "scenario": "a1_digital_arrest",
+    "spoof": "SPOOF",
+    "spoof_score": 0.9999,
+    "coercion": "HIGH_RISK",
+    "coercion_score": 0.95,
+    "cues": [
+      "arrest",
+      "authority",
+      "coercion_marker",
+      "isolation",
+      "payment",
+      "secrecy",
+      "urgency"
+    ],
+    "total_s": 17.3
+  },
+  {
+    "scenario": "a2_otp",
+    "spoof": "SPOOF",
+    "spoof_score": 1.0,
+    "coercion": "ELEVATED",
+    "coercion_score": 0.59,
+    "cues": [
+      "authority",
+      "coercion_marker",
+      "payment",
+      "urgency"
+    ],
+    "total_s": 5.9
+  },
+  {
+    "scenario": "a3_parcel",
+    "spoof": "SPOOF",
+    "spoof_score": 1.0,
+    "coercion": "ELEVATED",
+    "coercion_score": 0.29,
+    "cues": [
+      "coercion_marker",
+      "payment",
+      "urgency"
+    ],
+    "total_s": 5.7
+  },
+  {
+    "scenario": "b1_real",
+    "spoof": "BONAFIDE",
+    "spoof_score": 0.0,
+    "coercion": "LOW",
+    "coercion_score": 0.0,
+    "cues": [],
+    "total_s": 6.5
+  },
+  {
+    "scenario": "b2_real",
+    "spoof": "BONAFIDE",
+    "spoof_score": 0.0022,
+    "coercion": "LOW",
+    "coercion_score": 0.0,
+    "cues": [],
+    "total_s": 5.9
+  }
+]
