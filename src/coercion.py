@@ -120,22 +120,60 @@ class CoercionDetector:
             ("विरिफाई", "वेरिफाई"), ("लाईन", "लाइन"), ("लाईम", "लाइन"),
             ("गमभीर", "गंभीर"), ("गंभीर", "गंभीर"), ("हूंगे", "होंगे"),
             ("हुँगे", "होंगे"), ("होंगे", "होंगे"),
-            ("तुरन्त", "तुरंत"), ("फ्रीज़", "फ्रीज़"), ("फ्रीज", "फ्रीज़"),
+            ("तुरन्त", "तुरंत"), ("तुरंट", "तुरंत"), ("तुरण्ट", "तुरंत"), ("फ्रीज़", "फ्रीज़"),
+            ("फ्रीज होगया", "फ्रीज़ हो गया"), ("फ्रीज हो गया", "फ्रीज़ हो गया"),
+            ("फ्रीज", "फ्रीज़"),
             ("पार्सल", "पार्सल"), ("पारसल", "पार्सल"), ("कूरियर", "कूरियर"),
             ("कोरियर", "कूरियर"), ("जेल", "जेल"), ("जेल हो", "जेल"),
             ("ड्रग्स", "ड्रग्स"), ("ड्रग", "ड्रग्स"), ("द्रग्स", "ड्रग्स"),
             ("द्रक्स", "ड्रग्स"), ("अकाउंट", "अकाउंट"), ("खाता", "खाता"),
             ("खाते", "खाता"), ("फ्रीज", "फ्रीज़"), ("ओटीपी", "ओटीपी"),
             ("ओ टी पी", "ओटीपी"), ("यूपीआई", "यूपीआई"), ("यू पी आई", "यूपीआई"),
+            # --- empirical fast-whisper hi phonetic variants (hinglish-slip probes 2026-08-11) ---
+            ("पूलीस", "पुलिस"), ("पोलिस", "पुलिस"), ("पुलीस", "पुलिस"),
+            ("पोलीस", "पुलिस"), ("पुलिस वाला", "पुलिस"),
+            ("श्टेशन", "स्टेशन"), ("श्टेशन आना", "स्टेशन आना"), ("स्टेशन", "स्टेशन"),
+            ("उटी पी", "ओटीपी"), ("उटीपी", "ओटीपी"), ("ओटिपी", "ओटीपी"),
+            ("ओटीपी पी", "ओटीपी"), ("कार्द", "कार्ड"), ("कार्ड", "कार्ड"),
+            ("पाकेज", "पैकेज"), ("पैकेज", "पैकेज"), ("पैकेज़", "पैकेज"),
+            ("अकाुन्त", "अकाउंट"), ("अकाऊंट", "अकाउंट"), ("अकांउट", "अकाउंट"),
+            ("अकाउन्ट", "अकाउंट"), ("पिंचाहिए", "पिन चाहिए"), ("पिन चाहिए", "पिन चाहिए"),
+            ("तु मिनित", "दो मिनट"), ("दो मिनिट", "दो मिनट"), ("मिनित", "मिनट"),
+            ("तेंशन", "टेंशन"), ("टैंशन", "टेंशन"), ("पैसी", "पैसे"),
+            ("पैसे", "पैसे"), ("पैसा", "पैसा"), ("भेज्दू", "भेज दो"),
+            ("भेज दो", "भेज दो"), ("भीटा", "बेटा"), ("बेटा", "बेटा"),
+            ("तुमहारा", "तुम्हारा"), ("इमरजन्सी", "इमरजेंसी"), ("इमरजेंसी", "इमरजेंसी"),
+            ("होस्पिटल", "हॉस्पिटल"), ("हस्पताल", "हॉस्पिटल"), ("हॉस्पिटल", "हॉस्पिटल"),
+            ("मैदम", "मैडम"), ("प्रोब्लम", "प्रॉब्लम"), ("चोटीसी", "छोटी सी"),
+            ("गलक", "गलत"), ("ताएं", "टाइम"), ("टाइम", "टाइम"),
+            ("वेरिफाइ", "वेरिफाई"), ("फ्रीज होगया", "फ्रीज़ हो गया"),
+            ("होगया", "हो गया"), ("समजाूंगा", "समझाऊंगा"), ("समझाऊंगा", "समझाऊंगा"),
+            # --- dialect probes 2026-08-11 (Haryanvi/Bhojpuri/Punjabi/Marathi/Bengali) ---
+            ("गिराफ्तारी", "गिरफ्तारी"), ("गिराफ्तार", "गिरफ्तार"),
+            ("वो टीपी", "ओटीपी"), ("ओटी पी", "ओटीपी"), ("अटीपी", "ओटीपी"),
+            ("ताइम", "टाइम"), ("तुरान्त", "तुरंत"), ("तुरांत", "तुरंत"),
+            ("ध्रक्स", "ड्रग्स"), ("चड्रग्स", "च में ड्रग्स"), ("च में ड्रग्स", "च में ड्रग्स"),
+            ("अतक", "अटक"), ("अटक", "अटक"),
+            # --- round 2 variants (slip/dialect re-probes) ---
+            ("अकान्त", "अकाउंट"), ("प्रोबलम", "प्रॉब्लम"), ("प्रोब्लम", "प्रॉब्लम"),
+            ("बेज्दु", "भेज दो"), ("भेज्दु", "भेज दो"), ("छोटीसी", "छोटी सी"),
+            ("लिये", "लिए"), ("चाहिये", "चाहिए"),
+            # --- acronym-dot obfuscation (सी.बी.आई. → सीबीआई) ---
+            ("सी.बी.आई.", "सीबीआई"), ("सी. बी. आई.", "सीबीआई"),
+            ("सी.बी.आय.", "सीबीआय"), ("आर.बी.आई.", "आरबीआई"), ("आर. बी. आई.", "आरबीआई"),
+            ("एन.सी.बी.", "एनसीबी"), ("ओ.टी.पी.", "ओटीपी"), ("ओ. टी. पी.", "ओटीपी"),
         ]
 
     def _normalize(self, text):
         t = text.lower()
-        t = t.replace("\u093c", "")          # strip nukta (़) — फ़→फ, व़→व, ़
+        t = t.replace("\u093c", "")          # strip ALL nukta (़) — फ़→फ, व़→व, ़ (ASR doubles them)
         for latin, dev in self._norm:
             t = t.replace(latin, dev)
         for bad, good in self._dev_norm:
             t = t.replace(bad, good)
+        # post-loop nukta strip — replacement VALUES can reintroduce nukta
+        # (e.g. ("फ्रीज", "फ्रीज़")); strip again so the text is fully nukta-free
+        t = t.replace("\u093c", "")
         # collapse whitespace
         t = re.sub(r"\s+", " ", t)
         return t
@@ -158,7 +196,15 @@ class CoercionDetector:
                     # fuzzy partial for long phrases (ASR phonetic variance)
                     if fuzz.partial_ratio(pn, t) >= 82:
                         found.append(p)
+                elif len(pn) >= 4:
+                    # fuzzy partial for medium phrases — catches MERGED tokens
+                    # ("कार्डनंबर" contains "कार्ड") that exact-match misses; threshold
+                    # high enough that random coincidences don't fire
+                    if fuzz.partial_ratio(pn, t) >= 88:
+                        found.append(p)
                 elif pn in t:
+                    # short phrases (≤3 chars, e.g. "पिन", "ओटीपी") — exact only,
+                    # fuzzy on short tokens is a false-positive machine
                     found.append(p)
             if found:
                 hits[vec] = found
@@ -168,6 +214,7 @@ class CoercionDetector:
         """Full coercion profile: transcript + vector hits + score + state."""
         t0 = time.time()
         text, info = self.transcribe(path)
+        ntext = self._normalize(text)   # normalized once; used by rules below
         hits = self._match(text)
         asr_ms = round((time.time() - t0) * 1000, 1)
 
@@ -206,6 +253,14 @@ class CoercionDetector:
             _bump("ELEVATED")
         # courier-customs signature: marker + payment + urgency (no authority needed)
         if {"coercion_marker", "payment", "urgency"} <= hit_vecs:
+            _bump("ELEVATED")
+        # account-freeze / verification soft-scam signature (no authority, no arrest):
+        # payment ask + freeze/block/verification language = the "account freezed, share
+        # your PIN" script. Text-level check — freeze/block/verify words in the transcript.
+        if "payment" in hit_vecs and any(
+            w in ntext for w in ("फ्रीज़", "फ्रीज", "ब्लॉक", "ब्लाक", "block",
+                                 "वेरिफिकेशन", "वेरिफाइ", "verify", "verification")
+        ):
             _bump("ELEVATED")
 
         return {
