@@ -74,8 +74,12 @@ class ElderShieldEngine:
                 probs.append(torch.softmax(lg, 1)[0, 1].item())
         score = float(np.mean(probs))          # mean spoof prob across crops
         votes = sum(p > 0.5 for p in probs)
+        # short files (< 4.04s) collapse to ONE crop → majority vote degenerates
+        # (b5: 3.84s TTS, score=1.0 but votes=1 → BONAFIDE = MISS). Fall back to the
+        # score itself when the vote has nothing to vote on. (Found by audio suite.)
+        spoof = (votes >= 2) if len(probs) >= 2 else (score > 0.5)
         return {
-            "spoof": votes >= 2,               # majority vote
+            "spoof": spoof,
             "score": round(score, 4),
             "crop_scores": [round(p, 4) for p in probs],
             "latency_ms": round((time.time() - t0) * 1000, 1),

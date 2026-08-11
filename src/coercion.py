@@ -139,6 +139,13 @@ class CoercionDetector:
             ("पोलीस", "पुलिस"), ("पुलिस वाला", "पुलिस"),
             ("श्टेशन", "स्टेशन"), ("श्टेशन आना", "स्टेशन आना"), ("स्टेशन", "स्टेशन"),
             ("उटी पी", "ओटीपी"), ("उटीपी", "ओटीपी"), ("ओटिपी", "ओटीपी"),
+            # audio-suite real-ASR finds (2026-08-11 run_audio): कार्ट/ब्लोग/OTT/FBI/दिमान्द/ग्राफ्ट
+            ("कार्ट नंबर", "कार्ड नंबर"), ("कार्टनंबर", "कार्ड नंबर"), ("कार्ट", "कार्ड"),
+            ("ब्लोग", "ब्लॉक"), ("ब्लोक", "ब्लॉक"), ("ब्लाक", "ब्लॉक"),
+            ("ott", "ओटीपी"), ("ओटीटी", "ओटीपी"),
+            ("fbi यार दर्स", "एफआईआर दर्ज"), ("fbi", "एफआईआर"),
+            ("दिमान्द", "डिमांड"), ("दिमांड", "डिमांड"), ("ग्राफ्ट", "ड्राफ्ट"),
+            ("अस्ली", "असली"), ("दर्स", "दर्ज"),
             ("ओटीपी पी", "ओटीपी"), ("कार्द", "कार्ड"), ("कार्ड", "कार्ड"),
             ("पाकेज", "पैकेज"), ("पैकेज", "पैकेज"), ("पैकेज़", "पैकेज"),
             ("अकाुन्त", "अकाउंट"), ("अकाऊंट", "अकाउंट"), ("अकांउट", "अकाउंट"),
@@ -295,6 +302,12 @@ class CoercionDetector:
         # courier money-demand without urgency/fine: parcel-caught claim + payment ask
         # ("पार्सल पकड़ा गया, पैसे भेजो") — no benign courier call asks for money
         if {"coercion_marker", "payment"} <= hit_vecs:
+            _bump("ELEVATED")
+        # OTP-harvest / money-demand-NOW class: payment + urgency alone
+        # ("कार्ड नंबर और ओटीपी बताओ, पैसे भेजो तुरंत" — found by audio suite u1).
+        # No benign call combines card/OTP asks with immediate money demands;
+        # kinship money-requests legitimately land ELEVATED (family challenge handles it).
+        if {"payment", "urgency"} <= hit_vecs:
             _bump("ELEVATED")
         # account-freeze / verification soft-scam signature (no authority, no arrest):
         # payment ask + freeze/block/verification language = the "account freezed, share
