@@ -19,6 +19,7 @@ AUTHORITY = [
     "बैंक", "bank", "बैंक से", "आपके बैंक",
     "cbi", "ncb", "police", "cyber cell", "cyber crime", "rbi", "enforcement directorate",
     "income tax", "court", "judge", "interpol", "supreme court", "high court",
+    "पूछताछ", "पूछताछ के लिए",
 ]
 ARREST = [
     "गिरफ्तार", "गिरफ़्तार", "वारंट", "केस दर्ज", "एफआईआर", "समन", "जेल", "अरेस्ट",
@@ -45,6 +46,9 @@ PAYMENT = [
     "कट गए", "भेजा है", "भेज दो", "पैसा", "पैसे",
     "otp", "pin", "upi", "bank account", "transfer", "send money", "verify",
     "safe account", "security deposit", "कस्टडी अकाउंट", "खाता फ्रीज़", "freeze",
+    "कार्ड नंबर", "कार्डनंबर", "card number", "क्रेडिट कार्ड", "डेबिट कार्ड",
+    "जुर्माना भरो", "जुर्माना भरना", "जुर्माना भरें", "फाइन भरो", "फाइन भरना",
+    "रिफंड", "refund", "पेनाल्टी", "penalty", "काला धन", "black money",
 ]
 ISOLATION = [
     "किसी को मत बताना", "अकेले रहो", "कमरे में रहो", "वीडियो कॉल पर रहो",
@@ -60,7 +64,8 @@ COERCION_MARKERS = [
     "आपका आधार इस्तेमाल", "आधार कार्ड इस्तेमाल", "आपके नाम पर",
     "your aadhaar", "in your name", "आपकी जानकारी मिली",
     "नंबर से कॉल", "पूछताछ के लिए", "थाने चलो", "डिजिटल अरेस्ट",
-    "digital arrest", "नकली पुलिस", "असली पुलिस",
+    "digital arrest", "नकली पुलिस", "असली पुलिस", "जुर्माना", "fine", "जुरमाना",
+    "काला धन", "black money", "प्रतिबंधित", "prohibited",
     # OTP / card / courier-customs tells
     "कार्ड ब्लॉक", "ब्लॉक हो गया", "ब्लॉक हो गई", "ब्लॉक", "block",
     "फंस गया", "फंस गई", "अटक गया", "सीमा शुल्क", "customs", "कस्टम ड्यूटी",
@@ -162,11 +167,29 @@ class CoercionDetector:
             ("सी.बी.आई.", "सीबीआई"), ("सी. बी. आई.", "सीबीआई"),
             ("सी.बी.आय.", "सीबीआय"), ("आर.बी.आई.", "आरबीआई"), ("आर. बी. आई.", "आरबीआई"),
             ("एन.सी.बी.", "एनसीबी"), ("ओ.टी.पी.", "ओटीपी"), ("ओ. टी. पी.", "ओटीपी"),
+            # --- latin Hinglish words (text-level matching for Roman-script calls) ---
+            ("o t p", "ओटीपी"), ("ot p", "ओटीपी"), ("aapke", "आपके"), ("aapka", "आपका"), ("aapko", "आपको"),
+            ("batao", "बताओ"), ("bataiye", "बताइए"), ("hai", "है"), ("hoon", "हूँ"),
+            ("mila", "मिला"), ("aaya", "आया"), ("aayi", "आई"), ("mil gaya", "मिल गया"),
+            ("milal", "मिला"), ("package", "पैकेज"), ("card", "कार्ड"), ("number", "नंबर"),
+            ("station", "स्टेशन"), ("maam", "मैडम"), ("madam", "मैडम"), ("ji", "जी"),
+            ("tumhara", "तुम्हारा"), ("tumhari", "तुम्हारी"), ("tera", "तेरा"), ("teri", "तेरी"),
+            ("warna", "वरना"), ("nahi to", "नहीं तो"), ("jaldi", "जल्दी"), ("turant", "तुरंत"),
+            ("freez", "फ्रीज़"), ("freezed", "फ्रीज़"), ("verify", "वेरिफाई"),
+            ("verification", "वेरिफिकेशन"), ("paise", "पैसे"), ("paisa", "पैसा"),
+            ("bhejo", "भेजो"), ("daalo", "डालो"), ("karo", "करो"), ("karna", "करना"),
+            ("ho gaya", "हो गया"), ("hogaya", "हो गया"), ("se", "से"), ("mein", "में"),
+            ("main", "मैं"), ("bol raha", "बोल रहा"), ("bol rahi", "बोल रही"),
+            ("pakda", "पकड़ा"), ("pakda gaya", "पकड़ा गया"), ("chahiye", "चाहिए"),
+            ("dena", "देना"), ("do", "दो"), ("de", "दे"), ("jama", "जमा"),
         ]
 
     def _normalize(self, text):
         t = text.lower()
         t = t.replace("\u093c", "")          # strip ALL nukta (़) — फ़→फ, व़→व, ़ (ASR doubles them)
+        # strip zero-width / format chars (scammers insert them to break exact-match)
+        for ch in ("\u200b", "\u200c", "\u200d", "\u200e", "\u200f", "\ufeff"):
+            t = t.replace(ch, "")
         for latin, dev in self._norm:
             t = t.replace(latin, dev)
         for bad, good in self._dev_norm:
@@ -210,15 +233,11 @@ class CoercionDetector:
                 hits[vec] = found
         return hits
 
-    def analyze(self, path):
-        """Full coercion profile: transcript + vector hits + score + state."""
-        t0 = time.time()
-        text, info = self.transcribe(path)
-        ntext = self._normalize(text)   # normalized once; used by rules below
+    def _score_text(self, text):
+        """Text-level coercion profile — the single source of truth for scoring.
+        analyze() calls this after ASR; benchmarks call it directly (no divergence)."""
+        t = self._normalize(text)
         hits = self._match(text)
-        asr_ms = round((time.time() - t0) * 1000, 1)
-
-        # weighted scoring — payment + authority are the strongest tells
         weights = {
             "authority": 0.22, "arrest": 0.20, "payment": 0.22,
             "urgency": 0.12, "secrecy": 0.10, "isolation": 0.08,
@@ -226,7 +245,6 @@ class CoercionDetector:
         }
         score = 0.0
         for vec, found in hits.items():
-            # cap per-vector contribution so one vector can't dominate
             score += min(len(found) / 2.0, 1.0) * weights.get(vec, 0.1)
         score = round(min(score, 1.0), 4)
 
@@ -245,33 +263,58 @@ class CoercionDetector:
                 state = level
         if {"authority", "arrest", "payment"} <= hit_vecs:
             _bump("HIGH_RISK")
+        # authority + arrest alone = the digital-arrest tell (CBI + FIR + case;
+        # the scam does NOT need payment or parcel to be heard to be dangerous)
+        if {"authority", "arrest"} <= hit_vecs:
+            _bump("HIGH_RISK")
         # digital-arrest signature does NOT require payment to be heard —
         # authority + arrest + marker (CBI + warrant + parcel) is itself the tell
         if {"authority", "arrest", "coercion_marker"} <= hit_vecs:
+            _bump("HIGH_RISK")
+        # authority + payment + marker — money-demand authority scams (ED/black money,
+        # cyber-crime FIR, police+parcel+OTP) — no explicit arrest word needed
+        if {"authority", "payment", "coercion_marker"} <= hit_vecs:
+            _bump("HIGH_RISK")
+        # digital-arrest WITHOUT authority heard: arrest claim + marker + payment ask
+        # ("digital arrest hua hai, OTP batao warna jail") — the arrest claim is the tell
+        if {"arrest", "coercion_marker", "payment"} <= hit_vecs:
             _bump("HIGH_RISK")
         elif len(hit_vecs) >= 3:
             _bump("ELEVATED")
         # courier-customs signature: marker + payment + urgency (no authority needed)
         if {"coercion_marker", "payment", "urgency"} <= hit_vecs:
             _bump("ELEVATED")
+        # courier-with-fine (no urgency heard): marker + payment = fine/penalty demand
+        if {"coercion_marker", "payment"} <= hit_vecs and any(
+            w in t for w in ("जुर्माना", "फाइन", "fine", "पेनाल्टी", "penalty")
+        ):
+            _bump("ELEVATED")
+        # courier money-demand without urgency/fine: parcel-caught claim + payment ask
+        # ("पार्सल पकड़ा गया, पैसे भेजो") — no benign courier call asks for money
+        if {"coercion_marker", "payment"} <= hit_vecs:
+            _bump("ELEVATED")
         # account-freeze / verification soft-scam signature (no authority, no arrest):
         # payment ask + freeze/block/verification language = the "account freezed, share
         # your PIN" script. Text-level check — freeze/block/verify words in the transcript.
         if "payment" in hit_vecs and any(
-            w in ntext for w in ("फ्रीज़", "फ्रीज", "ब्लॉक", "ब्लाक", "block",
-                                 "वेरिफिकेशन", "वेरिफाइ", "verify", "verification")
+            w in t for w in ("फ्रीज़", "फ्रीज", "ब्लॉक", "ब्लाक", "block",
+                             "वेरिफिकेशन", "वेरिफाइ", "verify", "verification",
+                             "रिफंड", "refund", "कन्फर्म", "confirm", "पेनाल्टी", "penalty")
         ):
             _bump("ELEVATED")
 
-        return {
-            "transcript": text,
-            "language": info.language,
-            "asr_latency_ms": asr_ms,
-            "vector_hits": hits,
-            "coercion_score": score,
-            "risk_state": state,
-            "flagged": state != "LOW",
-        }
+        return {"vector_hits": hits, "coercion_score": score, "risk_state": state,
+                "flagged": state != "LOW", "normalized": t}
+
+    def analyze(self, path):
+        """Full coercion profile: transcript + vector hits + score + state."""
+        t0 = time.time()
+        text, info = self.transcribe(path)
+        prof = self._score_text(text)
+        prof["transcript"] = text
+        prof["language"] = info.language
+        prof["asr_latency_ms"] = round((time.time() - t0) * 1000, 1)
+        return prof
 
 
 if __name__ == "__main__":
