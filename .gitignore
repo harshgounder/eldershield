@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 demo/attacks/
 run-ledger/
+# generated evidence packets (fresh every run) — curated demo set stays tracked
+demo/evidence/ES-*.json
+demo/evidence/ES-*.pdf
