@@ -1,4 +1,4 @@
-# ElderShield — Digital-Arrest & Voice-Scam Shield for Indian Families
+# Kavach — Digital-Arrest & Voice-Scam Shield for Indian Families
 
 **IIC 3.0 (International Innovation Challenge, Manipal University Jaipur) — Theme: Cybersecurity & Digital Sovereignty**
 
@@ -10,7 +10,7 @@ Every bank warns customers. No consumer app defends the phone itself — in Hind
 
 ## The Solution
 
-ElderShield is a **call-security platform** that fuses six detection departments into one intervention loop:
+Kavach is a **call-security platform** that fuses six detection departments into one intervention loop:
 
 | Department | Question |
 |---|---|
@@ -23,7 +23,7 @@ ElderShield is a **call-security platform** that fuses six detection departments
 
 The FUSION core turns all signals into **one verdict → one intervention**: recognize → interrupt → verify → package → report.
 
-**The product loop:** the moment a call shows both spoof AND coercion signals, ElderShield pauses the payment moment — warns the victim in Hindi, alerts a trusted family member, and generates a tamper-proof evidence packet ready for 1930.
+**The product loop:** the moment a call shows both spoof AND coercion signals, Kavach pauses the payment moment — warns the victim in Hindi, alerts a trusted family member, and generates a tamper-proof evidence packet ready for 1930.
 
 ## How it works
 
@@ -34,12 +34,12 @@ call audio → mel-spectrogram → anti-spoof model (AASIST-hindi, 3-crop majori
 
 - **Model:** AASIST (Attention-based Spectrogram Transformer) fine-tuned on Hindi deepfake data — 0.9919 accuracy, 0/100 false positives on held-out Hindi spoof data
 - **Latency:** ~80–350 ms on a GTX 1650 (4 GB) laptop GPU (on-device scoring)
-- **Honest platform note:** consumer Android apps cannot record live cellular calls (VOICE_CALL is privileged). ElderShield owns the moments Android permits: pre-ring screening, own-mic analysis burst, the payment tripwire (Play-sanctioned Accessibility for fraud prevention), the evidence capsule, and family escalation. Higher-assurance tiers (CPaaS second number, bank/FRI partnership) are roadmap.
+- **Honest platform note:** consumer Android apps cannot record live cellular calls (VOICE_CALL is privileged). Kavach owns the moments Android permits: pre-ring screening, own-mic analysis burst, the payment tripwire (Play-sanctioned Accessibility for fraud prevention), the evidence capsule, and family escalation. Higher-assurance tiers (CPaaS second number, bank/FRI partnership) are roadmap.
 
 ## Repo layout
 
 ```
-src/engine.py          — ElderShieldEngine: model load, 3-crop vote, analyze()
+src/engine.py          — KavachEngine: model load, 3-crop vote, analyze()
 src/coercion.py        — Hindi coercion detection (7 vectors, fuzzy, rule boosts)
 src/evidence.py        — sha256 chain-of-custody packet + 1930-ready PDF
 demo_ui.py             — Gradio UI: upload/record → verdict + evidence packet

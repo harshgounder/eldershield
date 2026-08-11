@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""eldershield_b1_ab.py — A/B: real Hindi (FLEURS) vs Hindi TTS (edge-tts) through AASIST.
+"""kavach_b1_ab.py — A/B: real Hindi (FLEURS) vs Hindi TTS (edge-tts) through AASIST.
 
 THE make-or-break question: does the pretrained AASIST (trained on English
 ASVspoof) generalize to Hindi TTS as SPOOF while passing real Hindi as BONAFIDE?

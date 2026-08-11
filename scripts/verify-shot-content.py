@@ -3,7 +3,7 @@
 the real verdict. Grabs the rendered output text + evidence JSON after each run."""
 import os
 
-ASSETS = os.path.expanduser("~/iic-3/eldershield/assets")
+ASSETS = os.path.expanduser("~/iic-3/kavach/assets")
 BASE = "http://127.0.0.1:7860"
 
 from playwright.sync_api import sync_playwright

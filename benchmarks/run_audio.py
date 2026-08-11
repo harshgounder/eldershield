@@ -20,7 +20,7 @@ REPO = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(REPO, "src"))
 
 import torch  # noqa: E402
-from engine import ElderShieldEngine      # B1 spoof (AASIST)
+from engine import KavachEngine      # B1 spoof (AASIST)
 from coercion import CoercionDetector     # B2 (faster-whisper + rules)
 from fusion import fuse                   # FUSION core
 
@@ -30,7 +30,7 @@ os.makedirs(RES_DIR, exist_ok=True)
 
 def main():
     t0_all = time.time()
-    engine = ElderShieldEngine()
+    engine = KavachEngine()
     det = CoercionDetector()
     cases = [json.loads(l) for l in open(CASES) if l.strip()]
 

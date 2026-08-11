@@ -11,7 +11,7 @@ Scenarios:
 import asyncio, json, os, sys, time
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src"))
-from engine import ElderShieldEngine
+from engine import KavachEngine
 from coercion import CoercionDetector
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,7 +33,7 @@ def gen(text, name):
     return out
 
 def main():
-    eng = ElderShieldEngine()
+    eng = KavachEngine()
     det = CoercionDetector()
 
     # generate attack variants

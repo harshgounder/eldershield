@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""demo_ui.py — ElderShield R1 demo: attack-gen + detection UI + evidence packet.
+"""demo_ui.py — Kavach R1 demo: attack-gen + detection UI + evidence packet.
 
 Flow: record/upload a wav → engine.analyze() → spoof verdict + score + latency
 → PAUSE intervention (block UPI intent) → evidence packet JSON (audit trail).
@@ -10,7 +10,7 @@ import os, sys, json, time, tempfile
 import numpy as np
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "src"))
-from engine import ElderShieldEngine  # noqa: E402
+from engine import KavachEngine  # noqa: E402
 from coercion import CoercionDetector  # noqa: E402  (B2 layer)
 from evidence import build_and_save as _build_evidence  # noqa: E402  (B4 layer)
 
@@ -25,7 +25,7 @@ _COERCION = None
 def engine():
     global _ENGINE
     if _ENGINE is None:
-        _ENGINE = ElderShieldEngine()
+        _ENGINE = KavachEngine()
     return _ENGINE
 
 def _coercion():
@@ -110,7 +110,7 @@ if __name__ == "__main__":
             gr.Markdown(label="Detection result"),
             gr.JSON(label="Evidence packet (audit trail)"),
         ],
-        title="ElderShield — Digital-Arrest & Voice-Scam Shield (spoof + coercion + evidence)",
+        title="Kavach — Digital-Arrest & Voice-Scam Shield (spoof + coercion + evidence)",
         description="AASIST-hindi 3-crop vote + Hindi coercion detection (faster-whisper). Spoof score + coercion state → PAUSE intervention → tamper-evident evidence packet + 1930-ready PDF.",
     )
     demo.launch(server_name="127.0.0.1", server_port=7860)

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""engine.py — ElderShield audio anti-spoof engine (production inference).
+"""engine.py — Kavach audio anti-spoof engine (production inference).
 
 Protocol (VERIFIED 2026-08-06, ad-hoc harness): 3-crop majority vote
 (first/middle/last 4s windows) — single-crop is crop-dependent (0.9355 acc),
 vote restores held-out 0.9919 (0/100 FP, 1/24 FN) on FLEURS-real vs edge-tts.
 
 Usage:
-    from engine import ElderShieldEngine
-    eng = ElderShieldEngine()
+    from engine import KavachEngine
+    eng = KavachEngine()
     result = eng.analyze("call.wav")   # {"spoof": bool, "score": float, "latency_ms": float}
 """
 import os, time
@@ -29,7 +29,7 @@ NB_SAMP = 64600          # 4.04s @ 16k
 N_CROPS = 3              # majority-vote windows
 
 
-class ElderShieldEngine:
+class KavachEngine:
     def __init__(self, ckpt=_AASIST_CKPT, device=None):
         import sys
         sys.path.insert(0, _AASIST_SRC)
@@ -88,6 +88,6 @@ class ElderShieldEngine:
 
 if __name__ == "__main__":
     import sys
-    eng = ElderShieldEngine()
+    eng = KavachEngine()
     for p in sys.argv[1:]:
         print(p, "->", eng.analyze(p))

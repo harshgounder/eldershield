@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""coercion.py — B2 layer: Hindi/Hinglish coercion-intent detection for ElderShield.
+"""coercion.py — B2 layer: Hindi/Hinglish coercion-intent detection for Kavach.
 
 Turns raw call audio into a coercion risk profile BEFORE the payment happens:
   audio -> faster-whisper (hi) ASR -> transcript

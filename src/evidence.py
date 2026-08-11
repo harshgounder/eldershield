@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """evidence.py — B4 layer: tamper-evident evidence packet + 1930-ready PDF export.
 
-Every ElderShield detection emits a chain-of-custody packet:
+Every Kavach detection emits a chain-of-custody packet:
   sha256 hash chain (audio -> transcript -> verdict) + timestamp + model versions
   -> JSON (machine-readable) + PDF (human-readable, 1930/CERT-In-shaped).
 
@@ -30,13 +30,13 @@ def sha256_str(s):
 def build_packet(audio_path, engine_result, coercion_result, model_meta=None):
     """Build the full evidence packet with hash chain.
 
-    engine_result: from ElderShieldEngine.analyze() (spoof score, verdict, latency)
+    engine_result: from KavachEngine.analyze() (spoof score, verdict, latency)
     coercion_result: from CoercionDetector.analyze() (transcript, coercion score, state)
     model_meta: dict with model names/versions (defaults provided)
     """
     audio_hash = sha256_file(audio_path)
     ts = datetime.now(timezone.utc).isoformat()
-    packet_id = "ES-" + uuid.uuid4().hex[:12].upper()
+    packet_id = "KV-" + uuid.uuid4().hex[:12].upper()
 
     meta = {
         "model": "AASIST-hindi (3-crop majority vote)",
@@ -153,7 +153,7 @@ def export_pdf(packet, path):
     body = ParagraphStyle("body", parent=styles["BodyText"], fontSize=9, leading=13)
 
     story = []
-    story.append(Paragraph("ElderShield — Voice-Fraud Detection Evidence Packet", h1))
+    story.append(Paragraph("Kavach — Voice-Fraud Detection Evidence Packet", h1))
     story.append(Spacer(1, 4 * mm))
     story.append(Paragraph(f"Packet ID: <b>{packet['packet_id']}</b>", body))
     story.append(Paragraph(f"Generated: {packet['generated_at']}", body))
@@ -219,13 +219,13 @@ if __name__ == "__main__":
     import sys
     # demo: run against an audio file with both engines and emit both artifacts
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    from engine import ElderShieldEngine
+    from engine import KavachEngine
     from coercion import CoercionDetector
 
     audio = sys.argv[1] if len(sys.argv) > 1 else "assets/attack_digital_arrest.mp3"
     out = sys.argv[2] if len(sys.argv) > 2 else "/tmp/es-evidence"
 
-    eng = ElderShieldEngine()
+    eng = KavachEngine()
     det = CoercionDetector()
     er = eng.analyze(audio)
     cr = det.analyze(audio)

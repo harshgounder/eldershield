@@ -1,0 +1,79 @@
+{
+  "packet_id": "KV-50DB8687E16D",
+  "generated_at": "2026-08-11T13:20:24.860411+00:00",
+  "chain": [
+    {
+      "link": 1,
+      "name": "audio",
+      "hash": "a192dc865af604b861613539d9fd37251ef00d0396872f0e1c216eb7e46cf82f",
+      "data": {
+        "packet_id": "ES-50DB8687E16D",
+        "timestamp": "2026-08-11T13:20:24.860411+00:00",
+        "audio_file": "a2_otp.mp3",
+        "audio_sha256": "fc0146a1e98c36167dc5c2bf1717795093071fb687dba667ff0a38484a6c1f57"
+      }
+    },
+    {
+      "link": 2,
+      "name": "spoof_verdict",
+      "hash": "54c62d4a3c8df9c7a554830c713eee149a5ad52184498067066ba351639c4e52",
+      "data": {
+        "spoof": true,
+        "spoof_score": 1.0,
+        "crop_scores": [
+          1.0,
+          1.0,
+          0.9999
+        ],
+        "latency_ms": 164.8,
+        "model": "AASIST-hindi (3-crop majority vote)"
+      }
+    },
+    {
+      "link": 3,
+      "name": "coercion_profile",
+      "hash": "d69d8fc69e3a238704ea37ffefcbfcc25c326a4590e1715202514c9eea597ee2",
+      "data": {
+        "transcript": "नमस्ते, मैं आपके बैंक से बोल रहा हूँ.  आपका कार्ट ब्लोक हो गया है.  OTP भेजा है, जल्दी बता ये वरना पैसा कट जाएगा.",
+        "language": "hi",
+        "coercion_score": 0.59,
+        "risk_state": "ELEVATED",
+        "vector_hits": {
+          "authority": [
+            "बैंक",
+            "bank",
+            "बैंक से",
+            "आपके बैंक"
+          ],
+          "urgency": [
+            "जल्दी",
+            "जल्दी बताओ",
+            "वरना"
+          ],
+          "payment": [
+            "ओटीपी",
+            "कट जाएगा",
+            "कट जाएगी",
+            "भेजा है",
+            "पैसा",
+            "otp"
+          ],
+          "coercion_marker": [
+            "ब्लॉक हो गया"
+          ]
+        },
+        "asr_latency_ms": 5680.5,
+        "asr_model": "faster-whisper small (hi)"
+      }
+    }
+  ],
+  "root_hash": "d69d8fc69e3a238704ea37ffefcbfcc25c326a4590e1715202514c9eea597ee2",
+  "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
+  "model_meta": {
+    "model": "AASIST-hindi (3-crop majority vote)",
+    "asr": "faster-whisper small (hi)",
+    "version": "1.0",
+    "processor": "elder-shield-b2-b4"
+  },
+  "meta_hash": "730fe370ddc59a4e14c81ead88859b689c4a25f09cf3f9acd2030b300a4b791d"
+}

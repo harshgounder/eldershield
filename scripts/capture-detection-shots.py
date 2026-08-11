@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""capture-detection-shots.py — playwright UI walkthrough for ElderShield R1 assets.
+"""capture-detection-shots.py — playwright UI walkthrough for Kavach R1 assets.
 Drives the REAL gradio UI (not API): loads page → uploads attack → clicks submit →
 screenshots the verdict panel (the money shot) → resets → uploads real call →
 screenshots the BONAFIDE state.
@@ -8,7 +8,7 @@ Requires: gradio server running on :7860 (demo_ui.py), playwright in r2-venv.
 """
 import os
 
-ASSETS = os.path.expanduser("~/iic-3/eldershield/assets")
+ASSETS = os.path.expanduser("~/iic-3/kavach/assets")
 BASE = "http://127.0.0.1:7860"
 
 from playwright.sync_api import sync_playwright

@@ -1,4 +1,4 @@
-# IDEAL-STANDARD — the 100% reference for ElderShield evaluation
+# IDEAL-STANDARD — the 100% reference for Kavach evaluation
 
 Every benchmark suite scores against THIS. A dimension at 100% means the system
 does everything below, always. Nothing on this page is "aspirational fluff" —

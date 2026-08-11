@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""eldershield_b2_finetune.py — Hindi domain adaptation of AASIST.
+"""kavach_b2_finetune.py — Hindi domain adaptation of AASIST.
 
 Trains:  real Hindi (FLEURS) -> BONAFIDE (0) | Hindi TTS (edge-tts) -> SPOOF (1)
 Held-out test: 100 fresh FLEURS speakers + 24 TTS clips with UNSEEN scripts.

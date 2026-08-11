@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""v1_loop.py — ElderShield v0.1: the FULL product loop, end to end.
+"""v1_loop.py — Kavach v0.1: the FULL product loop, end to end.
 
 recognize → interrupt → verify → package → report
 
@@ -21,7 +21,7 @@ import argparse, json, os, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "src"))
 
-from engine import ElderShieldEngine      # B1
+from engine import KavachEngine      # B1
 from coercion import CoercionDetector     # B2
 from fusion import fuse                   # FUSION core
 from evidence import build_and_save       # B4
@@ -29,7 +29,7 @@ from evidence import build_and_save       # B4
 
 def run_loop(audio_path, payment_context=None, family_decision="challenge"):
     """One full pass through the loop. Returns the full state dict."""
-    eng = ElderShieldEngine()
+    eng = KavachEngine()
     det = CoercionDetector()
 
     # ---- recognize (B1 + B2 in parallel-ish sequence)
@@ -101,7 +101,7 @@ SCENARIOS = {
 
 
 def main():
-    ap = argparse.ArgumentParser(description="ElderShield v0.1 — full loop")
+    ap = argparse.ArgumentParser(description="Kavach v0.1 — full loop")
     ap.add_argument("audio", nargs="?", help="audio file to run through the loop")
     ap.add_argument("--payee-new", action="store_true")
     ap.add_argument("--amount", type=int, default=0)

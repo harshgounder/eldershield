@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""eldershield_b1_verify.py — B1 milestone: load AASIST weights + forward pass.
+"""kavach_b1_verify.py — B1 milestone: load AASIST weights + forward pass.
 
 Proves: (1) the downloaded AASIST.pth loads into the AASIST Model class,
 (2) a real audio file (generated synthetic + real TTS-ish) produces a

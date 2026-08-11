@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""fusion.py — ElderShield FUSION core (B1 spoof + B2 coercion → one verdict → one intervention).
+"""fusion.py — Kavach FUSION core (B1 spoof + B2 coercion → one verdict → one intervention).
 
 The product claim from the pitch: "six departments, one fusion verdict, one intervention."
 This module is that claim made executable. Pure logic — no audio I/O, fully unit-testable.

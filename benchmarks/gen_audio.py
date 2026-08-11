@@ -71,7 +71,7 @@ SCENARIOS = [
 ]
 
 # ── REAL HUMAN SPEECH (the actual benign caller — must PASS) ──
-REPO_ROOT = os.path.abspath(os.path.join(HERE, ".."))   # benchmarks → eldershield root
+REPO_ROOT = os.path.abspath(os.path.join(HERE, ".."))   # benchmarks → kavach root
 HUMAN_FILES = [
     ("h1_real_hindi", os.path.join(REPO_ROOT, "assets", "real_call_hindi.wav"), "real human Hindi (FLEURS-style)"),
     ("h2_real_hindi2", os.path.join(REPO_ROOT, "assets", "real_call_hindi2.wav"), "real human Hindi (FLEURS-style)"),

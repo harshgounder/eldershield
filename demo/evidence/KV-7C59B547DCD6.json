@@ -1,0 +1,56 @@
+{
+  "packet_id": "KV-7C59B547DCD6",
+  "generated_at": "2026-08-11T13:32:17.405912+00:00",
+  "chain": [
+    {
+      "link": 1,
+      "name": "audio",
+      "hash": "a0c0a8f6ea44c358a651c9f728ad153d073499e0ef27ada1b5a66498d22249f7",
+      "data": {
+        "packet_id": "ES-7C59B547DCD6",
+        "timestamp": "2026-08-11T13:32:17.405912+00:00",
+        "audio_file": "real_call_hindi.wav",
+        "audio_sha256": "eaf505bbf7f4ce5543af9242678b0a992f11d933a4878685b7bbfd817c4e422d"
+      }
+    },
+    {
+      "link": 2,
+      "name": "spoof_verdict",
+      "hash": "58bee2af1ca6bd830ff28460e97eb2a943d88a29a47a17eb5ae65705345a5002",
+      "data": {
+        "spoof": false,
+        "spoof_score": 0.0,
+        "crop_scores": [
+          0.0,
+          0.0,
+          0.0001
+        ],
+        "latency_ms": 78.5,
+        "model": "AASIST-hindi (3-crop majority vote)"
+      }
+    },
+    {
+      "link": 3,
+      "name": "coercion_profile",
+      "hash": "9e078d6c0195495f09856db85367df5d7e5e1bd1fdcb639cf1d8574d1a5143d1",
+      "data": {
+        "transcript": "मेजर किन खाना भूम दिसागर में समान शेटरों की तरा रोटी सबजियों और मास,  विषेश रुब से सुर का मास पर आदारित है और जैतून के तेल का उप्योख करता है.",
+        "language": "hi",
+        "coercion_score": 0.0,
+        "risk_state": "LOW",
+        "vector_hits": {},
+        "asr_latency_ms": 7159.3,
+        "asr_model": "faster-whisper small (hi)"
+      }
+    }
+  ],
+  "root_hash": "9e078d6c0195495f09856db85367df5d7e5e1bd1fdcb639cf1d8574d1a5143d1",
+  "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
+  "model_meta": {
+    "model": "AASIST-hindi (3-crop majority vote)",
+    "asr": "faster-whisper small (hi)",
+    "version": "1.0",
+    "processor": "elder-shield-b2-b4"
+  },
+  "meta_hash": "e2a4b93fe98a298069be83e08e5801acdccb4628cbccc192a68a9eaffcfd7070"
+}
