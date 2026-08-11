@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Rename demo evidence packets ES-* → KV-* (Kavach rebrand, 2026-08-11).
+"""Ensure all demo evidence packets (KV-*) are meta_hash-consistent + verified.
 
-The packet_id participates in meta_hash (D7 hardening), so renaming must
-recompute meta_hash; the sha256 CHAIN (audio/spoof/coercion links) is untouched
-and stays valid. PDFs are regenerated from the updated JSON.
+The meta_hash layer (D7 hardening, 2026-08-11) is recomputed for any packet
+missing it or out of sync — e.g. packets written before the schema change or
+hand-edited. The sha256 CHAIN (audio/spoof/coercion links) is never touched:
+if the chain is broken the packet is reported as tampered, not "repaired".
+
+Idempotent: a fully consistent set is a no-op ("0 packets").
 """
 import glob, json, os, sys
 
@@ -11,32 +14,20 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(HERE)
 EVID = os.path.join(REPO, "demo", "evidence")
 sys.path.insert(0, os.path.join(REPO, "src"))
-from evidence import sha256_str, verify_packet, export_pdf  # noqa: E402
+from evidence import sha256_str, verify_packet  # noqa: E402
 
 n = 0
-for f in sorted(glob.glob(os.path.join(EVID, "ES-*.json"))):
+for f in sorted(glob.glob(os.path.join(EVID, "KV-*.json"))):
     p = json.load(open(f))
-    assert p["packet_id"].startswith("ES-")
-    p["packet_id"] = "KV-" + p["packet_id"][3:]
-    # chain links keep their original data (audio/spoof/coercion) — untouched.
-    # meta_hash must be recomputed over the new packet_id.
-    _meta_src = {k: v for k, v in p.items() if k not in ("chain", "meta_hash")}
-    p["meta_hash"] = sha256_str(
-        p["root_hash"] + json.dumps(_meta_src, ensure_ascii=False, sort_keys=True)
-    )
     ok, why = verify_packet(p)
-    assert ok, f"re-hash failed for {f}: {why}"
-    newf = os.path.join(EVID, os.path.basename(f).replace("ES-", "KV-"))
-    json.dump(p, open(newf, "w"), ensure_ascii=False, indent=2)
-    # regenerate PDF from the renamed JSON
-    pdff = newf.replace(".json", ".pdf")
-    try:
-        export_pdf(p, pdff)
-    except Exception as e:
-        print(f"PDF skip {pdff}: {e}")
-    os.remove(f)
-    oldpdf = f.replace(".json", ".pdf")
-    if os.path.exists(oldpdf):
-        os.remove(oldpdf)
+    if not ok:
+        print(f"TAMPERED (chain broken, NOT repaired): {os.path.basename(f)} :: {why}")
+        continue
+    _meta_src = {k: v for k, v in p.items() if k not in ("chain", "meta_hash")}
+    want = sha256_str(p["root_hash"] + json.dumps(_meta_src, ensure_ascii=False, sort_keys=True))
+    if p.get("meta_hash") == want:
+        continue
+    p["meta_hash"] = want
+    json.dump(p, open(f, "w"), ensure_ascii=False, indent=2)
     n += 1
-print(f"renamed+rehashed {n} packets to KV-")
+print(f"repaired meta_hash on {n} packets")

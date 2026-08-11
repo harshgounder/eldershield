@@ -9,7 +9,7 @@ import json, glob, os, sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 from evidence import sha256_str  # noqa: E402
 
-files = sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "demo", "evidence", "ES-*.json")))
+files = sorted(glob.glob(os.path.join(os.path.dirname(__file__), "..", "demo", "evidence", "KV-*.json")))
 n = 0
 for f in files:
     p = json.load(open(f))
