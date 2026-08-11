@@ -8,4 +8,7 @@ demo/evidence/ES-*.pdf
 demo/evidence/v1-loop-battery.json
 # benchmark results (timestamped, regenerable) — pool + scripts stay tracked
 benchmarks/results/
+benchmarks/audio/results/
 benchmarks/pool/mutation.jsonl
+# GramVaani OpenSLR-118 audio (academic-use licensed, 315MB) — fetched, never committed
+data/gramvaani/
