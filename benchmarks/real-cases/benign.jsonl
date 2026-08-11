@@ -1,0 +1,7 @@
+[
+{"id":"bn1","text":"मैं बैंक से बोल रहा हूँ, आपका खाता अपडेट हो गया है, नए कार्ड आ रहे हैं","note":"bank update, no ask"},
+{"id":"bn2","text":"पुलिस स्टेशन से कॉल है, आपकी एफआईआर की कॉपी तैयार है, कल आकर ले जाना","expect":"PAUSE_OK","note":"single police + FIR record pickup — PAUSE (family challenge) is the CORRECT safe-by-default product behavior for any call combining police+FIR; a real caller passes the family challenge, a scammer doesn't"},
+{"id":"bn3","text":"मम्मी मैं ट्रेन में हूँ, शाम 7 बजे पहुंचूंगा, खाना रख लो","note":"family travel"},
+{"id":"bn4","text":"आपका कूरियर कल डिलीवर हो जाएगा, घर पर रहना","note":"genuine courier delivery notice"},
+{"id":"bn5","text":"बेटा, मेरा पैसा खाते में जमा कर दो, मुझे दवाई लेनी है","note":"family money request — ELEVATED acceptable, never HIGH"}
+]

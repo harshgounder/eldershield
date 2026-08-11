@@ -19,6 +19,7 @@ AUTHORITY = [
     "बैंक", "bank", "बैंक से", "आपके बैंक",
     "cbi", "ncb", "police", "cyber cell", "cyber crime", "rbi", "enforcement directorate",
     "income tax", "court", "judge", "interpol", "supreme court", "high court",
+    "nia", "trai", "telecom", "telecommunications", "electricity department",
     "पूछताछ", "पूछताछ के लिए",
 ]
 ARREST = [
@@ -45,7 +46,8 @@ PAYMENT = [
     "रुपये", "रूपये", "जमा करो", "जमा करें", "कट जाएगा", "कट जाएगी", "कट गया",
     "कट गए", "भेजा है", "भेज दो", "पैसा", "पैसे",
     "otp", "pin", "upi", "bank account", "transfer", "send money", "verify",
-    "safe account", "security deposit", "कस्टडी अकाउंट", "खाता फ्रीज़", "freeze",
+    "verification", "payment", "bill", "safe account", "security deposit",
+    "कस्टडी अकाउंट", "खाता फ्रीज़", "freeze", "बिल", "बकाया", "वेरिफिकेशन",
     "कार्ड नंबर", "कार्डनंबर", "card number", "क्रेडिट कार्ड", "डेबिट कार्ड",
     "जुर्माना भरो", "जुर्माना भरना", "जुर्माना भरें", "फाइन भरो", "फाइन भरना",
     "रिफंड", "refund", "पेनाल्टी", "penalty", "काला धन", "black money",
@@ -55,17 +57,40 @@ ISOLATION = [
     "स्क्रीन शेयर करो", "स्क्रीन शेयर", "कैमरा ऑन करो", "लाइन पर रहो",
     "फोन मत रखना", "डिस्कनेक्ट मत करना", "कॉल मत काटना",
     "stay on the line", "don't hang up", "share your screen", "turn on camera",
+    "keep the camera on", "stay on video", "do not disconnect", "don't disconnect",
     "go to a room", "किसी को मत खोलना",
+]
+FAMILY_THREAT = [
+    # threats to family/reputation (real-case registry: cases 3, 5, 9, 21 —
+    # "harm your daughter", "harm your son", "expose on social media",
+    # intimate-video threat; 2026-08-11 D8 replay gap fix)
+    "बेटी को नुकसान", "बेटे को नुकसान", "बच्चों को नुकसान", "परिवार को नुकसान",
+    "बेटी के साथ", "बेटे के साथ", "तुम्हारे बच्चे", "आपके बच्चे",
+    "harm your daughter", "harm your son", "harm your child", "your family will",
+    "social media पर", "सोशल मीडिया पर डाल", "सोशल मीडिया पर", "expose you",
+    "वीडियो वायरल", "video viral", "intimate video", "न्यूड वीडियो",
 ]
 COERCION_MARKERS = [
     # classic digital-arrest tells
     "पार्सल में ड्रग्स", "ड्रग्स मिला", "पार्सल", "कूरियर", "पैकेज",
     "parcel", "courier", "drugs found", "package",
+    # drug-parcel vocabulary (real-case registry: cases 4,5,7,9,12-15 — the
+    # verbatim FedEx opener "courier you sent to Iraq contains drugs" and
+    # MDMA/narcotics variants; 2026-08-11 D8 replay gap fix)
+    "ड्रग्स", "ड्रग", "नारकोटिक", "नशीला पदार्थ", "नशा", "mdma", "drugs",
+    "narcotics", "narcotic", "cocaine", "heroin",
+    # utility/credential vishing (cases 16, 24 — electricity cutoff, APK install)
+    "बिजली कट", "बिजली कटेगी", "बिजली कनेक्शन", "electricity", "power disconnected",
+    "disconnection", "बिल अपडेट", "बिल अभी भरो", "बकाया बिल", "outstanding bill",
+    "एपीके", "apk", "रिमोट एक्सेस", "remote access", "स्क्रीन शेयर करो",
+    "आपका खाता ब्लॉक", "account blocked",
     "आपका आधार इस्तेमाल", "आधार कार्ड इस्तेमाल", "आपके नाम पर",
     "your aadhaar", "in your name", "आपकी जानकारी मिली",
     "नंबर से कॉल", "पूछताछ के लिए", "थाने चलो", "डिजिटल अरेस्ट",
     "digital arrest", "नकली पुलिस", "असली पुलिस", "जुर्माना", "fine", "जुरमाना",
     "काला धन", "black money", "प्रतिबंधित", "prohibited",
+    "money laundering", "laundering", "trafficking", "human trafficking",
+    "legal action", "मनी लॉन्ड्रिंग",
     # OTP / card / courier-customs tells
     "कार्ड ब्लॉक", "ब्लॉक हो गया", "ब्लॉक हो गई", "ब्लॉक", "block",
     "फंस गया", "फंस गई", "अटक गया", "सीमा शुल्क", "customs", "कस्टम ड्यूटी",
@@ -91,6 +116,7 @@ class CoercionDetector:
             "payment": PAYMENT,
             "isolation": ISOLATION,
             "coercion_marker": COERCION_MARKERS,
+            "family_threat": FAMILY_THREAT,
         }
         # latin->devanagari + spelling normalizations for ASR-phonetic variance
         self._norm = [
@@ -251,7 +277,7 @@ class CoercionDetector:
         weights = {
             "authority": 0.22, "arrest": 0.20, "payment": 0.22,
             "urgency": 0.12, "secrecy": 0.10, "isolation": 0.08,
-            "coercion_marker": 0.06,
+            "coercion_marker": 0.06, "family_threat": 0.20,
         }
         score = 0.0
         for vec, found in hits.items():
@@ -318,6 +344,80 @@ class CoercionDetector:
                              "रिफंड", "refund", "कन्फर्म", "confirm", "पेनाल्टी", "penalty")
         ):
             _bump("ELEVATED")
+
+        # ── 2026-08-11 real-case rules (es-real-cases registry: 25 documented
+        # incidents, sources BBC/NDTV/IE/TOI/FPJ + I4C/TRAI/RBI advisories) ──
+        # A) AUTHORITY STACKING — 2+ institutions in one call is the strongest
+        #    escalation marker (courier→police→CBI→ED→judge ladders; cases
+        #    2,6,7,11,17,22,25). One institution is normal (bank, police
+        #    station); two or more in a single call is not.
+        _INSTS = ("सीबीआई", "सीबीआय", "cbi", "एनसीबी", "ncb", "ईडी",
+                  "enforcement directorate", "पुलिस", "police", "क्राइम ब्रांच",
+                  "crime branch", "साइबर सेल", "साइबर क्राइम", "cyber cell",
+                  "cyber crime", "इनकम टैक्स", "income tax", "कस्टम", "customs",
+                  "आरबीआई", "rbi", "इंटरपोल", "interpol", "कोर्ट", "अदालत",
+                  "court", "जज", "judge", "ट्राई", "trai", "दूरसंचार", "telecom",
+                  "बैंक", "bank")
+        n_inst = sum(1 for w in _INSTS if w in t)
+        if n_inst >= 2:
+            _bump("ELEVATED")
+            if "payment" in hit_vecs or "arrest" in hit_vecs or "urgency" in hit_vecs:
+                _bump("HIGH_RISK")
+        # B) TRANSFER-FOR-VERIFICATION — payment recast as a legal procedure:
+        #    "government account", "clearance", "RBI safe account" (cases 2, 25).
+        #    The super-specific safe/government-account phrases are scam-unique
+        #    even without an authority word (no real institution takes money
+        #    "for verification into a safe account") → HIGH_RISK always.
+        #    Generic "clearance"/"verification" needs authority to escalate.
+        if "payment" in hit_vecs:
+            _hard_safe = any(
+                w in t for w in ("सरकारी खाता", "गवर्नमेंट अकाउंट", "government account",
+                                 "सेफ अकाउंट", "safe account", "भरोसे का खाता",
+                                 "आरबीआई सेफ", "rbi safe")
+            )
+            _soft_verif = any(
+                w in t for w in ("क्लियरेंस", "clearance")
+            ) or (
+                "वेरिफिकेशन के लिए" in t and any(
+                    w in t for w in ("भेजो", "भेजिए", "भेजें", "भेज दो",
+                                     "जमा करो", "जमा करें", "ट्रांसफर", "transfer",
+                                     "send money", "deposit")
+                )
+            )
+            if _hard_safe:
+                _bump("HIGH_RISK")
+            elif _soft_verif and "authority" in hit_vecs:
+                _bump("HIGH_RISK")
+            elif _soft_verif:
+                _bump("ELEVATED")
+        # C) FAMILY-THREAT coercion (cases 3, 5, 9, 21) — threats to children or
+        #    reputation escalate even before a payment ask is heard. With payment
+        #    or authority, it is the full extortion package.
+        if "family_threat" in hit_vecs:
+            _bump("ELEVATED")
+            if {"payment", "authority", "arrest", "urgency"} & hit_vecs:
+                _bump("HIGH_RISK")
+        # D) DRUG-PARCEL / LAUNDERING-ACCUSATION rule (cases 4, 9, 12-15, 23 —
+        #    2026-08-11 D8 replay finds). "Your parcel contains drugs/MDMA" and
+        #    "money laundering case in your name" are scam-unique utterances:
+        #    no legitimate courier/bank call uses drug vocabulary. The marker
+        #    vector alone caps at 0.06 (weakest weight) — these words deserve
+        #    stronger treatment than generic markers.
+        _HARD_DRUGS = any(
+            w in t for w in ("mdma", "drugs", "narcotics", "narcotic", "cocaine",
+                             "heroin", "ड्रग्स", "ड्रग", "नारकोटिक", "नशीला पदार्थ")
+        )
+        # "laundering" survives normalization as "moneylaunदेring" (mixed-script
+        # mangle) — use a tolerant regex, not a substring check.
+        _LAUNDER = re.search(r"laun.{0,4}ring", t) or "लॉन्ड्रिंग" in t
+        _LAUNDER_ACCUSE = _LAUNDER and (
+            "in your name" in t or "आपके नाम पर" in t
+            or "your name" in t or "नाम आया" in t or "नाम" in t
+        )
+        if _HARD_DRUGS or _LAUNDER_ACCUSE:
+            _bump("ELEVATED")
+            if {"authority", "arrest", "payment", "urgency"} & hit_vecs:
+                _bump("HIGH_RISK")
 
         return {"vector_hits": hits, "coercion_score": score, "risk_state": state,
                 "flagged": state != "LOW", "normalized": t}
