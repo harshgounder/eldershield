@@ -1,7 +1,10 @@
 __pycache__/
 *.pyc
 run-ledger/
-# generated evidence packets (fresh every run) — curated demo set (KV-*.json/pdf) stays tracked
+# run-generated evidence packets (fresh KV- id every v1_loop --demo run) — ignored;
+# the curated example set (already tracked KV-*.json/pdf in demo/evidence) stays
+demo/evidence/KV-*.json
+demo/evidence/KV-*.pdf
 demo/evidence/v1-loop-battery.json
 # benchmark results (timestamped, regenerable) — pool + scripts stay tracked
 benchmarks/results/
