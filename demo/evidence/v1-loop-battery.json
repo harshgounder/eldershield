@@ -1,0 +1,37 @@
+[
+  {
+    "scenario": "a1_digital_arrest",
+    "verdict": "KILL",
+    "expected": "KILL",
+    "coercion": "HIGH_RISK",
+    "packet": "ES-71038CE9EA6C"
+  },
+  {
+    "scenario": "a2_otp",
+    "verdict": "PAUSE",
+    "expected": "PAUSE",
+    "coercion": "ELEVATED",
+    "packet": "ES-307AA0BC124D"
+  },
+  {
+    "scenario": "a3_parcel",
+    "verdict": "PAUSE",
+    "expected": "PAUSE",
+    "coercion": "ELEVATED",
+    "packet": "ES-F5C776E490E0"
+  },
+  {
+    "scenario": "b1_real",
+    "verdict": "PASS",
+    "expected": "PASS",
+    "coercion": "LOW",
+    "packet": "ES-43D774036FAD"
+  },
+  {
+    "scenario": "b2_real",
+    "verdict": "PASS",
+    "expected": "PASS",
+    "coercion": "LOW",
+    "packet": "ES-D1CFAD07A85E"
+  }
+]
