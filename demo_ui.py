@@ -110,7 +110,7 @@ if __name__ == "__main__":
             gr.Markdown(label="Detection result"),
             gr.JSON(label="Evidence packet (audit trail)"),
         ],
-        title="ElderShield — Real-Time Voice-Clone Detection for UPI & Voice Banking",
+        title="ElderShield — Digital-Arrest & Voice-Scam Shield (spoof + coercion + evidence)",
         description="AASIST-hindi 3-crop vote + Hindi coercion detection (faster-whisper). Spoof score + coercion state → PAUSE intervention → tamper-evident evidence packet + 1930-ready PDF.",
     )
     demo.launch(server_name="127.0.0.1", server_port=7860)
