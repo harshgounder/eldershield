@@ -47,7 +47,7 @@ class TestEvidenceIntegrity(unittest.TestCase):
 
     def test_packet_id_tamper_detected(self):
         p2 = json.loads(json.dumps(self.packet))
-        p2["packet_id"] = "ES-XXXXXXXXXXXX"
+        p2["packet_id"] = "KV-XXXXXXXXXXXX"
         self.assertFalse(verify_packet(p2)[0])
 
     def test_generated_at_tamper_detected(self):
