@@ -190,6 +190,9 @@ class CoercionDetector:
         # strip zero-width / format chars (scammers insert them to break exact-match)
         for ch in ("\u200b", "\u200c", "\u200d", "\u200e", "\u200f", "\ufeff"):
             t = t.replace(ch, "")
+        # strip everything that is NOT Devanagari, ASCII alnum, or space — emoji,
+        # symbols, punctuation junk (defense-in-depth for text-channel attacks)
+        t = re.sub(r"[^\u0900-\u097F\sA-Za-z0-9]", "", t)
         for latin, dev in self._norm:
             t = t.replace(latin, dev)
         for bad, good in self._dev_norm:
