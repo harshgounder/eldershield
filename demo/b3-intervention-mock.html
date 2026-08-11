@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElderShield — Intervention Flow Mock (B3 UI preview)</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', system-ui, sans-serif; }
+  body { background:#1a1033; display:flex; gap:40px; justify-content:center; align-items:flex-start; padding:40px 20px; min-height:100vh; flex-wrap:wrap; }
+  .phone { width:340px; background:#fff; border-radius:28px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.5); }
+  .statusbar { background:#111; color:#fff; font-size:11px; padding:10px 18px; display:flex; justify-content:space-between; }
+  .screen { padding:20px; min-height:560px; display:flex; flex-direction:column; }
+  h2 { font-size:15px; color:#555; margin-bottom:4px; }
+  .badge { display:inline-block; background:#e53935; color:#fff; font-size:11px; font-weight:700; padding:4px 10px; border-radius:12px; letter-spacing:.5px; }
+  .big { font-size:26px; font-weight:800; margin:8px 0 2px; }
+  .sub { font-size:13px; color:#777; }
+  .card { background:#f5f2fb; border-radius:14px; padding:14px; margin:12px 0; font-size:13px; }
+  .card b { display:block; font-size:12px; color:#6a4fa3; margin-bottom:6px; text-transform:uppercase; letter-spacing:.5px; }
+  .row { display:flex; justify-content:space-between; font-size:13px; padding:3px 0; }
+  .row .lbl { color:#888; }
+  .scorebar { height:8px; background:#eee; border-radius:4px; margin-top:6px; overflow:hidden; }
+  .scorebar .fill { height:100%; background:#e53935; }
+  .danger { background:#fdecea; border:1.5px solid #e53935; border-radius:14px; padding:14px; margin:12px 0; }
+  .danger .title { color:#c62828; font-weight:800; font-size:15px; margin-bottom:6px; }
+  .btn { display:block; width:100%; padding:14px; border:none; border-radius:14px; font-size:15px; font-weight:700; cursor:pointer; margin-top:10px; }
+  .btn-red { background:#e53935; color:#fff; }
+  .btn-green { background:#43a047; color:#fff; }
+  .btn-outline { background:#fff; color:#555; border:1.5px solid #ccc; }
+  .btn-small { padding:10px; font-size:13px; margin-top:6px; }
+  .family-alert { background:#e8f5e9; border:1.5px solid #43a047; border-radius:14px; padding:14px; margin:12px 0; }
+  .family-alert .title { color:#2e7d32; font-weight:800; font-size:15px; margin-bottom:6px; }
+  .tag { font-size:10px; background:#eee; color:#666; padding:2px 8px; border-radius:8px; margin-left:6px; }
+  .footer-note { font-size:10px; color:#aaa; text-align:center; margin-top:14px; line-height:1.5; }
+  .label { text-align:center; color:#9d8cc7; font-size:12px; letter-spacing:1px; margin-bottom:10px; text-transform:uppercase; font-weight:700; }
+  .caller { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+  .avatar { width:46px; height:46px; border-radius:50%; background:#6a4fa3; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px; }
+  .caller .name { font-weight:700; font-size:16px; }
+  .caller .num { font-size:12px; color:#777; }
+  .green { color:#2e7d32; font-weight:800; }
+  .red { color:#c62828; font-weight:800; }
+  .mono { font-family:monospace; font-size:11px; background:#f0f0f0; padding:2px 6px; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<!-- ============ VIEW 1: VICTIM PHONE — PAUSE SCREEN ============ -->
+<div class="phone">
+  <div class="statusbar"><span>9:41</span><span>ElderShield</span><span>📶 🔋</span></div>
+  <div class="screen">
+    <div class="label">Victim phone — incoming call</div>
+    <div class="caller">
+      <div class="avatar">CB</div>
+      <div>
+        <div class="name">"CBI Headquarters" <span class="tag">unknown</span></div>
+        <div class="num">+91 33 4077 8••• · spoof-likely</div>
+      </div>
+    </div>
+    <div class="badge">🚨 SUSPECTED SCAM — INTERVENTION ACTIVE</div>
+    <div class="big">Call paused</div>
+    <div class="sub">ElderShield detected scam patterns in this call.</div>
+
+    <div class="danger">
+      <div class="title">⚠️ Don't pay anything</div>
+      <div style="font-size:13px; line-height:1.6;">
+        This call shows <b style="color:#c62828;">coercion + spoof signals</b>.<br>
+        Government agencies <u>never</u> ask for money over a call.<br>
+        <b style="color:#c62828;">Your family has been alerted.</b>
+      </div>
+    </div>
+
+    <div class="card">
+      <b>Why we paused it</b>
+      <div class="row"><span class="lbl">Voice spoof score</span><span class="red">0.982</span></div>
+      <div class="scorebar"><div class="fill" style="width:98%"></div></div>
+      <div class="row" style="margin-top:8px;"><span class="lbl">Coercion cues</span><span class="red">5 hits</span></div>
+      <div class="row"><span class="lbl">· "digital arrest" claim</span><span>detected</span></div>
+      <div class="row"><span class="lbl">· "don't tell anyone"</span><span>detected</span></div>
+      <div class="row"><span class="lbl">· "RBI verification account"</span><span>detected</span></div>
+    </div>
+
+    <button class="btn btn-green">✅ It's safe — continue call</button>
+    <button class="btn btn-red">🛑 End call + report to 1930</button>
+    <button class="btn btn-outline">📞 Call family member</button>
+    <div class="footer-note">UI flow mock — static preview, not connected to a live engine.<br>Family confirmation happens before any payment PIN.</div>
+  </div>
+</div>
+
+<!-- ============ VIEW 2: FAMILY MEMBER — CHALLENGE SCREEN ============ -->
+<div class="phone">
+  <div class="statusbar"><span>9:41</span><span>ElderShield Family</span><span>📶 🔋</span></div>
+  <div class="screen">
+    <div class="label">Trusted contact — challenge screen</div>
+    <div class="family-alert">
+      <div class="title">🔔 Alert from Dad's phone</div>
+      <div style="font-size:13px; line-height:1.6;">
+        A call was paused — <b>suspected scam</b>.<br>
+        Dad was about to transfer <b>₹1,50,000</b> to a new beneficiary.
+      </div>
+    </div>
+
+    <div class="card">
+      <b>Call details</b>
+      <div class="row"><span class="lbl">Caller ID</span><span>"CBI Headquarters"</span></div>
+      <div class="row"><span class="lbl">Spoof score</span><span class="red">0.982</span></div>
+      <div class="row"><span class="lbl">Coercion</span><span class="red">HIGH — 5 cues</span></div>
+      <div class="row"><span class="lbl">Beneficiary</span><span class="mono">•••@axisbank (new)</span></div>
+      <div class="row"><span class="lbl">Amount</span><span class="red">₹1,50,000</span></div>
+    </div>
+
+    <div class="card">
+      <b>Transcript excerpt (Hindi ASR)</b>
+      <div style="font-size:12px; line-height:1.7; font-style:italic;">
+        "…आपके नाम पर पार्सल मिला है जिसमें ड्रग्स हैं। आप डिजिटल अरेस्ट में हैं। पैसे ट्रांसफर करो वरना गिरफ्तारी…"
+      </div>
+      <div style="font-size:11px; color:#999; margin-top:4px;">"A parcel with drugs was found in your name. You are under digital arrest. Transfer the money or face arrest…"</div>
+    </div>
+
+    <button class="btn btn-green">✅ This is fine — approve transfer</button>
+    <button class="btn btn-red">🚨 It's a scam — BLOCK transfer</button>
+    <button class="btn btn-outline">🤔 Not sure — call Dad now</button>
+    <div class="footer-note">Every decision is logged to the evidence packet.<br>UI flow mock — static preview for the submission deck.</div>
+  </div>
+</div>
+
+</body>
+</html>
