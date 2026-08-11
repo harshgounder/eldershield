@@ -5,3 +5,4 @@ run-ledger/
 # generated evidence packets (fresh every run) — curated demo set stays tracked
 demo/evidence/ES-*.json
 demo/evidence/ES-*.pdf
+demo/evidence/v1-loop-battery.json
