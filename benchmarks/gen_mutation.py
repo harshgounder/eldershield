@@ -53,9 +53,9 @@ MUTATIONS = [
 ]
 
 def curated_packets():
-    """All valid, self-consistent ES-*.json demo packets (baseline must verify)."""
+    """All valid, self-consistent KV-*.json demo packets (baseline must verify)."""
     return sorted(p for p in os.listdir(EVIDENCE_DIR)
-                  if p.startswith("ES-") and p.endswith(".json"))
+                  if p.startswith("KV-") and p.endswith(".json"))
 
 cases = []
 packets = curated_packets()
