@@ -51,5 +51,6 @@
     "asr": "faster-whisper small (hi)",
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
-  }
+  },
+  "meta_hash": "e34c382b29a9400159cd35bb5d8bd66e0e29bab242783d75ae6e61967e5efd44"
 }

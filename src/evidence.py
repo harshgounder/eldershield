@@ -92,11 +92,25 @@ def build_packet(audio_path, engine_result, coercion_result, model_meta=None):
         "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
         "model_meta": meta,
     }
+    # meta_hash — closes the D7 gaps (found by the mutation suite, 2026-08-11):
+    # the chain alone covers the 3 data links; packet_id/generated_at/model_meta
+    # and ANY injected top-level junk key were invisible to verify_packet.
+    # Hash everything except the chain + this field itself (sort_keys → order-
+    # independent, so key reordering stays a non-issue by design).
+    _meta_src = {k: v for k, v in packet.items() if k not in ("chain", "meta_hash")}
+    packet["meta_hash"] = sha256_str(
+        packet["root_hash"] + json.dumps(_meta_src, ensure_ascii=False, sort_keys=True)
+    )
     return packet
 
 
 def verify_packet(packet):
-    """Re-compute the chain; return (ok, mismatch_link)."""
+    """Re-compute the chain; return (ok, mismatch_link).
+
+    Backward compatible: packets without meta_hash (pre-2026-08-11 schema)
+    verify on the chain alone; packets with meta_hash must also match it
+    (covers packet_id, generated_at, model_meta, and any junk-key injection).
+    """
     links = packet.get("chain", [])
     prev = ""
     for link in links:
@@ -104,7 +118,16 @@ def verify_packet(packet):
         if h != link["hash"]:
             return False, link["link"]
         prev = h
-    return prev == packet.get("root_hash"), None
+    if prev != packet.get("root_hash"):
+        return False, None
+    if "meta_hash" in packet:
+        _meta_src = {k: v for k, v in packet.items() if k not in ("chain", "meta_hash")}
+        mh = sha256_str(
+            packet["root_hash"] + json.dumps(_meta_src, ensure_ascii=False, sort_keys=True)
+        )
+        if mh != packet["meta_hash"]:
+            return False, "meta"
+    return True, None
 
 
 def save_json(packet, path):

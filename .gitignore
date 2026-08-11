@@ -8,3 +8,4 @@ demo/evidence/ES-*.pdf
 demo/evidence/v1-loop-battery.json
 # benchmark results (timestamped, regenerable) — pool + scripts stay tracked
 benchmarks/results/
+benchmarks/pool/mutation.jsonl
