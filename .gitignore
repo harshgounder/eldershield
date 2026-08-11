@@ -1,10 +1,7 @@
 __pycache__/
 *.pyc
-demo/attacks/
 run-ledger/
-# generated evidence packets (fresh every run) — curated demo set stays tracked
-demo/evidence/ES-*.json
-demo/evidence/ES-*.pdf
+# generated evidence packets (fresh every run) — curated demo set (KV-*.json/pdf) stays tracked
 demo/evidence/v1-loop-battery.json
 # benchmark results (timestamped, regenerable) — pool + scripts stay tracked
 benchmarks/results/

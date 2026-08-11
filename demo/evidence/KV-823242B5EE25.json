@@ -1,0 +1,99 @@
+{
+  "packet_id": "KV-823242B5EE25",
+  "generated_at": "2026-08-11T17:31:36.733605+00:00",
+  "chain": [
+    {
+      "link": 1,
+      "name": "audio",
+      "hash": "793dfac8b05ae0d6f77841af54d4aba2c8cf03fac50dac92e2a603b494bbb7a0",
+      "data": {
+        "packet_id": "KV-823242B5EE25",
+        "timestamp": "2026-08-11T17:31:36.733605+00:00",
+        "audio_file": "a1_digital_arrest.mp3",
+        "audio_sha256": "3f3e0203b060ea945953e2bfa1e6e0d000ff1b3dbd9d0a861a25f3c75337e776"
+      }
+    },
+    {
+      "link": 2,
+      "name": "spoof_verdict",
+      "hash": "6103d1cbaf7637a4b9618fb0c941c4d15137113ead71c0c26e27873de6cce4e8",
+      "data": {
+        "spoof": true,
+        "spoof_score": 0.9999,
+        "crop_scores": [
+          1.0,
+          1.0,
+          0.9996
+        ],
+        "latency_ms": 312.5,
+        "model": "AASIST-hindi (3-crop majority vote)"
+      }
+    },
+    {
+      "link": 3,
+      "name": "coercion_profile",
+      "hash": "98f63c17ea74d58c538a0b933ebd3ac41db903143c1fc8ac3e5e198702812b75",
+      "data": {
+        "transcript": "नमस्ते, मैं CBI अदिकारी बोल रहा हूं.  अपके नाम पर एक पार्सल में द्रक्स मिला है, और आप पर गिराफतारी का वारन्त जारी हो गया है.  यह केस बहुत गमभीर है.  आपको तुरन्त पैसे ट्रान्सफर करने हूंगे विरिफिकेशन के लिए.  किसी को मत बताना, नहीं तो आपको जेल हो जाएगी.  अभी मेरा बताया हुवा काम करो, और लाईन पर रहो.",
+        "language": "hi",
+        "coercion_score": 0.95,
+        "risk_state": "HIGH_RISK",
+        "vector_hits": {
+          "authority": [
+            "सीबीआई",
+            "cbi"
+          ],
+          "arrest": [
+            "गिरफ्तार",
+            "गिरफ़्तार",
+            "वारंट",
+            "जेल",
+            "arrest",
+            "warrant",
+            "jail"
+          ],
+          "secrecy": [
+            "किसी को मत बताना"
+          ],
+          "urgency": [
+            "तुरंत",
+            "अभी",
+            "नहीं तो"
+          ],
+          "payment": [
+            "ट्रांसफर",
+            "पैसे ट्रांसफर",
+            "वेरिफिकेशन के लिए",
+            "पैसे",
+            "transfer",
+            "verification",
+            "वेरिफिकेशन"
+          ],
+          "isolation": [
+            "किसी को मत बताना",
+            "लाइन पर रहो"
+          ],
+          "coercion_marker": [
+            "पार्सल में ड्रग्स",
+            "ड्रग्स मिला",
+            "पार्सल",
+            "parcel",
+            "ड्रग",
+            "आपके नाम पर"
+          ]
+        },
+        "asr_latency_ms": 18543.8,
+        "asr_model": "faster-whisper small (hi)"
+      }
+    }
+  ],
+  "root_hash": "98f63c17ea74d58c538a0b933ebd3ac41db903143c1fc8ac3e5e198702812b75",
+  "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
+  "model_meta": {
+    "model": "AASIST-hindi (3-crop majority vote)",
+    "asr": "faster-whisper small (hi)",
+    "version": "1.0",
+    "processor": "elder-shield-b2-b4"
+  },
+  "meta_hash": "d4980808164f750164c804dd07e56b0dd25527d3f53b378371a5bd814abd3368"
+}

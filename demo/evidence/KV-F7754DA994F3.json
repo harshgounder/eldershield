@@ -1,0 +1,56 @@
+{
+  "packet_id": "KV-F7754DA994F3",
+  "generated_at": "2026-08-11T17:30:02.153773+00:00",
+  "chain": [
+    {
+      "link": 1,
+      "name": "audio",
+      "hash": "e51b4361c7aeed00458c90db3cd6cc60789a96d5308126ab537a4a194eaa9e68",
+      "data": {
+        "packet_id": "KV-F7754DA994F3",
+        "timestamp": "2026-08-11T17:30:02.153773+00:00",
+        "audio_file": "real_call_hindi2.wav",
+        "audio_sha256": "f9910565cad24bb9a7a3129d1e6a171393fd041d339f961c8233ba0bd1276fef"
+      }
+    },
+    {
+      "link": 2,
+      "name": "spoof_verdict",
+      "hash": "ea5a5865609d53ed8d91fc4bdd84ecd5f56b0bf7e35b227f99b9964f5f15eb73",
+      "data": {
+        "spoof": false,
+        "spoof_score": 0.0022,
+        "crop_scores": [
+          0.0013,
+          0.0014,
+          0.0039
+        ],
+        "latency_ms": 78.3,
+        "model": "AASIST-hindi (3-crop majority vote)"
+      }
+    },
+    {
+      "link": 3,
+      "name": "coercion_profile",
+      "hash": "55d1210f01a1df17077a1115f7f750b07f4efb0d74436a9f939788eb181839e4",
+      "data": {
+        "transcript": "यानिको का मानना है की वो से लोट्स गंद के दवारा जान्वरो का पीचा करते और खाते है,  ये सुम्ते होई कि वे जमीन पर कहा रहे हूंगे.",
+        "language": "hi",
+        "coercion_score": 0.0,
+        "risk_state": "LOW",
+        "vector_hits": {},
+        "asr_latency_ms": 5712.7,
+        "asr_model": "faster-whisper small (hi)"
+      }
+    }
+  ],
+  "root_hash": "55d1210f01a1df17077a1115f7f750b07f4efb0d74436a9f939788eb181839e4",
+  "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
+  "model_meta": {
+    "model": "AASIST-hindi (3-crop majority vote)",
+    "asr": "faster-whisper small (hi)",
+    "version": "1.0",
+    "processor": "elder-shield-b2-b4"
+  },
+  "meta_hash": "455fa5a85b99f8015119323a8d424ef03796ca1e5ca771f0575cced99302de51"
+}

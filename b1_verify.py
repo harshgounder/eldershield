@@ -48,8 +48,9 @@ def main():
     with torch.no_grad():
         _ = model(torch.zeros(1, NB_SAMP).to(dev))
 
-    # forward pass on synthetic tone (bonafide-ish) + noise (spoof-ish)
-    for name, freq, noise in [("bonafide-ish tone", 220, False), ("spoof-ish noise", 220, True)]:
+    # forward pass on synthetic tone (bonafide-ish) + white noise (sanity check:
+    # raw noise is NOT a voice clone → BONAFIDE is the CORRECT response)
+    for name, freq, noise in [("bonafide-ish tone", 220, False), ("white-noise sanity", 220, True)]:
         wav = f"/tmp/b1_{name.split()[0]}.wav"
         make_tone_wav(wav, freq=freq, noise=noise)
         with wave.open(wav) as w:

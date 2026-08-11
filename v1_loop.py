@@ -89,7 +89,7 @@ SCENARIOS = {
                               decision="challenge", expect="KILL"),
     "a2_otp":            dict(path="demo/attacks/a2_otp.mp3",
                               pay={"payee_new": False, "amount_inr": 0, "collect": False},
-                              decision="approve", expect="PAUSE"),
+                              decision="approve", expect="KILL"),
     "a3_parcel":         dict(path="demo/attacks/a3_parcel.mp3",
                               pay={"payee_new": True, "amount_inr": 50000, "collect": False},
                               decision="kill", expect="PAUSE"),

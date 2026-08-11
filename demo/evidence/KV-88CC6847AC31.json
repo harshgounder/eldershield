@@ -1,0 +1,71 @@
+{
+  "packet_id": "KV-88CC6847AC31",
+  "generated_at": "2026-08-11T17:34:17.045586+00:00",
+  "chain": [
+    {
+      "link": 1,
+      "name": "audio",
+      "hash": "517b7ec92e5149074601c60f7497ee706d9eed0ba96cf8904a19756659670476",
+      "data": {
+        "packet_id": "KV-88CC6847AC31",
+        "timestamp": "2026-08-11T17:34:17.045586+00:00",
+        "audio_file": "a3_parcel.mp3",
+        "audio_sha256": "f344b909c882f9091634202ec88d0124dbfbac340eddeba90b022c90f6795199"
+      }
+    },
+    {
+      "link": 2,
+      "name": "spoof_verdict",
+      "hash": "676711b01f9e02f277a9ae213ce92af17709ea17116cfcf64882bb6b31874b41",
+      "data": {
+        "spoof": true,
+        "spoof_score": 1.0,
+        "crop_scores": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "latency_ms": 77.1,
+        "model": "AASIST-hindi (3-crop majority vote)"
+      }
+    },
+    {
+      "link": 3,
+      "name": "coercion_profile",
+      "hash": "2d2aa3cbac79698cc4f897c68330d3fd0ea7653dac9b2c28f3757393b6e1a358",
+      "data": {
+        "transcript": "नमस्ते, यह कुर्यर कंपनी है, आपका पार्सल सीमा शूल्क में फस गया है.  तुरंत 2,000 रुपै जमा करो, नहीं तो पार्सल वापस चला जाएगा.",
+        "language": "hi",
+        "coercion_score": 0.4,
+        "risk_state": "ELEVATED",
+        "vector_hits": {
+          "urgency": [
+            "तुरंत",
+            "नहीं तो"
+          ],
+          "payment": [
+            "जमा करो",
+            "कट जाएगा"
+          ],
+          "coercion_marker": [
+            "पार्सल",
+            "parcel",
+            "सीमा शुल्क",
+            "वापस चला जाएगा"
+          ]
+        },
+        "asr_latency_ms": 7085.0,
+        "asr_model": "faster-whisper small (hi)"
+      }
+    }
+  ],
+  "root_hash": "2d2aa3cbac79698cc4f897c68330d3fd0ea7653dac9b2c28f3757393b6e1a358",
+  "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
+  "model_meta": {
+    "model": "AASIST-hindi (3-crop majority vote)",
+    "asr": "faster-whisper small (hi)",
+    "version": "1.0",
+    "processor": "elder-shield-b2-b4"
+  },
+  "meta_hash": "cd708f1243300123ba7ddf563ee55eedb0c55722748ae10ec882c5da358383f5"
+}
