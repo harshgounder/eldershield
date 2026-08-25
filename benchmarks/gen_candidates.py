@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""gen_candidates.py — generate HUNDREDS of candidate benchmark cases per dimension.
+"""gen_candidates.py - generate HUNDREDS of candidate benchmark cases per dimension.
 
 The pool: every case is (dim, sub, severity, text/audio-spec, expected, tags[]).
 Severity: CRITICAL (any fail = dimension 0) / MAJOR / MINOR.
 Deterministic (seeded) so regen is stable. Outputs JSONL to benchmarks/pool/.
 
-From this pool the CURATED suites (benchmarks/suites/*.py) select the best cases —
+From this pool the CURATED suites (benchmarks/suites/*.py) select the best cases -
 this file makes the "hundreds of options, we craft the best" pipeline real.
 """
 import json, os, random, sys
@@ -24,7 +24,7 @@ def add(dim, sub, severity, text, expected, tags=None):
     })
 
 # ══════════════════════════════════════════════════════════════
-# D2 — COERCION HINDI (Devanagari)
+# D2 - COERCION HINDI (Devanagari)
 # ══════════════════════════════════════════════════════════════
 DA_SCRIPTS = [
     "सीबीआई से बोल रहा हूँ, आपके नाम पर वारंट है, तुरंत पैसे भेजो",
@@ -78,7 +78,7 @@ for i, s in enumerate(BENIGN_SCRIPTS):
     add("D2", "benign", "CRITICAL", s, exp, ["benign", f"bg_{i}"])
 
 # ══════════════════════════════════════════════════════════════
-# D3 — HINGLISH (Roman + code-mixed + phonetic-garbled)
+# D3 - HINGLISH (Roman + code-mixed + phonetic-garbled)
 # ══════════════════════════════════════════════════════════════
 HINGLISH_SCAM = [
     "hello maam main police station se bol raha hoon, aapke naam par package aaya hai, usme drugs mila hai, turant card number aur OTP batao",
@@ -95,7 +95,7 @@ for i, s in enumerate(HINGLISH_SCAM):
     exp = "ELEVATED" if i in (1, 2) else "HIGH_RISK"
     add("D3", "hinglish_scam", "CRITICAL", s, exp, ["hinglish", f"hs_{i}"])
 
-# phonetic-garbled (faster-whisper real output style — from probes)
+# phonetic-garbled (faster-whisper real output style - from probes)
 GARBLED = [
     "हलो मैंग मेंग पूलीस श्टेशन से बोल रहा हूँ. आपके नाम पर एक पाकेज आया है, जिस में कुछ गलक मिला है. आपको तुरंट श्टेशन आना होगा. पहले मुझे अपना कार्द नंबर और उटी पी बताओ",
     "मैदम, एक चोटीसी प्रोब्लम है, आपका अकाुन्त फ्रीज होगया है. वेरिफिकेशन के लिए मुझे आपका पिंचाहिए",
@@ -113,7 +113,7 @@ for i, s in enumerate(HINGLISH_BENIGN):
     add("D3", "hinglish_benign", "CRITICAL", s, "LOW", ["hinglish", f"hbg_{i}"])
 
 # ══════════════════════════════════════════════════════════════
-# D4 — LANGUAGE ROBUSTNESS (dialects, obfuscation, injection)
+# D4 - LANGUAGE ROBUSTNESS (dialects, obfuscation, injection)
 # ══════════════════════════════════════════════════════════════
 DIALECT = [
     ("haryanvi", "तू सुन, मैं पुलिस से बोल रहा हूँ। तेरे नाम पर पार्सल आया है जिसमें ड्रग्स मिला है। तू तुरंत अपना ओटीपी बता, वरना तुझे जेल जाना पड़ेगा।", "HIGH_RISK"),
@@ -123,7 +123,7 @@ DIALECT = [
 for i, (sub, s, exp) in enumerate(DIALECT):
     add("D4", sub, "CRITICAL", s, exp, ["dialect", sub])
 
-# obfuscation attacks MUST wrap a FULL scam script — a standalone "ओ.टी.पी. बताओ"
+# obfuscation attacks MUST wrap a FULL scam script - a standalone "ओ.टी.पी. बताओ"
 # is a payment mention, not a scam; the point is the scam still fires when obfuscated
 OBFUSCATION = [
     "मैं सी.बी.आई. से बोल रहा हूँ, आपके नाम पर वारंट है, तुरंत पैसे भेजो",
@@ -147,7 +147,7 @@ NEGATION = [
 for i, s in enumerate(NEGATION):
     add("D4", "negation_injection", "CRITICAL", s, "ELEVATED_OR_HIGH", ["negation", f"neg_{i}"])
 
-# kinship boundary — DOCUMENTED (B3's job, IDEAL-STANDARD D4): never falsely HIGH,
+# kinship boundary - DOCUMENTED (B3's job, IDEAL-STANDARD D4): never falsely HIGH,
 # never silent; LOW_OR_ELEVATED is the honest range (a LOW with flags is acceptable)
 KINSHIP = [
     "बेटा मैं तुम्हारा चाचा बोल रहा हूँ, मुझे इमरजेंसी में पैसे चाहिए, हॉस्पिटल में हूँ, जल्दी भेज दो",
@@ -157,7 +157,7 @@ for i, s in enumerate(KINSHIP):
     add("D4", "kinship_boundary", "MAJOR", s, "LOW_OR_ELEVATED", ["kinship", f"kin_{i}"])
 
 # ══════════════════════════════════════════════════════════════
-# D5 — FUSION LADDER (pure function grid)
+# D5 - FUSION LADDER (pure function grid)
 # ══════════════════════════════════════════════════════════════
 def add_fusion(sub, spoof_score, spoof_verdict, co_score, co_state, pay, threat, claims, exp_verdict, sev):
     add("D5", sub, sev, json.dumps({"spoof_score": spoof_score, "spoof_verdict": spoof_verdict,
@@ -180,7 +180,7 @@ add_fusion("borderline_spoof", 0.51, True, 0.05, "LOW", None, None, None, "PAUSE
 add_fusion("borderline_co", 0.02, False, 0.60, "HIGH_RISK", None, None, None, "PAUSE", "MINOR")
 
 # ══════════════════════════════════════════════════════════════
-# D7 — EVIDENCE (mutation specs — described, executed by suite)
+# D7 - EVIDENCE (mutation specs - described, executed by suite)
 # ══════════════════════════════════════════════════════════════
 add("D7", "tamper_audio_hash", "CRITICAL", "flip one byte in audio payload", "VERIFY_FAILS", ["mutation"])
 add("D7", "tamper_score", "CRITICAL", "flip one digit of any score", "VERIFY_FAILS", ["mutation"])
@@ -189,7 +189,7 @@ add("D7", "tamper_metadata", "MAJOR", "change model_meta value", "VERIFY_FAILS",
 add("D7", "truncate_packet", "MAJOR", "truncate JSON at 90%", "VERIFY_FAILS", ["mutation"])
 
 # ══════════════════════════════════════════════════════════════
-# D8 — ROBUSTNESS (fuzz specs)
+# D8 - ROBUSTNESS (fuzz specs)
 # ══════════════════════════════════════════════════════════════
 FUZZ_SPECS = [
     ("empty", ""), ("spaces", "   "), ("newlines", "\n\n\n"), ("nul", "\x00" * 10),

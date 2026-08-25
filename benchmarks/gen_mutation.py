@@ -1,29 +1,29 @@
 #!/usr/bin/env python3
-"""gen_mutation.py — D7 evidence-packet mutation generator (tamper-evidence suite).
+"""gen_mutation.py - D7 evidence-packet mutation generator (tamper-evidence suite).
 
 THE INVARIANT (IDEAL-STANDARD D7, 100%):
   ANY byte/field corruption in a packet must make verify_packet FAIL
   (return False or raise). The sha256 chain is the tamper-evident core:
-  a single edit — transcript, spoof_score, coercion fields, chain ids,
+  a single edit - transcript, spoof_score, coercion fields, chain ids,
   model_meta, timestamps, a junk key, truncation, key-reorder, duplicate
-  key — MUST break verification.
+  key - MUST break verification.
 
   Baseline control: an UNMUTATED packet MUST verify TRUE. If the baseline
   fails, the suite is invalid (we were given a broken packet), not a pass.
 
 Mutations (10 categories), one case each applied to every curated packet:
-  M1 transcript   — tamper chain[2].data.transcript
-  M2 spoof_score  — tamper chain[1].data.spoof_score
-  M3 coercion     — tamper coercion_score / risk_state / vector_hits
-  M4 chain        — tamper packet_id / audio_sha256 / a link hash / root_hash
-  M5 model_meta   — tamper top-level model_meta.version
-  M6 timestamp    — tamper generated_at / chain[1].data.timestamp
-  M7 junk key     — inject a stray key at packet root
-  M8 truncate     — drop a chain link (JSON truncation of the chain)
-  M9 reorder      — reorder chain link data keys (canonical order must hold)
-  M10 duplicate   — duplicate a key inside a link's data (raw-JSON level)
+  M1 transcript   - tamper chain[2].data.transcript
+  M2 spoof_score  - tamper chain[1].data.spoof_score
+  M3 coercion     - tamper coercion_score / risk_state / vector_hits
+  M4 chain        - tamper packet_id / audio_sha256 / a link hash / root_hash
+  M5 model_meta   - tamper top-level model_meta.version
+  M6 timestamp    - tamper generated_at / chain[1].data.timestamp
+  M7 junk key     - inject a stray key at packet root
+  M8 truncate     - drop a chain link (JSON truncation of the chain)
+  M9 reorder      - reorder chain link data keys (canonical order must hold)
+  M10 duplicate   - duplicate a key inside a link's data (raw-JSON level)
 
-Output: benchmarks/pool/mutation.jsonl — each case:
+Output: benchmarks/pool/mutation.jsonl - each case:
   {id, mutation, file, operation} describing how to corrupt.
 Deterministic (seeded). Uses only stdlib (json/os/random).
 The corruption logic lives in run_mutation.py (this emits the spec).

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""test_fusion_core.py — unit tests for the FUSION verdict ladder (src/fusion.py).
+"""test_fusion_core.py - unit tests for the FUSION verdict ladder (src/fusion.py).
 
 Covers the 4 verdicts + the boundary cases a judge would probe:
-  PASS     — clean call, no signals
-  CAUTION  — single elevated coercion, no spoof
-  PAUSE    — spoof alone / HIGH coercion alone
-  KILL     — spoof AND HIGH coercion
+  PASS     - clean call, no signals
+  CAUTION  - single elevated coercion, no spoof
+  PAUSE    - spoof alone / HIGH coercion alone
+  KILL     - spoof AND HIGH coercion
   payment tripwire alone triggers CAUTION; tripwire + spoof → PAUSE
 """
 import os, sys, unittest
@@ -20,7 +20,7 @@ class TestFusion(unittest.TestCase):
         r = fuse(spoof_score=0.02, spoof_verdict=False,
                  coercion_score=0.05, coercion_state="LOW")
         self.assertEqual(r.verdict, "PASS")
-        self.assertEqual(r.action, "✅ PASS — no intervention")
+        self.assertEqual(r.action, "✅ PASS - no intervention")
 
     def test_caution_single_elevated(self):
         r = fuse(spoof_score=0.10, spoof_verdict=False,

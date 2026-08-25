@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""run_curated.py — execute the curated suites against the REAL code, score vs IDEAL-STANDARD.
+"""run_curated.py - execute the curated suites against the REAL code, score vs IDEAL-STANDARD.
 
 Pipeline: pool/candidates.jsonl → per-dimension curated selection (all cases, they're all
 hand-crafted) → execute → score with severity rules from IDEAL-STANDARD.md:
@@ -12,7 +12,7 @@ Executes:
   D2/D3/D4 → coercion._match / _normalize (text-level, fast)
   D5       → fusion.fuse (pure function)
   D8       → robustness (no-crash via _normalize+_match)
-  D1/D6/D7/D9 → marked SKIPPED (audio-level / interactive / mutation / timing — separate suites)
+  D1/D6/D7/D9 → marked SKIPPED (audio-level / interactive / mutation / timing - separate suites)
 """
 import json, os, sys, time, datetime
 
@@ -41,7 +41,7 @@ def score_dim(cases, results):
     return round(max(0.0, 1.0 - fail_w / total_w), 3) if total_w else 1.0
 
 def check_coercion(det, case):
-    """UNUSED — kept for reference. The real path is det._score_text (single source of truth)."""
+    """UNUSED - kept for reference. The real path is det._score_text (single source of truth)."""
     return det._score_text(case["text"])["risk_state"], 0.0, {}
 
 def expected_ok(actual, expected):
@@ -63,7 +63,7 @@ def main():
         dim = c["dim"]
         if dim in ("D1", "D6", "D7", "D9"):
             per_dim.setdefault(dim, []).append(
-                {"case": c, "pass": None, "note": "SKIPPED — separate suite"})
+                {"case": c, "pass": None, "note": "SKIPPED - separate suite"})
             continue
         try:
             if dim == "D5":

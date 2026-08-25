@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""kavach_b1_ab.py — A/B: real Hindi (FLEURS) vs Hindi TTS (edge-tts) through AASIST.
+"""kavach_b1_ab.py - A/B: real Hindi (FLEURS) vs Hindi TTS (edge-tts) through AASIST.
 
 THE make-or-break question: does the pretrained AASIST (trained on English
 ASVspoof) generalize to Hindi TTS as SPOOF while passing real Hindi as BONAFIDE?
@@ -53,11 +53,11 @@ def main():
         print(f"{label:35s} spoof={p[1]:.4f} bonafide={p[0]:.4f} -> {verdict} ({dt:.1f}ms)")
         return verdict, p[1].item()
 
-    print("=== REAL HUMAN HINDI (FLEURS) — must be BONAFIDE ===")
+    print("=== REAL HUMAN HINDI (FLEURS) - must be BONAFIDE ===")
     real = []
     for f in sorted(glob.glob("/tmp/real_hi/*.wav")):
         real.append(classify(f, os.path.basename(f)))
-    print("\n=== HINDI TTS (edge-tts) — must be SPOOF ===")
+    print("\n=== HINDI TTS (edge-tts) - must be SPOOF ===")
     fake = []
     for f in sorted(glob.glob("/tmp/tts_hi_*.mp3")):
         fake.append(classify(f, os.path.basename(f)))

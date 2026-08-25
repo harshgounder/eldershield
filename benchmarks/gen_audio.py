@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""gen_audio.py — synthesize the AUDIO test set: coded audio, dialect variants,
-negation, merges, canonical scams, benign calls — via edge-tts Hindi voices.
+"""gen_audio.py - synthesize the AUDIO test set: coded audio, dialect variants,
+negation, merges, canonical scams, benign calls - via edge-tts Hindi voices.
 
 THE POINT (user directive): the product is AUDIO-ONLY. The real attack surface is
 what the ASR EMITS when a scammer SPEAKS dialect/coded variants. This generates the
 actual speech; run_audio.py runs it through the REAL pipeline (ASR → coercion → fuse).
 
-Voices: hi-IN-MadhurNeural (male), hi-IN-SwaraNeural (female) — the only 2 Hindi
-edge-tts voices. NOTE (honest boundary): these are studio voices — real Haryanvi/
+Voices: hi-IN-MadhurNeural (male), hi-IN-SwaraNeural (female) - the only 2 Hindi
+edge-tts voices. NOTE (honest boundary): these are studio voices - real Haryanvi/
 Bhojpuri ACCENT phonetics cannot be synthesized; what we CAN test is dialect
 VOCABULARY + code-mixing + rate/pitch variance + the ASR's real behavior on it.
 
@@ -24,7 +24,7 @@ VOICES = ["hi-IN-MadhurNeural", "hi-IN-SwaraNeural"]
 # (id, text, kind)  kind: scam / benign / human
 #  - scam  = synthetic (TTS bot) attack audio → must PAUSE/KILL
 #  - benign = synthetic benign audio → is a BOT call → PAUSE is CORRECT (safe-by-default)
-#            (a synthetic voice calling you is itself the anomaly — real humans are
+#            (a synthetic voice calling you is itself the anomaly - real humans are
 #            BONAFIDE per AASIST 0.0-0.002; the "human" kind tests those)
 #  - human = real recorded human speech (assets/real_call_hindi*.wav) → must PASS
 SCENARIOS = [
@@ -70,7 +70,7 @@ SCENARIOS = [
     ("b7_bank_visit", "नमस्ते, मैं बैंक शाखा से बोल रहा हूँ, आपकी डेट कल सुबह 10 बजे है, पासपोर्ट ले आना", "benign"),
 ]
 
-# ── REAL HUMAN SPEECH (the actual benign caller — must PASS) ──
+# ── REAL HUMAN SPEECH (the actual benign caller - must PASS) ──
 REPO_ROOT = os.path.abspath(os.path.join(HERE, ".."))   # benchmarks → kavach root
 HUMAN_FILES = [
     ("h1_real_hindi", os.path.join(REPO_ROOT, "assets", "real_call_hindi.wav"), "real human Hindi (FLEURS-style)"),

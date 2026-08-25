@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""test_fusion.py — robustness battery for the B2/B4 fusion layers.
+"""test_fusion.py - robustness battery for the B2/B4 fusion layers.
 
 Scenarios:
   A1 digital-arrest (CBI/parcel/drugs)      -> expect SPOOF + HIGH_RISK

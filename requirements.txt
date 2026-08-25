@@ -1,4 +1,4 @@
-# Kavach v1 — Python dependencies (tested on 2026-08-11, ~/r2-venv)
+# Kavach v1 Python dependencies, tested on 2026-08-11
 # Install:  uv venv && uv pip install -r requirements.txt
 # Runtime target: Linux + NVIDIA GPU (CUDA) recommended; CPU works (slower ASR).
 # GPU: torch wheel below is CUDA-enabled (cu128). For CPU-only: torch-cpu.

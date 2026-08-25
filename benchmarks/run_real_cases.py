@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""run_real_cases.py — D8 real-case registry replay (text-level, NO GPU, NO audio).
+"""run_real_cases.py - D8 real-case registry replay (text-level, NO GPU, NO audio).
 
 Replays 24 documented Indian scam incidents + 5 benign controls through the real
-detector's text-level scoring path (CoercionDetector._score_text — the single
+detector's text-level scoring path (CoercionDetector._score_text - the single
 source of truth per the module docstring). No ASR, no model download, no audio.
 
 Expectations:
@@ -33,7 +33,7 @@ CASES = os.path.join(HERE, "real-cases", "cases.jsonl")
 BENIGN = os.path.join(HERE, "real-cases", "benign.jsonl")
 RESULTS = os.path.join(HERE, "results")
 
-# Rule-audit vocab (mirrors src/coercion.py read-only — for the audit report only,
+# Rule-audit vocab (mirrors src/coercion.py read-only - for the audit report only,
 # does NOT change scoring; scoring is entirely det._score_text).
 INSTITUTIONS = (
     "सीबीआई", "सीबीआय", "cbi", "एनसीबी", "ncb", "ईडी", "enforcement directorate",
@@ -67,7 +67,7 @@ def check_tier(tier, rec):
     if tier in ("A", "B", "C"):
         return flagged, f"state={state} score={score:.2f}"
     if tier == "D":
-        # tier D = minimal markers, rule-test level only — accept ELEVATED
+        # tier D = minimal markers, rule-test level only - accept ELEVATED
         ok = state in ("ELEVATED", "HIGH_RISK") or score >= 0.30 or flagged
         return ok, f"state={state} score={score:.2f}"
     return flagged, f"state={state} score={score:.2f}"
@@ -109,7 +109,7 @@ def main():
                 ok = row["risk_state"] == "LOW"
             note = f"{'family-ok' if rec['id'] == 'bn5' else 'must-LOW'}"
         elif rec.get("expect") == "neutral_ivr":
-            # IVR menu prompt — neutral content by design; only the escalation
+            # IVR menu prompt - neutral content by design; only the escalation
             # body (r01b/r02) is flaggable. Expect NOT flagged.
             ok = not row["flagged"]
             note = "neutral-IVR (must NOT flag)"

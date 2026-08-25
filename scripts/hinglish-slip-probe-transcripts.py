@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""hinglish-slip-probe-transcripts.py — dump what ASR actually produces for the slips."""
+"""hinglish-slip-probe-transcripts.py - dump what ASR actually produces for the slips."""
 import sys, os, json
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src"))
 from faster_whisper import WhisperModel

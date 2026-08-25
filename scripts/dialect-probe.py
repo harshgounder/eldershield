@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""dialect-probe.py — how do accents/dialects/slang distort the transcript?
+"""dialect-probe.py - how do accents/dialects/slang distort the transcript?
 
 Same digital-arrest scam, spoken 6 ways. Maps what faster-whisper hi emits so
 the normalization layer can be built on EVIDENCE, not guesses.
 
-  d1 haryanvi     — "तू म्हारा" / "करा" / "के" (Haryanvi case-marking)
-  d2 bhojpuri     — "हम" (I) / "बा" (is) / "अइहा" (come)
-  d3 mumbai-hindi — "मैं पुलिस से बोलता हूँ" + "यार" filler + fast
-  d4 punjabi-accent — "पोलिस" / "गिरफ़्तार" (retroflex-flap) / "जल्दी करो"
-  d5 marathi-accent — "आहे" suffix / "तुरंत" → "तुरांत" / "पैसे" → "पैशे"
-  d6 bengali-accent — "बोल्छि" / "पोलिस" / "टाका" (money)
+  d1 haryanvi     - "तू म्हारा" / "करा" / "के" (Haryanvi case-marking)
+  d2 bhojpuri     - "हम" (I) / "बा" (is) / "अइहा" (come)
+  d3 mumbai-hindi - "मैं पुलिस से बोलता हूँ" + "यार" filler + fast
+  d4 punjabi-accent - "पोलिस" / "गिरफ़्तार" (retroflex-flap) / "जल्दी करो"
+  d5 marathi-accent - "आहे" suffix / "तुरंत" → "तुरांत" / "पैसे" → "पैशे"
+  d6 bengali-accent - "बोल्छि" / "पोलिस" / "टाका" (money)
 """
 import sys, os, asyncio, edge_tts, json
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src"))

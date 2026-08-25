@@ -2,7 +2,7 @@
 """Ensure all demo evidence packets (KV-*) are meta_hash-consistent + verified.
 
 The meta_hash layer (D7 hardening, 2026-08-11) is recomputed for any packet
-missing it or out of sync — e.g. packets written before the schema change or
+missing it or out of sync - e.g. packets written before the schema change or
 hand-edited. The sha256 CHAIN (audio/spoof/coercion links) is never touched:
 if the chain is broken the packet is reported as tampered, not "repaired".
 

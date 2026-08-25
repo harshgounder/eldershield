@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""kavach_b1_verify.py — B1 milestone: load AASIST weights + forward pass.
+"""kavach_b1_verify.py - B1 milestone: load AASIST weights + forward pass.
 
 Proves: (1) the downloaded AASIST.pth loads into the AASIST Model class,
 (2) a real audio file (generated synthetic + real TTS-ish) produces a
@@ -44,7 +44,7 @@ def main():
         print("  missing:", list(missing)[:10])
     model.to(dev).eval()
 
-    # warmup (CUDA kernel init — first call is ~400ms, steady state is what matters)
+    # warmup (CUDA kernel init - first call is ~400ms, steady state is what matters)
     with torch.no_grad():
         _ = model(torch.zeros(1, NB_SAMP).to(dev))
 
@@ -58,7 +58,7 @@ def main():
         if len(x) < NB_SAMP:
             x = np.pad(x, (0, NB_SAMP - len(x)))
         x = x[:NB_SAMP]
-        xt = torch.from_numpy(x).unsqueeze(0).to(dev)  # [1, T] — model adds channel
+        xt = torch.from_numpy(x).unsqueeze(0).to(dev)  # [1, T] - model adds channel
         t0 = time.time()
         with torch.no_grad():
             out = model(xt)

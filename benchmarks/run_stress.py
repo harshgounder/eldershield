@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""run_stress.py — execute the stress suites against the REAL code.
+"""run_stress.py - execute the stress suites against the REAL code.
 
 Invariant (IDEAL-STANDARD D4):
-  scam  bases: transformed state must be ≥ expected_min (ELEVATED for scams) — never
+  scam  bases: transformed state must be ≥ expected_min (ELEVATED for scams) - never
                falls below the floor, never crashes
-  benign bases: transformed state must be EXACTLY LOW — a transform must never create
+  benign bases: transformed state must be EXACTLY LOW - a transform must never create
                a false positive
 
 Severity: any benign→non-LOW = CRITICAL (false positive = worst failure).

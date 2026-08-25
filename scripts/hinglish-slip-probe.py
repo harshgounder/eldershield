@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""hinglish-slip-probe.py — does the coercion layer catch Roman-script Hinglish scams?
+"""hinglish-slip-probe.py - does the coercion layer catch Roman-script Hinglish scams?
 
 Three scripts designed to SLIP through (Roman-only phrasing):
   slip1: police/package/card+OTP (classic vishing, no Devanagari keywords)
   slip2: soft account-freeze + PIN ask (no authority ladder, no arrest)
-  slip3: kinship emergency (no authority/arrest at all — pure social-engineering)
+  slip3: kinship emergency (no authority/arrest at all - pure social-engineering)
 """
 import sys, os, asyncio, edge_tts
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "src"))

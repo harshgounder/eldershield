@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""run_mutation.py — execute the D7 mutation suite against verify_packet.
+"""run_mutation.py - execute the D7 mutation suite against verify_packet.
 
 THE INVARIANT (IDEAL-STANDARD D7, 100%): any mutation MUST make
 verify_packet FAIL (return False or raise). Plus the baseline control:
@@ -110,7 +110,7 @@ def main():
 
     for c in cases:
         if baselines.get(c["file"]) is not True:
-            # baseline broken — suite invalid for this packet, can't trust verdicts
+            # baseline broken - suite invalid for this packet, can't trust verdicts
             pass_ = False
             verdict, sev = "BASELINE_BROKEN", "CRITICAL"
         else:

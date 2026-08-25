@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kavach — B3 Intervention Flow (interactive v0.1)</title>
+<title>Kavach - B3 Intervention Flow (interactive v0.1)</title>
 <style>
   :root {
     --bg: #1A1033; --card: #2A1B4F; --gold: #D4AF37; --white: #F2EEFA;
@@ -44,13 +44,13 @@
 <div class="phone">
   <div class="statusbar"><span>9:41</span><span>Kavach</span></div>
   <div class="screen">
-    <span class="badge">UI flow mock — v0.1</span>
+    <span class="badge">UI flow mock - v0.1</span>
     <h2>🚨 Intervention</h2>
     <div class="caller">+91 98765 43210</div>
     <div class="meta">Incoming · Unknown number · Hindi detected</div>
 
     <div class="verdict-box">
-      <h3>PAUSE — possible scam call</h3>
+      <h3>PAUSE - possible scam call</h3>
       <p id="verdictDetail">Voice spoof score 0.999 · Coercion HIGH_RISK (arrest, authority, isolation, payment, secrecy, urgency)</p>
     </div>
 
@@ -66,7 +66,7 @@
     <div class="actions" id="actions">
       <button class="btn btn-challenge" onclick="decide('challenge')">📞 Call a family member to verify</button>
       <button class="btn btn-kill" onclick="decide('kill')">🛑 Block + report to 1930</button>
-      <button class="btn btn-approve" onclick="decide('approve')">✓ I know this caller — approve</button>
+      <button class="btn btn-approve" onclick="decide('approve')">✓ I know this caller - approve</button>
     </div>
 
     <div id="outcome" class="outcome"></div>
@@ -83,7 +83,7 @@
     let cls = '', msg = '';
     if (choice === 'challenge') {
       cls = 'challenged';
-      msg = '📞 Family alerted — transfer on hold. Trusted contact: Mama (approved). <br><br><strong>Evidence packet ES-2400A65F3DAF</strong> generated (sha256 chain VERIFIED) · 1930-ready PDF attached.';
+      msg = '📞 Family alerted - transfer on hold. Trusted contact: Mama (approved). <br><br><strong>Evidence packet ES-2400A65F3DAF</strong> generated (sha256 chain VERIFIED) · 1930-ready PDF attached.';
     } else if (choice === 'kill') {
       cls = 'killed';
       msg = '🛑 Call blocked. Report submitted to <strong>1930 / NCRP</strong> with evidence packet ES-2400A65F3DAF (chain VERIFIED). ₹1,50,000 transfer stopped.';

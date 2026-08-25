@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""coercion.py — B2 layer: Hindi/Hinglish coercion-intent detection for Kavach.
+"""coercion.py - B2 layer: Hindi/Hinglish coercion-intent detection for Kavach.
 
 Turns raw call audio into a coercion risk profile BEFORE the payment happens:
   audio -> faster-whisper (hi) ASR -> transcript
@@ -61,7 +61,7 @@ ISOLATION = [
     "go to a room", "किसी को मत खोलना",
 ]
 FAMILY_THREAT = [
-    # threats to family/reputation (real-case registry: cases 3, 5, 9, 21 —
+    # threats to family/reputation (real-case registry: cases 3, 5, 9, 21 -
     # "harm your daughter", "harm your son", "expose on social media",
     # intimate-video threat; 2026-08-11 D8 replay gap fix)
     "बेटी को नुकसान", "बेटे को नुकसान", "बच्चों को नुकसान", "परिवार को नुकसान",
@@ -74,12 +74,12 @@ COERCION_MARKERS = [
     # classic digital-arrest tells
     "पार्सल में ड्रग्स", "ड्रग्स मिला", "पार्सल", "कूरियर", "पैकेज",
     "parcel", "courier", "drugs found", "package",
-    # drug-parcel vocabulary (real-case registry: cases 4,5,7,9,12-15 — the
+    # drug-parcel vocabulary (real-case registry: cases 4,5,7,9,12-15 - the
     # verbatim FedEx opener "courier you sent to Iraq contains drugs" and
     # MDMA/narcotics variants; 2026-08-11 D8 replay gap fix)
     "ड्रग्स", "ड्रग", "नारकोटिक", "नशीला पदार्थ", "नशा", "mdma", "drugs",
     "narcotics", "narcotic", "cocaine", "heroin",
-    # utility/credential vishing (cases 16, 24 — electricity cutoff, APK install)
+    # utility/credential vishing (cases 16, 24 - electricity cutoff, APK install)
     "बिजली कट", "बिजली कटेगी", "बिजली कनेक्शन", "electricity", "power disconnected",
     "disconnection", "बिल अपडेट", "बिल अभी भरो", "बकाया बिल", "outstanding bill",
     "एपीके", "apk", "रिमोट एक्सेस", "remote access", "स्क्रीन शेयर करो",
@@ -219,18 +219,18 @@ class CoercionDetector:
 
     def _normalize(self, text):
         t = text.lower()
-        t = t.replace("\u093c", "")          # strip ALL nukta (़) — फ़→फ, व़→व, ़ (ASR doubles them)
+        t = t.replace("\u093c", "")          # strip ALL nukta (़) - फ़→फ, व़→व, ़ (ASR doubles them)
         # strip zero-width / format chars (scammers insert them to break exact-match)
         for ch in ("\u200b", "\u200c", "\u200d", "\u200e", "\u200f", "\ufeff"):
             t = t.replace(ch, "")
-        # strip everything that is NOT Devanagari, ASCII alnum, or space — emoji,
+        # strip everything that is NOT Devanagari, ASCII alnum, or space - emoji,
         # symbols, punctuation junk (defense-in-depth for text-channel attacks)
         t = re.sub(r"[^\u0900-\u097F\sA-Za-z0-9]", "", t)
         for latin, dev in self._norm:
             t = t.replace(latin, dev)
         for bad, good in self._dev_norm:
             t = t.replace(bad, good)
-        # post-loop nukta strip — replacement VALUES can reintroduce nukta
+        # post-loop nukta strip - replacement VALUES can reintroduce nukta
         # (e.g. ("फ्रीज", "फ्रीज़")); strip again so the text is fully nukta-free
         t = t.replace("\u093c", "")
         # collapse whitespace
@@ -256,13 +256,13 @@ class CoercionDetector:
                     if fuzz.partial_ratio(pn, t) >= 82:
                         found.append(p)
                 elif len(pn) >= 4:
-                    # fuzzy partial for medium phrases — catches MERGED tokens
+                    # fuzzy partial for medium phrases - catches MERGED tokens
                     # ("कार्डनंबर" contains "कार्ड") that exact-match misses; threshold
                     # high enough that random coincidences don't fire
                     if fuzz.partial_ratio(pn, t) >= 88:
                         found.append(p)
                 elif pn in t:
-                    # short phrases (≤3 chars, e.g. "पिन", "ओटीपी") — exact only,
+                    # short phrases (≤3 chars, e.g. "पिन", "ओटीपी") - exact only,
                     # fuzzy on short tokens is a false-positive machine
                     found.append(p)
             if found:
@@ -270,7 +270,7 @@ class CoercionDetector:
         return hits
 
     def _score_text(self, text):
-        """Text-level coercion profile — the single source of truth for scoring.
+        """Text-level coercion profile - the single source of truth for scoring.
         analyze() calls this after ASR; benchmarks call it directly (no divergence)."""
         t = self._normalize(text)
         hits = self._match(text)
@@ -290,7 +290,7 @@ class CoercionDetector:
                 state = name
                 break
 
-        # rule-based boost — digital-arrest structure: authority + arrest + payment
+        # rule-based boost - digital-arrest structure: authority + arrest + payment
         _SEV = {"LOW": 0, "ELEVATED": 1, "HIGH_RISK": 2}
         hit_vecs = set(hits.keys())
         def _bump(level):
@@ -303,16 +303,16 @@ class CoercionDetector:
         # the scam does NOT need payment or parcel to be heard to be dangerous)
         if {"authority", "arrest"} <= hit_vecs:
             _bump("HIGH_RISK")
-        # digital-arrest signature does NOT require payment to be heard —
+        # digital-arrest signature does NOT require payment to be heard -
         # authority + arrest + marker (CBI + warrant + parcel) is itself the tell
         if {"authority", "arrest", "coercion_marker"} <= hit_vecs:
             _bump("HIGH_RISK")
-        # authority + payment + marker — money-demand authority scams (ED/black money,
-        # cyber-crime FIR, police+parcel+OTP) — no explicit arrest word needed
+        # authority + payment + marker - money-demand authority scams (ED/black money,
+        # cyber-crime FIR, police+parcel+OTP) - no explicit arrest word needed
         if {"authority", "payment", "coercion_marker"} <= hit_vecs:
             _bump("HIGH_RISK")
         # digital-arrest WITHOUT authority heard: arrest claim + marker + payment ask
-        # ("digital arrest hua hai, OTP batao warna jail") — the arrest claim is the tell
+        # ("digital arrest hua hai, OTP batao warna jail") - the arrest claim is the tell
         if {"arrest", "coercion_marker", "payment"} <= hit_vecs:
             _bump("HIGH_RISK")
         elif len(hit_vecs) >= 3:
@@ -326,18 +326,18 @@ class CoercionDetector:
         ):
             _bump("ELEVATED")
         # courier money-demand without urgency/fine: parcel-caught claim + payment ask
-        # ("पार्सल पकड़ा गया, पैसे भेजो") — no benign courier call asks for money
+        # ("पार्सल पकड़ा गया, पैसे भेजो") - no benign courier call asks for money
         if {"coercion_marker", "payment"} <= hit_vecs:
             _bump("ELEVATED")
         # OTP-harvest / money-demand-NOW class: payment + urgency alone
-        # ("कार्ड नंबर और ओटीपी बताओ, पैसे भेजो तुरंत" — found by audio suite u1).
+        # ("कार्ड नंबर और ओटीपी बताओ, पैसे भेजो तुरंत" - found by audio suite u1).
         # No benign call combines card/OTP asks with immediate money demands;
         # kinship money-requests legitimately land ELEVATED (family challenge handles it).
         if {"payment", "urgency"} <= hit_vecs:
             _bump("ELEVATED")
         # account-freeze / verification soft-scam signature (no authority, no arrest):
         # payment ask + freeze/block/verification language = the "account freezed, share
-        # your PIN" script. Text-level check — freeze/block/verify words in the transcript.
+        # your PIN" script. Text-level check - freeze/block/verify words in the transcript.
         if "payment" in hit_vecs and any(
             w in t for w in ("फ्रीज़", "फ्रीज", "ब्लॉक", "ब्लाक", "block",
                              "वेरिफिकेशन", "वेरिफाइ", "verify", "verification",
@@ -347,7 +347,7 @@ class CoercionDetector:
 
         # ── 2026-08-11 real-case rules (es-real-cases registry: 25 documented
         # incidents, sources BBC/NDTV/IE/TOI/FPJ + I4C/TRAI/RBI advisories) ──
-        # A) AUTHORITY STACKING — 2+ institutions in one call is the strongest
+        # A) AUTHORITY STACKING - 2+ institutions in one call is the strongest
         #    escalation marker (courier→police→CBI→ED→judge ladders; cases
         #    2,6,7,11,17,22,25). One institution is normal (bank, police
         #    station); two or more in a single call is not.
@@ -363,7 +363,7 @@ class CoercionDetector:
             _bump("ELEVATED")
             if "payment" in hit_vecs or "arrest" in hit_vecs or "urgency" in hit_vecs:
                 _bump("HIGH_RISK")
-        # B) TRANSFER-FOR-VERIFICATION — payment recast as a legal procedure:
+        # B) TRANSFER-FOR-VERIFICATION - payment recast as a legal procedure:
         #    "government account", "clearance", "RBI safe account" (cases 2, 25).
         #    The super-specific safe/government-account phrases are scam-unique
         #    even without an authority word (no real institution takes money
@@ -390,25 +390,25 @@ class CoercionDetector:
                 _bump("HIGH_RISK")
             elif _soft_verif:
                 _bump("ELEVATED")
-        # C) FAMILY-THREAT coercion (cases 3, 5, 9, 21) — threats to children or
+        # C) FAMILY-THREAT coercion (cases 3, 5, 9, 21) - threats to children or
         #    reputation escalate even before a payment ask is heard. With payment
         #    or authority, it is the full extortion package.
         if "family_threat" in hit_vecs:
             _bump("ELEVATED")
             if {"payment", "authority", "arrest", "urgency"} & hit_vecs:
                 _bump("HIGH_RISK")
-        # D) DRUG-PARCEL / LAUNDERING-ACCUSATION rule (cases 4, 9, 12-15, 23 —
+        # D) DRUG-PARCEL / LAUNDERING-ACCUSATION rule (cases 4, 9, 12-15, 23 -
         #    2026-08-11 D8 replay finds). "Your parcel contains drugs/MDMA" and
         #    "money laundering case in your name" are scam-unique utterances:
         #    no legitimate courier/bank call uses drug vocabulary. The marker
-        #    vector alone caps at 0.06 (weakest weight) — these words deserve
+        #    vector alone caps at 0.06 (weakest weight) - these words deserve
         #    stronger treatment than generic markers.
         _HARD_DRUGS = any(
             w in t for w in ("mdma", "drugs", "narcotics", "narcotic", "cocaine",
                              "heroin", "ड्रग्स", "ड्रग", "नारकोटिक", "नशीला पदार्थ")
         )
         # "laundering" survives normalization as "moneylaunदेring" (mixed-script
-        # mangle) — use a tolerant regex, not a substring check.
+        # mangle) - use a tolerant regex, not a substring check.
         _LAUNDER = re.search(r"laun.{0,4}ring", t) or "लॉन्ड्रिंग" in t
         _LAUNDER_ACCUSE = _LAUNDER and (
             "in your name" in t or "आपके नाम पर" in t

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""kavach_b2_finetune.py — Hindi domain adaptation of AASIST.
+"""kavach_b2_finetune.py - Hindi domain adaptation of AASIST.
 
 Trains:  real Hindi (FLEURS) -> BONAFIDE (0) | Hindi TTS (edge-tts) -> SPOOF (1)
 Held-out test: 100 fresh FLEURS speakers + 24 TTS clips with UNSEEN scripts.
-(Note: TTS voices overlap train/test — edge-tts hi has only 2 voices; scripts are unseen.)
+(Note: TTS voices overlap train/test - edge-tts hi has only 2 voices; scripts are unseen.)
 """
 import sys, os, glob, time, random, json
 import numpy as np
@@ -28,7 +28,7 @@ def load_wav(path):
     return x
 
 def crop(x, rng):
-    """Random 4s crop (or pad then crop) — the augmentation that makes 56 files trainable."""
+    """Random 4s crop (or pad then crop) - the augmentation that makes 56 files trainable."""
     if len(x) < NB_SAMP:
         x = np.pad(x, (0, NB_SAMP - len(x)))
     if len(x) == NB_SAMP:
@@ -83,7 +83,7 @@ def main():
 
     # ---- train loop ----
     epochs = 12
-    bs = 4          # 3.6GiB GPU — batch 16 OOMs; use small batch + grad accumulation
+    bs = 4          # 3.6GiB GPU - batch 16 OOMs; use small batch + grad accumulation
     accum = 4       # effective batch 16
     n = len(Xtr)
     best = 0.0
@@ -93,7 +93,7 @@ def main():
         opt.zero_grad()
         for i in range(0, n, bs):
             idx = perm[i:i + bs]
-            xb = torch.from_numpy(Xtr[idx]).to(dev)   # [B, T] — model adds channel dim
+            xb = torch.from_numpy(Xtr[idx]).to(dev)   # [B, T] - model adds channel dim
             yb = torch.from_numpy(Ytr[idx]).long().to(dev)
             _, logits = model(xb)
             loss = lossf(logits, yb) / accum
@@ -103,11 +103,11 @@ def main():
                 opt.step(); opt.zero_grad()
         # ---- held-out eval ----
         model.eval()
-        torch.cuda.empty_cache()  # free fragmented train blocks — 4GiB GPU is tight
+        torch.cuda.empty_cache()  # free fragmented train blocks - 4GiB GPU is tight
         with torch.no_grad():
             def evaluate(X, Y, name):
                 preds = []
-                for i in range(0, len(X), 2):   # eval batch 2 — 4GiB VRAM (GTX 1650)
+                for i in range(0, len(X), 2):   # eval batch 2 - 4GiB VRAM (GTX 1650)
                     xb = torch.from_numpy(X[i:i + 2]).to(dev)  # [B, T]
                     _, lg = model(xb)
                     preds.append(lg.argmax(1).cpu().numpy())

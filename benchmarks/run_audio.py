@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""run_audio.py — THE REAL AUDIO TEST. Runs every synthesized audio case through the
+"""run_audio.py - THE REAL AUDIO TEST. Runs every synthesized audio case through the
 REAL pipeline: engine (B1 spoof/AASIST) → coercion (B2 ASR + analysis) → fuse (FUSION).
 
 This is the audio-only reality check (user directive): coded audio, dialects, accents,
-negation — spoken into a file, transcribed by OUR ASR, scored by OUR rules, fused by
+negation - spoken into a file, transcribed by OUR ASR, scored by OUR rules, fused by
 OUR ladder. The text suites were simulation; this is the actual system.
 
 Verdict expectations (IDEAL-STANDARD mapping):
@@ -52,7 +52,7 @@ def main():
                                "vecs": sorted(prof["vector_hits"].keys())}
 
             # ── FUSE ──
-            # NOTE: pass er["spoof"] (the BOOLEAN) — row["spoof"]["verdict"] is the
+            # NOTE: pass er["spoof"] (the BOOLEAN) - row["spoof"]["verdict"] is the
             # label STRING ("BONAFIDE"/"SPOOF") which is truthy → every call fused as
             # spoof=True → PAUSE for everything. Found by the human cases (audio suite).
             fr = fuse(spoof_score=er["score"], spoof_verdict=er["spoof"],

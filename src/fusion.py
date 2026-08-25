@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""fusion.py — Kavach FUSION core (B1 spoof + B2 coercion → one verdict → one intervention).
+"""fusion.py - Kavach FUSION core (B1 spoof + B2 coercion → one verdict → one intervention).
 
 The product claim from the pitch: "six departments, one fusion verdict, one intervention."
-This module is that claim made executable. Pure logic — no audio I/O, fully unit-testable.
+This module is that claim made executable. Pure logic - no audio I/O, fully unit-testable.
 
 Verdict ladder (deterministic, documented):
-  PASS     — bonafide voice, no coercion            → no action
-  CAUTION  — any single risk signal                 → warn, verify before payment
-  PAUSE    — spoof OR HIGH coercion                 → full intervention (family challenge)
-  KILL     — spoof AND HIGH coercion                → hard block recommendation + 1930
+  PASS     - bonafide voice, no coercion            → no action
+  CAUTION  - any single risk signal                 → warn, verify before payment
+  PAUSE    - spoof OR HIGH coercion                 → full intervention (family challenge)
+  KILL     - spoof AND HIGH coercion                → hard block recommendation + 1930
 
 Departments (the six from 01-VISION.md):
   spoof / coercion / threat / factcheck / payment / evidence
@@ -100,16 +100,16 @@ def fuse(spoof_score: float,
 
     if spoof and high_coercion:
         verdict = "KILL"
-        action = "🛑 HARD BLOCK — end call + one-tap report to 1930 with evidence packet"
+        action = "🛑 HARD BLOCK - end call + one-tap report to 1930 with evidence packet"
     elif spoof or high_coercion:
         verdict = "PAUSE"
-        action = "🚨 PAUSE — family challenge before any payment; trusted contact alerted"
+        action = "🚨 PAUSE - family challenge before any payment; trusted contact alerted"
     elif any_signal:
         verdict = "CAUTION"
-        action = "⚠️ CAUTION — verify identity + payment before proceeding"
+        action = "⚠️ CAUTION - verify identity + payment before proceeding"
     else:
         verdict = "PASS"
-        action = "✅ PASS — no intervention"
+        action = "✅ PASS - no intervention"
 
     reasons.append(f"verdict: {verdict}")
     return FusionResult(verdict=verdict, action=action,

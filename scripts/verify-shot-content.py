@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""verify-shot-content.py — DOM-level proof that the attack/real shots contain
+"""verify-shot-content.py - DOM-level proof that the attack/real shots contain
 the real verdict. Grabs the rendered output text + evidence JSON after each run."""
 import os
 

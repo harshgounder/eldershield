@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Evidence-packet integrity tests — the D7 class (found by the mutation suite).
+"""Evidence-packet integrity tests - the D7 class (found by the mutation suite).
 
 Covers: tamper-evidence on every packet field, backward compatibility with
 pre-meta_hash packets, and the hash-chain semantics.

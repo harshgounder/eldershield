@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""gen_stress.py — combinatorial stress generator: SUITES × SERIES × thousands of cases.
+"""gen_stress.py - combinatorial stress generator: SUITES × SERIES × thousands of cases.
 
 THE INVARIANT: a transform must NEVER change the verdict. If a scam fires HIGH_RISK
 clean, it must fire ≥ ELEVATED under ANY combination of obfuscation/dialect/negation/
 merge/noise. If a benign call is LOW, it must stay LOW under any transform.
 
 Dimensions (each is a SERIES):
-  S1 obfuscation   — zero-width, dotted acronyms, emoji, latin swaps, nukta-doubling
-  S2 dialect       — Haryanvi/Bhojpuri/Punjabi-accented word substitutions
-  S3 negation      — denial prefixes/suffixes ("यह ठगी नहीं है", "hum kabhi nahi maangte")
-  S4 merge         — token merges ("कार्ड नंबर"→"कार्डनंबर"), space collapses
-  S5 noise         — punctuation strip, case flips, double spaces, trailing junk
-  S6 combo         — 2-level combinations of the above (the aggressive layer)
+  S1 obfuscation   - zero-width, dotted acronyms, emoji, latin swaps, nukta-doubling
+  S2 dialect       - Haryanvi/Bhojpuri/Punjabi-accented word substitutions
+  S3 negation      - denial prefixes/suffixes ("यह ठगी नहीं है", "hum kabhi nahi maangte")
+  S4 merge         - token merges ("कार्ड नंबर"→"कार्डनंबर"), space collapses
+  S5 noise         - punctuation strip, case flips, double spaces, trailing junk
+  S6 combo         - 2-level combinations of the above (the aggressive layer)
 
 Base scripts: the CANONICAL forms (Devanagari + Hinglish + garbled + benign) that the
 curated suite proved fire correctly. Output: benchmarks/pool/stress.jsonl (~thousands).
@@ -57,10 +57,10 @@ BENIGN_BASES = [
 # The attacks that actually exist in a call are what the ASR EMITS under real
 # speech: phonetic garbling, dialect vocabulary, code-mixing, word merges.
 # Emoji/zero-width/dotted-acronyms are TEXT-channel attacks (SMS, WhatsApp, UPI
-# screens) — they belong in the small S7 side-series for the platform's future
+# screens) - they belong in the small S7 side-series for the platform's future
 # text side, NOT in the call-path core.
 
-# S7 — ASR-PHONETIC MUTATION: the EMPIRICAL attack. These are the exact
+# S7 - ASR-PHONETIC MUTATION: the EMPIRICAL attack. These are the exact
 # substitutions faster-whisper hi actually produced in our probe transcripts
 # (hinglish-slip-probe + dialect-probe, 2026-08-11). A scammer speaking these
 # ways IS the real threat model.
@@ -106,7 +106,7 @@ def t_dotted_acronym(s, rng):
              .replace("आरबीआई", "आर.बी.आई.").replace("एनसीबी", "एन.सी.बी."))
 
 def t_emoji(s, rng):
-    """Insert emoji spam at WORD BOUNDARIES (realistic — scammers never split words)."""
+    """Insert emoji spam at WORD BOUNDARIES (realistic - scammers never split words)."""
     words = s.split()
     if not words:
         return s

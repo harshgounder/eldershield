@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""v1_loop.py — Kavach v0.1: the FULL product loop, end to end.
+"""v1_loop.py - Kavach v0.1: the FULL product loop, end to end.
 
 recognize → interrupt → verify → package → report
 
@@ -11,8 +11,8 @@ recognize → interrupt → verify → package → report
   report    : packet id + report target printed (one-tap handoff)
 
 Usage:
-  ~/r2-venv/bin/python v1_loop.py <audio.wav|mp3> [--payee-new] [--amount 150000]
-  ~/r2-venv/bin/python v1_loop.py --demo   # runs the 5-scenario battery through the loop
+  python v1_loop.py <audio.wav|mp3> [--payee-new] [--amount 150000]
+  python v1_loop.py --demo   # runs the 5-scenario battery through the loop
 
 Honesty: family decision is SIMULATED (no real push channel yet). The loop is real.
 """
@@ -45,17 +45,17 @@ def run_loop(audio_path, payment_context=None, family_decision="challenge"):
               coercion_score=cr["coercion_score"], coercion_state=cr["risk_state"],
               payment_context=payment_context, threat_signals=threat, factcheck_claims=claims)
 
-    # ---- interrupt + verify (family challenge — simulated decision)
+    # ---- interrupt + verify (family challenge - simulated decision)
     if fr.verdict in ("PAUSE", "KILL"):
         intervention = "ACTIVE"
         if family_decision == "approve":
-            outcome = "APPROVED — transfer allowed (family override, logged)"
+            outcome = "APPROVED - transfer allowed (family override, logged)"
             action_taken = "continue"
         elif family_decision == "kill":
-            outcome = "BLOCKED — transfer stopped, report to 1930"
+            outcome = "BLOCKED - transfer stopped, report to 1930"
             action_taken = "blocked"
         else:
-            outcome = "CHALLENGED — call family now; transfer on hold"
+            outcome = "CHALLENGED - call family now; transfer on hold"
             action_taken = "held"
     else:
         intervention = "NONE"
@@ -64,7 +64,7 @@ def run_loop(audio_path, payment_context=None, family_decision="challenge"):
 
     # ---- package (B4) + report
     ev = None
-    if fr.verdict in ("PAUSE", "KILL") or True:  # always package — evidence is the differentiator
+    if fr.verdict in ("PAUSE", "KILL") or True:  # always package - evidence is the differentiator
         ev = build_and_save(audio_path, er, cr, os.path.join(HERE, "demo", "evidence"))
 
     state = {
@@ -101,7 +101,7 @@ SCENARIOS = {
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Kavach v0.1 — full loop")
+    ap = argparse.ArgumentParser(description="Kavach v0.1 - full loop")
     ap.add_argument("audio", nargs="?", help="audio file to run through the loop")
     ap.add_argument("--payee-new", action="store_true")
     ap.add_argument("--amount", type=int, default=0)

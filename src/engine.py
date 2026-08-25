@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""engine.py — Kavach audio anti-spoof engine (production inference).
+"""engine.py - Kavach audio anti-spoof engine (production inference).
 
 Protocol (VERIFIED 2026-08-06, ad-hoc harness): 3-crop majority vote
-(first/middle/last 4s windows) — single-crop is crop-dependent (0.9355 acc),
+(first/middle/last 4s windows) - single-crop is crop-dependent (0.9355 acc),
 vote restores held-out 0.9919 (0/100 FP, 1/24 FN) on FLEURS-real vs edge-tts.
 
 Usage:

@@ -1,14 +1,14 @@
 __pycache__/
 *.pyc
 run-ledger/
-# run-generated evidence packets (fresh KV- id every v1_loop --demo run) — ignored;
+# run-generated evidence packets (fresh KV- id every v1_loop --demo run), ignored;
 # the curated example set (already tracked KV-*.json/pdf in demo/evidence) stays
 demo/evidence/KV-*.json
 demo/evidence/KV-*.pdf
 demo/evidence/v1-loop-battery.json
-# benchmark results (timestamped, regenerable) — pool + scripts stay tracked
+# benchmark results (timestamped, regenerable), pool + scripts stay tracked
 benchmarks/results/
 benchmarks/audio/results/
 benchmarks/pool/mutation.jsonl
-# GramVaani OpenSLR-118 audio (academic-use licensed, 315MB) — fetched, never committed
+# GramVaani OpenSLR-118 audio (academic-use licensed, 315MB) - fetched, never committed
 data/gramvaani/

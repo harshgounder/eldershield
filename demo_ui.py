@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""demo_ui.py — Kavach R1 demo: attack-gen + detection UI + evidence packet.
+"""demo_ui.py - Kavach R1 demo: attack-gen + detection UI + evidence packet.
 
 Flow: record/upload a wav → engine.analyze() → spoof verdict + score + latency
 → PAUSE intervention (block UPI intent) → evidence packet JSON (audit trail).
 
-Run: ~/r2-venv/bin/python demo_ui.py  → gradio on :7860
+Run: python demo_ui.py  → gradio on :7860
 """
 import os, sys, json, time, tempfile
 import numpy as np
@@ -48,7 +48,7 @@ def analyze_wav(path: str) -> dict:
     eng = engine()
     res = eng.analyze(path)
     res["verdict"] = "SPOOF" if res["spoof"] else "BONAFIDE"
-    res["action"] = "PAUSE — verify caller identity" if res["spoof"] else "PASS — proceed"
+    res["action"] = "PAUSE - verify caller identity" if res["spoof"] else "PASS - proceed"
     res["evidence_packet"] = {
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "file": os.path.basename(path),
@@ -66,7 +66,7 @@ def ui(audio_path, attack_text):
         return "Upload or record audio first", {}
     res = analyze_wav(audio_path)
 
-    # B2: coercion layer — ASR + Hindi scam-language cues
+    # B2: coercion layer - ASR + Hindi scam-language cues
     coercion = _coercion().analyze(audio_path)
     state = coercion["risk_state"]
     hits = coercion["vector_hits"]
@@ -80,11 +80,11 @@ def ui(audio_path, attack_text):
     packet = ev["packet"]
 
     if res["spoof"] or state == "HIGH_RISK":
-        action = "🚨 **PAUSE — verify caller identity** · do NOT transfer · call 1930"
+        action = "🚨 **PAUSE - verify caller identity** · do NOT transfer · call 1930"
     elif state == "ELEVATED":
-        action = "⚠️ **CAUTION** — verify before any payment · call 1930 if pressured"
+        action = "⚠️ **CAUTION** - verify before any payment · call 1930 if pressured"
     else:
-        action = "✅ PASS — proceed"
+        action = "✅ PASS - proceed"
 
     panel = (
         f"## Verdict: **{res['verdict']}** (spoof {res['score']:.3f}) · Coercion: **{state}** ({coercion['coercion_score']:.2f})\n\n"
@@ -110,7 +110,7 @@ if __name__ == "__main__":
             gr.Markdown(label="Detection result"),
             gr.JSON(label="Evidence packet (audit trail)"),
         ],
-        title="Kavach — Digital-Arrest & Voice-Scam Shield (spoof + coercion + evidence)",
+        title="Kavach - Digital-Arrest & Voice-Scam Shield (spoof + coercion + evidence)",
         description="AASIST-hindi 3-crop vote + Hindi coercion detection (faster-whisper). Spoof score + coercion state → PAUSE intervention → tamper-evident evidence packet + 1930-ready PDF.",
     )
     demo.launch(server_name="127.0.0.1", server_port=7860)

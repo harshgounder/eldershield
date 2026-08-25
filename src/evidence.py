@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""evidence.py — B4 layer: tamper-evident evidence packet + 1930-ready PDF export.
+"""evidence.py - B4 layer: tamper-evident evidence packet + 1930-ready PDF export.
 
 Every Kavach detection emits a chain-of-custody packet:
   sha256 hash chain (audio -> transcript -> verdict) + timestamp + model versions
   -> JSON (machine-readable) + PDF (human-readable, 1930/CERT-In-shaped).
 
 The hash chain makes the packet tamper-evident: any edit breaks the chain.
-Nothing is uploaded anywhere — the packet is generated locally (sovereignty story).
+Nothing is uploaded anywhere - the packet is generated locally (sovereignty story).
 """
 import hashlib, json, os, time, uuid
 from datetime import datetime, timezone
@@ -92,7 +92,7 @@ def build_packet(audio_path, engine_result, coercion_result, model_meta=None):
         "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
         "model_meta": meta,
     }
-    # meta_hash — closes the D7 gaps (found by the mutation suite, 2026-08-11):
+    # meta_hash - closes the D7 gaps (found by the mutation suite, 2026-08-11):
     # the chain alone covers the 3 data links; packet_id/generated_at/model_meta
     # and ANY injected top-level junk key were invisible to verify_packet.
     # Hash everything except the chain + this field itself (sort_keys → order-
@@ -153,11 +153,11 @@ def export_pdf(packet, path):
     body = ParagraphStyle("body", parent=styles["BodyText"], fontSize=9, leading=13)
 
     story = []
-    story.append(Paragraph("Kavach — Voice-Fraud Detection Evidence Packet", h1))
+    story.append(Paragraph("Kavach - Voice-Fraud Detection Evidence Packet", h1))
     story.append(Spacer(1, 4 * mm))
     story.append(Paragraph(f"Packet ID: <b>{packet['packet_id']}</b>", body))
     story.append(Paragraph(f"Generated: {packet['generated_at']}", body))
-    story.append(Paragraph("This packet is tamper-evident: any edit breaks the sha256 chain. Generated locally — no audio or transcript uploaded.", body))
+    story.append(Paragraph("This packet is tamper-evident: any edit breaks the sha256 chain. Generated locally - no audio or transcript uploaded.", body))
     story.append(Spacer(1, 4 * mm))
 
     links = {l["name"]: l["data"] for l in packet["chain"]}
@@ -165,7 +165,7 @@ def export_pdf(packet, path):
     coer = links.get("coercion_profile", {})
 
     story.append(Paragraph("1. Detection Result", h2))
-    verdict = "SPOOF — PAUSE" if spoof.get("spoof") else "BONAFIDE — PASS"
+    verdict = "SPOOF - PAUSE" if spoof.get("spoof") else "BONAFIDE - PASS"
     story.append(Paragraph(f"Verdict: <b>{verdict}</b>", body))
     story.append(Paragraph(f"Spoof score: {spoof.get('spoof_score')} (0=real, 1=clone) · crops: {spoof.get('crop_scores')} · latency: {spoof.get('latency_ms')}ms", body))
 
