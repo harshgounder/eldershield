@@ -12,3 +12,6 @@ benchmarks/audio/results/
 benchmarks/pool/mutation.jsonl
 # GramVaani OpenSLR-118 audio (academic-use licensed, 315MB) - fetched, never committed
 data/gramvaani/
+
+# pre-rename stray decks (satark brand, superseded by KAVACH v5 in kavach-pitch)
+assets/Satark_IIC3_deck_v5.*
