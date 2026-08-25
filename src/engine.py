@@ -85,7 +85,7 @@ class KavachEngine:
         t0 = time.time()
         probs = []
         with torch.no_grad():
-            for c in self._crops(x):
+            for c in self._crops_aligned(x):
                 _, lg = self.model(torch.from_numpy(c).unsqueeze(0).to(self.device))
                 probs.append(torch.softmax(lg, 1)[0, 1].item())
         score = float(np.mean(probs))          # mean spoof prob across crops
@@ -106,6 +106,25 @@ class KavachEngine:
             "clip_fraction": round(clip_frac, 6),
             "latency_ms": round((time.time() - t0) * 1000, 1),
         }
+
+    def _crops_aligned(self, x):
+        """Crop windows for scoring.
+
+        Files >= 4.04s: first/middle/last windows (3 crops, majority vote).
+        Files <  4.04s: 3 ALIGNMENTS of the analysis window (content at the
+        start, centered, at the end). Alignment invariance kills the
+        weak-window truncation evasion (red-team 2026-08-25: a 4.04s excerpt
+        scored 0.17 at one alignment; sliding recovers the strong span).
+        """
+        if len(x) >= NB_SAMP:
+            return self._crops(x)
+        L = len(x)
+        crops = []
+        for p0 in (0, (NB_SAMP - L) // 2, NB_SAMP - L):
+            c = np.zeros(NB_SAMP, dtype=np.float32)
+            c[p0:p0 + L] = x
+            crops.append(c)
+        return crops
 
 
 if __name__ == "__main__":

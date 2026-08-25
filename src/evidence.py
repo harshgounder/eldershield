@@ -8,8 +8,15 @@ Every Kavach detection emits a chain-of-custody packet:
 The hash chain makes the packet tamper-evident: any edit breaks the chain.
 Nothing is uploaded anywhere - the packet is generated locally (sovereignty story).
 """
-import hashlib, json, math, os, time, uuid
+import base64, hashlib, json, math, os, time, uuid
 from datetime import datetime, timezone
+
+try:
+    from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey, Ed25519PublicKey
+    from cryptography.hazmat.primitives import serialization
+    _HAS_CRYPTO = True
+except ImportError:
+    _HAS_CRYPTO = False
 
 
 def sha256_file(path, chunk=1 << 20):
@@ -109,7 +116,7 @@ def build_packet(audio_path, engine_result, coercion_result, model_meta=None):
     # and ANY injected top-level junk key were invisible to verify_packet.
     # Hash everything except the chain + this field itself (sort_keys → order-
     # independent, so key reordering stays a non-issue by design).
-    _meta_src = {k: v for k, v in packet.items() if k not in ("chain", "meta_hash")}
+    _meta_src = {k: v for k, v in packet.items() if k not in ("chain", "meta_hash", "signature")}
     packet["meta_hash"] = sha256_str(
         packet["root_hash"] + json.dumps(_meta_src, ensure_ascii=False, sort_keys=True)
     )
@@ -122,6 +129,8 @@ def verify_packet(packet):
     Backward compatible: packets without meta_hash (pre-2026-08-11 schema)
     verify on the chain alone; packets with meta_hash must also match it
     (covers packet_id, generated_at, model_meta, and any junk-key injection).
+    The optional ed25519 signature is NOT part of the meta hash (it is added
+    after hashing); verify with verify_packet_signed() to check it.
     """
     links = packet.get("chain", [])
     prev = ""
@@ -133,13 +142,43 @@ def verify_packet(packet):
     if prev != packet.get("root_hash"):
         return False, None
     if "meta_hash" in packet:
-        _meta_src = {k: v for k, v in packet.items() if k not in ("chain", "meta_hash")}
+        _meta_src = {k: v for k, v in packet.items() if k not in ("chain", "meta_hash", "signature")}
         mh = sha256_str(
             packet["root_hash"] + json.dumps(_meta_src, ensure_ascii=False, sort_keys=True)
         )
         if mh != packet["meta_hash"]:
             return False, "meta"
     return True, None
+
+
+def sign_packet(packet, sign_key):
+    """ed25519-sign root_hash + packet_id (R2, 2026-08-25 red-team closure).
+
+    The signature proves the packet came from the Kavach signer, closing the
+    'tamper-evident but forgeable by a re-computing attacker' caveat.
+    """
+    if not _HAS_CRYPTO:
+        raise RuntimeError("cryptography package missing: pip install cryptography")
+    sig = sign_key.sign(packet["root_hash"].encode("utf-8") + packet["packet_id"].encode("utf-8"))
+    packet["signature"] = base64.b64encode(sig).decode("ascii")
+    return packet
+
+
+def verify_packet_signed(packet, verify_key):
+    """Chain + signature verification. Returns (ok, mismatch)."""
+    ok, bad = verify_packet(packet)
+    if not ok:
+        return ok, bad
+    if "signature" not in packet:
+        return False, "unsigned"
+    if not _HAS_CRYPTO:
+        return False, "no-crypto-dep"
+    try:
+        raw = base64.b64decode(packet["signature"])
+        verify_key.verify(raw, packet["root_hash"].encode("utf-8") + packet["packet_id"].encode("utf-8"))
+        return True, None
+    except Exception:
+        return False, "signature"
 
 
 def save_json(packet, path):
@@ -206,6 +245,8 @@ def export_pdf(packet, path):
     story.append(Spacer(1, 3 * mm))
     story.append(Paragraph(f"Root hash: {packet['root_hash']}", body))
     story.append(Paragraph(f"Chain algorithm: {packet['chain_algorithm']}", body))
+    if packet.get("signature"):
+        story.append(Paragraph(f"ed25519 signature: {packet['signature'][:40]}… (verify with Kavach public key)", body))
 
     story.append(Paragraph("4. How to act on this", h2))
     story.append(Paragraph("If this packet marks a SPOOF/coercion: do NOT transfer money. Call 1930 (cyber-fraud helpline) or report at cybercrime.gov.in (NCRP). Keep this PDF as evidence. If a family member is involved, verify with the family challenge phrase.", body))

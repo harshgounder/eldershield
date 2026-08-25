@@ -10,6 +10,7 @@ scipy>=1.11
 soundfile>=0.12
 faster-whisper>=1.0
 rapidfuzz>=3.0        # coercion.py fuzzy matching
+cryptography>=42.0    # evidence packet ed25519 signing (verify_packet_signed)
 gradio>=5.0          # demo_ui.py only
 edge-tts>=6.0        # demo_ui.py attack-text generation only
 reportlab>=4.0       # evidence PDF export
