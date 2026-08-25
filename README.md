@@ -51,7 +51,7 @@ demo/b3-intervention-mock.html - PAUSE screen + family-challenge UI flow mock (s
 benchmarks/            - the test battery (all re-runnable): audio 31/31 · stress 226/226
                          · real-cases 29/29 (24 documented incidents) · curated 10/10 · D7 90%
 scripts/               - capture + verify scripts
-assets/                - screenshots, evidence packets, sample audio, deck (v2 current; v1-ARCHIVED = pre-rebrand)
+assets/                - screenshots, evidence packets, sample audio, deck (v6 current; v2 = member-filled variant; v1-ARCHIVED = pre-rebrand)
 models/                - aasist-hindi.pt + AASIST weights (tracked)
 b1_verify.py           - smoke test (weights load, CUDA, latency)
 b1_ab_test.py          - A/B evaluation script
