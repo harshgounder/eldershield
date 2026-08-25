@@ -8,7 +8,7 @@ Requires: gradio server running on :7860 (demo_ui.py), and playwright installed.
 """
 import os
 
-ASSETS = os.path.expanduser("~/iic-3/kavach/assets")
+ASSETS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets")
 BASE = "http://127.0.0.1:7860"
 
 from playwright.sync_api import sync_playwright

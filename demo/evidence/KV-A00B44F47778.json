@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "a5426a807717f2f648fa2acdfae8cd8528d334137c92ba4a3ddda0e53ceab0a5",
+      "hash": "ca3c9d7bfc0e3fc34eddaa99bc1fb94b35d0f94be36a0ad9cbec7ce43b1f947f",
       "data": {
-        "packet_id": "ES-A00B44F47778",
+        "packet_id": "KV-A00B44F47778",
         "timestamp": "2026-08-11T13:22:08.637088+00:00",
         "audio_file": "real_call_hindi2.wav",
         "audio_sha256": "f9910565cad24bb9a7a3129d1e6a171393fd041d339f961c8233ba0bd1276fef"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "fe226ea5b17e63191d0ef89ac8abab432444bb48d6ac528c446052463f6711bc",
+      "hash": "f6b5fd4d162fa5d031fedc28cd9223b33d3557838f62509f39ca9c81b249d9fa",
       "data": {
         "spoof": false,
         "spoof_score": 0.0022,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "7f3feba0015b465def20c3adcae46bf787eb94c69c93667dfcb86ce4f67f6f7d",
+      "hash": "956ba6da07d1082607f3a08cc3ddae7c9c9c706cb3164b0bc4673351e8824a1f",
       "data": {
         "transcript": "यानिको का मानना है की वो से लोट्स गंद के दवारा जान्वरो का पीचा करते और खाते है,  ये सुम्ते होई कि वे जमीन पर कहा रहे हूंगे.",
         "language": "hi",
@@ -44,7 +44,7 @@
       }
     }
   ],
-  "root_hash": "7f3feba0015b465def20c3adcae46bf787eb94c69c93667dfcb86ce4f67f6f7d",
+  "root_hash": "956ba6da07d1082607f3a08cc3ddae7c9c9c706cb3164b0bc4673351e8824a1f",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -52,5 +52,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "c404214498bb6d2137782451a08d18e6b48a3b6f5e0b69eb6ca0602ea81644c3"
+  "meta_hash": "30d5f3bcd7438e297a7236d2ee4d9cb1a3a4fba06cb30907c95d31fc2c82a7e2"
 }

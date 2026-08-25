@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "4ff8d38fec65a201d468bff87cf2d30c3394319fad0824931d9197d997d59455",
+      "hash": "618b20d30e57a701056109ac58ed3a80e2b886ccfb99d7a4ad0b0e3b8c64cd37",
       "data": {
-        "packet_id": "ES-FF30430B3558",
+        "packet_id": "KV-FF30430B3558",
         "timestamp": "2026-08-11T13:21:40.301637+00:00",
         "audio_file": "a1_digital_arrest.mp3",
         "audio_sha256": "3f3e0203b060ea945953e2bfa1e6e0d000ff1b3dbd9d0a861a25f3c75337e776"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "2eca1f2b1b7eee3abaf83b62bd70d587c27acd9d729c8a43b9fd661b0a49174d",
+      "hash": "442343729f823ef44eb7d5ac0dc033b4a42521905da1402af961a965707a1f7f",
       "data": {
         "spoof": true,
         "spoof_score": 0.9999,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "c7a94dc15a858abfd466ae755b70d95537e7ad7d2ca8410079096a146e67c3d1",
+      "hash": "5647f9346dcf8c551483c4cb5fc83a69afae9b76d4dd337e8e0982440a156a21",
       "data": {
         "transcript": "नमस्ते, मैं CBI अदिकारी बोल रहा हूं.  अपके नाम पर एक पार्सल में द्रक्स मिला है, और आप पर गिराफतारी का वारन्त जारी हो गया है.  यह केस बहुत गमभीर है.  आपको तुरन्त पैसे ट्रान्सफर करने हूंगे विरिफिकेशन के लिए.  किसी को मत बताना, नहीं तो आपको जेल हो जाएगी.  अभी मेरा बताया हुवा काम करो, और लाईन पर रहो.",
         "language": "hi",
@@ -84,7 +84,7 @@
       }
     }
   ],
-  "root_hash": "c7a94dc15a858abfd466ae755b70d95537e7ad7d2ca8410079096a146e67c3d1",
+  "root_hash": "5647f9346dcf8c551483c4cb5fc83a69afae9b76d4dd337e8e0982440a156a21",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -92,5 +92,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "a5f8d73be3d0fcd49e49b4930847c42a94300c25f569c51436fbdba348bba02f"
+  "meta_hash": "f27f1224efff5d73186c04afffe43fff30276c77e217950c729785af9c42f16b"
 }

@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "92a66fe3a8c5285fddfd051470eefd136efb4891f55b5e59f75298c911703725",
+      "hash": "c0af3340bc2380866619b72cff75057f17b454121d40e275ef1e657318af6c5d",
       "data": {
-        "packet_id": "ES-31286E35B158",
+        "packet_id": "KV-31286E35B158",
         "timestamp": "2026-08-11T13:30:23.982900+00:00",
         "audio_file": "a2_otp.mp3",
         "audio_sha256": "fc0146a1e98c36167dc5c2bf1717795093071fb687dba667ff0a38484a6c1f57"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "ab6850ba8cef1e30812e869dff9967e69cbd4aed1d66897b1b1bce0cb9bc8a4f",
+      "hash": "27b62284ba21c61c4d763f63770aced1e58dd378d75c90efcd023821ff040d33",
       "data": {
         "spoof": true,
         "spoof_score": 1.0,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "a8901ca336b4f86d1f98250944ca724b06ab4bc703619782b93239fe5c610967",
+      "hash": "dae5a5109232c535f0cf776a417b27f0ed5a6631ab71a2b97b7d220811779f6b",
       "data": {
         "transcript": "नमस्ते, मैं आपके बैंक से बोल रहा हूँ.  आपका कार्ट ब्लोक हो गया है.  OTP भेजा है, जल्दी बता ये वरना पैसा कट जाएगा.",
         "language": "hi",
@@ -67,7 +67,7 @@
       }
     }
   ],
-  "root_hash": "a8901ca336b4f86d1f98250944ca724b06ab4bc703619782b93239fe5c610967",
+  "root_hash": "dae5a5109232c535f0cf776a417b27f0ed5a6631ab71a2b97b7d220811779f6b",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -75,5 +75,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "794e98f92d5d28b700ad043c091d762317b8a2a21496d657a04c8342be8a7880"
+  "meta_hash": "aa1b8ae87f8e8b57c8601b8dd5de6062926108f28545efceee27030e8c40180a"
 }

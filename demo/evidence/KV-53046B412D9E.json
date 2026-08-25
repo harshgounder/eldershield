@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "a9ac14a94ed3e141318360b79e225488c1f59c8b99ae2d545b9896bbe3b507fe",
+      "hash": "a65256554b7f025dbb364cf87cb678464f6a0e69f675bc5fc365785b468ad9fe",
       "data": {
-        "packet_id": "ES-53046B412D9E",
+        "packet_id": "KV-53046B412D9E",
         "timestamp": "2026-08-09T06:42:55.260028+00:00",
         "audio_file": "attack_digital_arrest.mp3",
         "audio_sha256": "3f3e0203b060ea945953e2bfa1e6e0d000ff1b3dbd9d0a861a25f3c75337e776"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "78b91c046c250f75bfe411a3deb9960c97b128cb926f8d1ec076ff8e8825cd33",
+      "hash": "674700a7582557c1cb78be61f569066487ac059588538fde6cf6154ea72b02a1",
       "data": {
         "spoof": true,
         "spoof_score": 0.9999,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "abdba724711cf97cebd870f921066867b08e84ee7af055ccd46bf9362c661201",
+      "hash": "c3dfa7113a6d9ffc92f732d16d2667e88aa9842cf98dcba6c89ba196f464c74f",
       "data": {
         "transcript": "नमस्ते, मैं CBI अदिकारी बोल रहा हूं.  अपके नाम पर एक पार्सल में द्रक्स मिला है, और आप पर गिराफतारी का वारन्त जारी हो गया है.  यह केस बहुत गमभीर है.  आपको तुरन्त पैसे ट्रान्सफर करने हूंगे विरिफिकेशन के लिए.  किसी को मत बताना, नहीं तो आपको जेल हो जाएगी.  अभी मेरा बताया हुवा काम करो, और लाईन पर रहो.",
         "language": "hi",
@@ -80,7 +80,7 @@
       }
     }
   ],
-  "root_hash": "abdba724711cf97cebd870f921066867b08e84ee7af055ccd46bf9362c661201",
+  "root_hash": "c3dfa7113a6d9ffc92f732d16d2667e88aa9842cf98dcba6c89ba196f464c74f",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -88,5 +88,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "8791774d42006b91001104ead5dd209bf15b499077ffd899fb3ce049d216a0dd"
+  "meta_hash": "d7e32946c3623bd7d91523372be853418951053224aef9f51fd0002e9cf5bf82"
 }

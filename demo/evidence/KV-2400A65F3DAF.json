@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "be6b64bf44841931a08196ee0d59c72f06e665acaf835abe5d46d5d06a5a580a",
+      "hash": "e67361e545d4d98957874331678e5e3413a7de09795e60231500c3ee943eafcc",
       "data": {
-        "packet_id": "ES-2400A65F3DAF",
+        "packet_id": "KV-2400A65F3DAF",
         "timestamp": "2026-08-11T13:20:17.350216+00:00",
         "audio_file": "a1_digital_arrest.mp3",
         "audio_sha256": "3f3e0203b060ea945953e2bfa1e6e0d000ff1b3dbd9d0a861a25f3c75337e776"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "5905dac75c27c036ceff5ec8cd0f4ced21c972587895fe714cff5cb2e38ec09c",
+      "hash": "c2c020fa42f3d0e3fc23a95d777fd5bdafcc13ba6af05bd376016e95cb58c4c3",
       "data": {
         "spoof": true,
         "spoof_score": 0.9999,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "b9b49eaea9959ebffaee328785c6fe6371020070086ff18101b0bbfa967d8001",
+      "hash": "8fd8ec27b2b7bbf2ee680c0161badd35c46d0b50db9d821a4fb628a2ffc02cd6",
       "data": {
         "transcript": "नमस्ते, मैं CBI अदिकारी बोल रहा हूं.  अपके नाम पर एक पार्सल में द्रक्स मिला है, और आप पर गिराफतारी का वारन्त जारी हो गया है.  यह केस बहुत गमभीर है.  आपको तुरन्त पैसे ट्रान्सफर करने हूंगे विरिफिकेशन के लिए.  किसी को मत बताना, नहीं तो आपको जेल हो जाएगी.  अभी मेरा बताया हुवा काम करो, और लाईन पर रहो.",
         "language": "hi",
@@ -84,7 +84,7 @@
       }
     }
   ],
-  "root_hash": "b9b49eaea9959ebffaee328785c6fe6371020070086ff18101b0bbfa967d8001",
+  "root_hash": "8fd8ec27b2b7bbf2ee680c0161badd35c46d0b50db9d821a4fb628a2ffc02cd6",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -92,5 +92,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "dc62ae74e118b30f7562c9439d35ecad985478b2f0dc60892e624327d5a56ba8"
+  "meta_hash": "dec2cf98dce4a4692af2889133d547026ba194f9a1f11a044d2062feb3a09fc8"
 }

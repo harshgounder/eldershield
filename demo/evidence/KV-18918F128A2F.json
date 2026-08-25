@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "c66515a84a4491a97c4381a8811165f62ec631c4df5f880c687c4d0371c49d34",
+      "hash": "2dd04e6648c5fb30683680315b130c31055ca1fcb4eec9b9280f6d8875ecb85f",
       "data": {
-        "packet_id": "ES-18918F128A2F",
+        "packet_id": "KV-18918F128A2F",
         "timestamp": "2026-08-11T13:18:54.453229+00:00",
         "audio_file": "a1_digital_arrest.mp3",
         "audio_sha256": "3f3e0203b060ea945953e2bfa1e6e0d000ff1b3dbd9d0a861a25f3c75337e776"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "956c2a179916c250382562bc3625cc23d7957bea530786df0cc4d32d9a5ae23f",
+      "hash": "1e43f116bff6ad85a5e4cab492ef7238af08faa7cb128ff42530dd0cdcad4aaa",
       "data": {
         "spoof": true,
         "spoof_score": 0.9999,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "b44d5aa958afbf4f8e8eac6bcd6ee17b6d9643942851bead096a1c10d8c0d2ea",
+      "hash": "b33fa862221f617c31e6f4d9cc83903429758689f4263416558fffa6e1fbc43e",
       "data": {
         "transcript": "नमस्ते, मैं CBI अदिकारी बोल रहा हूं.  अपके नाम पर एक पार्सल में द्रक्स मिला है, और आप पर गिराफतारी का वारन्त जारी हो गया है.  यह केस बहुत गमभीर है.  आपको तुरन्त पैसे ट्रान्सफर करने हूंगे विरिफिकेशन के लिए.  किसी को मत बताना, नहीं तो आपको जेल हो जाएगी.  अभी मेरा बताया हुवा काम करो, और लाईन पर रहो.",
         "language": "hi",
@@ -84,7 +84,7 @@
       }
     }
   ],
-  "root_hash": "b44d5aa958afbf4f8e8eac6bcd6ee17b6d9643942851bead096a1c10d8c0d2ea",
+  "root_hash": "b33fa862221f617c31e6f4d9cc83903429758689f4263416558fffa6e1fbc43e",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -92,5 +92,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "fddd9dc634d127002f6702cc7bb712e637c399b9323671221d583fd6b93b375c"
+  "meta_hash": "ffd2355a7a653c94152ec964b8aaa00c477fe082e029ac04be2a3545b92f20c2"
 }

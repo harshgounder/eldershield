@@ -52,7 +52,19 @@ class KavachEngine:
         if sr != 16000:
             import scipy.signal as sig
             x = sig.resample_poly(x, 16000, sr)
-        return x
+        if not np.all(np.isfinite(x)):
+            x = np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0)
+        # quality stats on RAW audio (before normalization: scaling would hide
+        # flat-tops from the clipping gate; red-team 2026-08-25)
+        clip_frac = float(np.mean(np.abs(x) > 0.995)) if len(x) else 1.0
+        std = float(np.std(x)) if len(x) else 0.0
+        # peak-normalize before inference (red-team 2026-08-25): AASIST's
+        # 64600-sample window is amplitude-sensitive; -6dB attenuation flipped
+        # spoof crops to BONAFIDE. Normalize restores the calibrated scale.
+        peak = float(np.abs(x).max()) if len(x) else 0.0
+        if peak > 1e-6:
+            x = x * (0.95 / peak)
+        return x, clip_frac, std
 
     def _crops(self, x):
         if len(x) < NB_SAMP:
@@ -65,7 +77,11 @@ class KavachEngine:
         return out
 
     def analyze(self, path):
-        x = self._load_wav(path)
+        x, clip_frac, std = self._load_wav(path)
+        # signal-quality gate (red-team 2026-08-25): hard clipping and garbage
+        # audio fool the model into confident verdicts; surface it so FUSION
+        # never PASSes a clipped/silent/invalid call.
+        quality = "clipped" if clip_frac > 0.01 else ("silent" if std < 1e-4 else "ok")
         t0 = time.time()
         probs = []
         with torch.no_grad():
@@ -73,15 +89,21 @@ class KavachEngine:
                 _, lg = self.model(torch.from_numpy(c).unsqueeze(0).to(self.device))
                 probs.append(torch.softmax(lg, 1)[0, 1].item())
         score = float(np.mean(probs))          # mean spoof prob across crops
+        max_crop = float(max(probs)) if probs else 0.0
         votes = sum(p > 0.5 for p in probs)
         # short files (< 4.04s) collapse to ONE crop → majority vote degenerates
         # (b5: 3.84s TTS, score=1.0 but votes=1 → BONAFIDE = MISS). Fall back to the
         # score itself when the vote has nothing to vote on. (Found by audio suite.)
-        spoof = (votes >= 2) if len(probs) >= 2 else (score > 0.5)
+        # red-team 2026-08-25: the vote alone is also broken by silence padding
+        # (a 0.9999 crop loses 2-1). OR-rule: any single crop at 0.9+ is spoof.
+        spoof = (votes >= 2) or (max_crop > 0.9) or (len(probs) == 1 and score > 0.5)
         return {
             "spoof": spoof,
             "score": round(score, 4),
             "crop_scores": [round(p, 4) for p in probs],
+            "max_crop_score": round(max_crop, 4),
+            "signal_quality": quality,
+            "clip_fraction": round(clip_frac, 6),
             "latency_ms": round((time.time() - t0) * 1000, 1),
         }
 

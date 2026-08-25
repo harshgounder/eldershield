@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "444457b3f68f9a4849f2e20bc960f1be5cacebfecf639171dc9e39043262d125",
+      "hash": "34c9c7259c442772c9bb957437fd33af52d6a3cb5adf9266d1d3d1a77f51b86d",
       "data": {
-        "packet_id": "ES-9D8EFC0259BF",
+        "packet_id": "KV-9D8EFC0259BF",
         "timestamp": "2026-08-11T13:27:00.695736+00:00",
         "audio_file": "a3_parcel.mp3",
         "audio_sha256": "f344b909c882f9091634202ec88d0124dbfbac340eddeba90b022c90f6795199"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "08dc13ab292029ccd1a4d773a8df15b4cb5b3566cb554a47957336c17e0eb81f",
+      "hash": "36c97c9a1c10b7bde3c99443f2d60a789462c7848bb5425b6226f72bc22d3c03",
       "data": {
         "spoof": true,
         "spoof_score": 1.0,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "4cecf2f5463ad6f9d9f7ec0dcf02164243acbc4949a85ac3581bf664d9a0ba48",
+      "hash": "e06507cd111b6d0e9bf92ef7af3d57651fe44222e2b5bbac4baf26bbdd61ebdb",
       "data": {
         "transcript": "नमस्ते, यह कुर्यर कंपनी है, आपका पार्सल सीमा शूल्क में फस गया है.  तुरंत 2,000 रुपै जमा करो, नहीं तो पार्सल वापस चला जाएगा.",
         "language": "hi",
@@ -58,7 +58,7 @@
       }
     }
   ],
-  "root_hash": "4cecf2f5463ad6f9d9f7ec0dcf02164243acbc4949a85ac3581bf664d9a0ba48",
+  "root_hash": "e06507cd111b6d0e9bf92ef7af3d57651fe44222e2b5bbac4baf26bbdd61ebdb",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -66,5 +66,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "333ce3301d5e91752d29a96ba1bde2bafe2d035832c366c8405aeada416aaa15"
+  "meta_hash": "9ea8d05b8c89992c992768f07725e8ba52ecbc3778854837f7bb087985307168"
 }

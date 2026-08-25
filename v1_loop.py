@@ -43,7 +43,8 @@ def run_loop(audio_path, payment_context=None, family_decision="challenge"):
     claims = [k for k in ("arrest", "parcel", "digital_arrest") if k in cr.get("vector_hits", {})]
     fr = fuse(spoof_score=er["score"], spoof_verdict=er["spoof"],
               coercion_score=cr["coercion_score"], coercion_state=cr["risk_state"],
-              payment_context=payment_context, threat_signals=threat, factcheck_claims=claims)
+              payment_context=payment_context, threat_signals=threat, factcheck_claims=claims,
+              signal_quality=er.get("signal_quality", "ok"))
 
     # ---- interrupt + verify (family challenge - simulated decision)
     if fr.verdict in ("PAUSE", "KILL"):

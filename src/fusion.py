@@ -45,7 +45,8 @@ def fuse(spoof_score: float,
          coercion_state: str,
          payment_context: Optional[dict] = None,
          threat_signals: Optional[List[str]] = None,
-         factcheck_claims: Optional[List[str]] = None) -> FusionResult:
+         factcheck_claims: Optional[List[str]] = None,
+         signal_quality: str = "ok") -> FusionResult:
     """Combine all department signals into ONE verdict + ONE action.
 
     spoof_score: 0..1 (0=real, 1=clone)
@@ -58,9 +59,15 @@ def fuse(spoof_score: float,
     dept: Dict[str, dict] = {}
 
     # --- spoof department
-    dept["spoof"] = {"score": round(spoof_score, 4), "verdict": spoof_verdict}
-    if spoof_verdict:
-        reasons.append(f"voice spoof {spoof_score:.3f}")
+    dept["spoof"] = {"score": round(spoof_score, 4), "verdict": spoof_verdict,
+                     "signal_quality": signal_quality}
+    # red-team 2026-08-25: the vote boolean alone is attackable (silence padding
+    # gives a 0.9999 crop a 1-2 vote loss). A raw score at or above 0.9 is a
+    # spoof signal regardless of the vote result.
+    strong_score = spoof_score >= 0.9
+    if spoof_verdict or strong_score:
+        tag = " (score 0.9+)" if strong_score and not spoof_verdict else ""
+        reasons.append(f"voice spoof {spoof_score:.3f}{tag}")
 
     # --- coercion department
     dept["coercion"] = {"score": round(coercion_score, 4), "state": coercion_state}
@@ -94,9 +101,12 @@ def fuse(spoof_score: float,
     dept["evidence"] = {"armed": True, "chain": "pending"}
 
     # ---------------------------------------------------------------- verdict ladder
-    spoof = spoof_verdict
+    spoof = spoof_verdict or strong_score
     high_coercion = coercion_state == "HIGH_RISK"
-    any_signal = spoof or coercion_state in ("ELEVATED", "HIGH_RISK") or pay_risk or bool(threat) or bool(claims)
+    bad_quality = signal_quality in ("clipped", "silent", "invalid")
+    if bad_quality:
+        reasons.append(f"signal quality {signal_quality}")
+    any_signal = spoof or coercion_state in ("ELEVATED", "HIGH_RISK") or pay_risk or bool(threat) or bool(claims) or bad_quality
 
     if spoof and high_coercion:
         verdict = "KILL"

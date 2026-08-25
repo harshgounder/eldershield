@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "44f3664dbf53e4ca1fa076ea4b5e5cf8464ecad4ea6d72094fdc6e8d904b191a",
+      "hash": "fdbc38bab364d508750255053985b522fcc07e9bc954822b96503307e9815605",
       "data": {
-        "packet_id": "ES-E66D66254DEB",
+        "packet_id": "KV-E66D66254DEB",
         "timestamp": "2026-08-11T13:20:40.899227+00:00",
         "audio_file": "real_call_hindi.wav",
         "audio_sha256": "eaf505bbf7f4ce5543af9242678b0a992f11d933a4878685b7bbfd817c4e422d"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "a85a8b06971f0ca8792465ca94311e367481e9b3ef48fd92eb3825666bdca960",
+      "hash": "91df0a23db48e5fea216010189ce2a85cf0982cc3207e7825f081e6b9dfc4b53",
       "data": {
         "spoof": false,
         "spoof_score": 0.0,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "60db890d909b71b469c5b7a0c6bb6ba058578ef0f40acc35a5e335dde178af2c",
+      "hash": "05175860d8dd54e1ee25e01465a6b595df07e411822b13879ced57a8f11eb9bd",
       "data": {
         "transcript": "मेजर किन खाना भूम दिसागर में समान शेटरों की तरा रोटी सबजियों और मास,  विषेश रुब से सुर का मास पर आदारित है और जैतून के तेल का उप्योख करता है.",
         "language": "hi",
@@ -44,7 +44,7 @@
       }
     }
   ],
-  "root_hash": "60db890d909b71b469c5b7a0c6bb6ba058578ef0f40acc35a5e335dde178af2c",
+  "root_hash": "05175860d8dd54e1ee25e01465a6b595df07e411822b13879ced57a8f11eb9bd",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -52,5 +52,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "f17fa43a53e6c3dabdaf84df3cf8062729ed12dbcee53248de57b7416b80e4ca"
+  "meta_hash": "8f4a19666460e6791af6b25fe5abbbe4cebee50b6731ce503bc777091c44f1c8"
 }

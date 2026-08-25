@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "24baaaae19f5627ae7583b0a341560d5cf4fbccb7a3f66c563e555af589f39f6",
+      "hash": "5c40441577cac341ac0c52ab7a1ebaf95e202b40b56c21a1946e8f7588ff90c1",
       "data": {
-        "packet_id": "ES-4492E9293AB8",
+        "packet_id": "KV-4492E9293AB8",
         "timestamp": "2026-08-11T13:31:51.957254+00:00",
         "audio_file": "a1_digital_arrest.mp3",
         "audio_sha256": "3f3e0203b060ea945953e2bfa1e6e0d000ff1b3dbd9d0a861a25f3c75337e776"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "0b7d9d8e713f4603335ee1b283594968138faa3646cded35a3a96203da0da04d",
+      "hash": "c29703c8ed62aa2022d44b49b920337de0cf6ea79262b6d78747a2578b61756a",
       "data": {
         "spoof": true,
         "spoof_score": 0.9999,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "3d954fce79b93d3bfbc4d3a783c6d61af5088996d3545bdb9df9aa3f8b1e997b",
+      "hash": "fe5e231e09843b3c838fb23d997b02077d3f285404d38fcc0fd0e5587e07ac82",
       "data": {
         "transcript": "नमस्ते, मैं CBI अदिकारी बोल रहा हूं.  अपके नाम पर एक पार्सल में द्रक्स मिला है, और आप पर गिराफतारी का वारन्त जारी हो गया है.  यह केस बहुत गमभीर है.  आपको तुरन्त पैसे ट्रान्सफर करने हूंगे विरिफिकेशन के लिए.  किसी को मत बताना, नहीं तो आपको जेल हो जाएगी.  अभी मेरा बताया हुवा काम करो, और लाईन पर रहो.",
         "language": "hi",
@@ -84,7 +84,7 @@
       }
     }
   ],
-  "root_hash": "3d954fce79b93d3bfbc4d3a783c6d61af5088996d3545bdb9df9aa3f8b1e997b",
+  "root_hash": "fe5e231e09843b3c838fb23d997b02077d3f285404d38fcc0fd0e5587e07ac82",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -92,5 +92,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "5dfb6b560f4e9f7bb138f42cb652f7505e4602e78e82e4cd7a389c475beeacd4"
+  "meta_hash": "5c57916e40c7a66983528a04a9d80094dc50f77c7920f6d6f867f7ab1388c98f"
 }

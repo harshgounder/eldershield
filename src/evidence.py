@@ -8,7 +8,7 @@ Every Kavach detection emits a chain-of-custody packet:
 The hash chain makes the packet tamper-evident: any edit breaks the chain.
 Nothing is uploaded anywhere - the packet is generated locally (sovereignty story).
 """
-import hashlib, json, os, time, uuid
+import hashlib, json, math, os, time, uuid
 from datetime import datetime, timezone
 
 
@@ -34,6 +34,18 @@ def build_packet(audio_path, engine_result, coercion_result, model_meta=None):
     coercion_result: from CoercionDetector.analyze() (transcript, coercion score, state)
     model_meta: dict with model names/versions (defaults provided)
     """
+    # clamp non-finite scores (red-team 2026-08-25: NaN would corrupt JSON)
+    def _fin(v, default=0.0):
+        try:
+            v = float(v)
+        except (TypeError, ValueError):
+            return default
+        return v if math.isfinite(v) else default
+    engine_result = dict(engine_result or {})
+    engine_result["score"] = _fin(engine_result.get("score"))
+    engine_result["latency_ms"] = _fin(engine_result.get("latency_ms"), 0.0)
+    coercion_result = dict(coercion_result or {})
+    coercion_result["coercion_score"] = _fin(coercion_result.get("coercion_score"))
     audio_hash = sha256_file(audio_path)
     ts = datetime.now(timezone.utc).isoformat()
     packet_id = "KV-" + uuid.uuid4().hex[:12].upper()
@@ -222,7 +234,7 @@ if __name__ == "__main__":
     from engine import KavachEngine
     from coercion import CoercionDetector
 
-    audio = sys.argv[1] if len(sys.argv) > 1 else "assets/attack_digital_arrest.mp3"
+    audio = sys.argv[1] if len(sys.argv) > 1 else "demo/attacks/a1_digital_arrest.mp3"
     out = sys.argv[2] if len(sys.argv) > 2 else "/tmp/es-evidence"
 
     eng = KavachEngine()

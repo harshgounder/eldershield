@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "5bef45cce27f3796f6e4ece9560b7378df7e019980e923a7818bbe5da0396970",
+      "hash": "c11c6cd0a0a430c81b3611c0c182ae4230115306492644df065531a7ae8ecfda",
       "data": {
-        "packet_id": "ES-56D237C5DF22",
+        "packet_id": "KV-56D237C5DF22",
         "timestamp": "2026-08-11T13:26:46.005195+00:00",
         "audio_file": "a1_digital_arrest.mp3",
         "audio_sha256": "3f3e0203b060ea945953e2bfa1e6e0d000ff1b3dbd9d0a861a25f3c75337e776"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "7367248aaf13fce44ba56c54392150bc5baf500b1a1c8c99353e98d37361af2b",
+      "hash": "917f1388a270ce0d420a7df2492b177dbd7f59cb39ee3a57b9a865d1ff2f870c",
       "data": {
         "spoof": true,
         "spoof_score": 0.9999,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "e4fa55bfb41a541817c0139c270c46df0853c5c3722e973962d20bcbee1a132e",
+      "hash": "4ae63917c2c58808852e66aa77a4300bbb743a5a7e5e203e05c5d46138999a9f",
       "data": {
         "transcript": "नमस्ते, मैं CBI अदिकारी बोल रहा हूं.  अपके नाम पर एक पार्सल में द्रक्स मिला है, और आप पर गिराफतारी का वारन्त जारी हो गया है.  यह केस बहुत गमभीर है.  आपको तुरन्त पैसे ट्रान्सफर करने हूंगे विरिफिकेशन के लिए.  किसी को मत बताना, नहीं तो आपको जेल हो जाएगी.  अभी मेरा बताया हुवा काम करो, और लाईन पर रहो.",
         "language": "hi",
@@ -84,7 +84,7 @@
       }
     }
   ],
-  "root_hash": "e4fa55bfb41a541817c0139c270c46df0853c5c3722e973962d20bcbee1a132e",
+  "root_hash": "4ae63917c2c58808852e66aa77a4300bbb743a5a7e5e203e05c5d46138999a9f",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -92,5 +92,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "e1f0b27876e7cbce59650e38546def572c6d71812ae3d56142f910bad257d256"
+  "meta_hash": "d2f0b8d60475aee214a1dc2eb1ad4daa98a407784c9f68444641494520bba5dc"
 }

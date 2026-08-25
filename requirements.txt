@@ -1,7 +1,9 @@
 # Kavach v1 Python dependencies, tested on 2026-08-11
 # Install:  uv venv && uv pip install -r requirements.txt
 # Runtime target: Linux + NVIDIA GPU (CUDA) recommended; CPU works (slower ASR).
-# GPU: torch wheel below is CUDA-enabled (cu128). For CPU-only: torch-cpu.
+# GPU: torch wheel below is CUDA-enabled (cu128). For CPU-only: install from
+# https://download.pytorch.org/whl/cpu (there is no PyPI package literally
+# named "torch-cpu"; plain `pip install torch` on Windows resolves CPU wheels).
 torch>=2.6.0
 numpy>=1.26
 scipy>=1.11
@@ -11,3 +13,4 @@ rapidfuzz>=3.0        # coercion.py fuzzy matching
 gradio>=5.0          # demo_ui.py only
 edge-tts>=6.0        # demo_ui.py attack-text generation only
 reportlab>=4.0       # evidence PDF export
+# dev-only (not needed to run the product): playwright + verify-shot-content.py

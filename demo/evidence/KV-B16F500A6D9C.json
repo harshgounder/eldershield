@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "3ca41366b552f7d218c472db308b1e40c5808b567921ba8e940313dd05f6f784",
+      "hash": "bff7da72bd537c261dbfe1f06cfb75ac2ba7ae127b59e319dd9ac803f5beea94",
       "data": {
-        "packet_id": "ES-B16F500A6D9C",
+        "packet_id": "KV-B16F500A6D9C",
         "timestamp": "2026-08-09T07:07:33.891046+00:00",
         "audio_file": "attack.mp3",
         "audio_sha256": "b866d7731692ab49dbf18001c2587a5468ce51db4642348a803d09845ee4d092"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "22a03b93cc00771969f2c5d8e943a1d826ded0acbb653ed589fadd33668f8018",
+      "hash": "ba48af005d13df51a1e5df9d98d94cdc797608e61f242c4671429ef93d545711",
       "data": {
         "spoof": true,
         "spoof_score": 1.0,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "854e2d134f54c4da13ee98da5846eba1ce6459c7c77b685c30a5a0e84d09aaf0",
+      "hash": "decfa55dd10f07cc37309cf428f533e9fb67b2eb0d381d5981b24a815d9a6e2f",
       "data": {
         "transcript": "नमस्ते, मैं CBI अदिकारी बोल रहा हूं  आपके नाम पर एक पार्सल में द्रक्स मिला है, और आप पर गिराफ्तारी का बारन्त जारी हो गया है.  आपको तुरन्त पैसे ट्रान्सफर करने हूंगे विरिफिकेशन के लिए.  किसी को मत बताना, नहीं तो जेल हो जाएगी.  अभी करो लाईम पर रहो.",
         "language": "hi",
@@ -85,7 +85,7 @@
       }
     }
   ],
-  "root_hash": "854e2d134f54c4da13ee98da5846eba1ce6459c7c77b685c30a5a0e84d09aaf0",
+  "root_hash": "decfa55dd10f07cc37309cf428f533e9fb67b2eb0d381d5981b24a815d9a6e2f",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -93,5 +93,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "6828ba0cd47fd362ec710a1803759ad9f2d9a0319fa11dd37ab6f80d55a4e1cc"
+  "meta_hash": "fb194efdd798cca4e087a7976207e74c3a4aa51c953edc55a7e21e324494657a"
 }

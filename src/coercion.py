@@ -11,6 +11,8 @@ authority ladder Police->NCB->CBI->RBI->SC, secrecy 'don't tell family',
 urgency 'transfer now', isolation 'stay on the line').
 """
 import os, re, time, json
+import numpy as np
+import soundfile as sf
 
 # --- phrase banks (Hindi + Hinglish + English) ---
 AUTHORITY = [
@@ -188,7 +190,7 @@ class CoercionDetector:
             ("होगया", "हो गया"), ("समजाूंगा", "समझाऊंगा"), ("समझाऊंगा", "समझाऊंगा"),
             # --- dialect probes 2026-08-11 (Haryanvi/Bhojpuri/Punjabi/Marathi/Bengali) ---
             ("गिराफ्तारी", "गिरफ्तारी"), ("गिराफ्तार", "गिरफ्तार"),
-            ("वो टीपी", "ओटीपी"), ("ओटी पी", "ओटीपी"), ("अटीपी", "ओटीपी"),
+            ("वो टीपी", "ओटीपी"), ("ओटी पी", "ओटीपी"), ("अटीपी", "ओटीपी"), ("अटी पी", "ओटीपी"),
             ("ताइम", "टाइम"), ("तुरान्त", "तुरंत"), ("तुरांत", "तुरंत"),
             ("ध्रक्स", "ड्रग्स"), ("चड्रग्स", "च में ड्रग्स"), ("च में ड्रग्स", "च में ड्रग्स"),
             ("अतक", "अटक"), ("अटक", "अटक"),
@@ -239,7 +241,27 @@ class CoercionDetector:
 
     def transcribe(self, path):
         """Hindi-first ASR; falls back to auto-detect."""
-        segments, info = self.asr.transcribe(path, language="hi")
+        x, sr = sf.read(path, dtype="float32")
+        if x.ndim > 1:
+            x = x.mean(1)
+        if sr != 16000:
+            import scipy.signal as sig
+            x = sig.resample_poly(x, 16000, sr)
+        # trim leading/trailing silence before ASR (red-team 2026-08-25):
+        # dead-air prefixes garbled transcripts AND ballooned ASR time to
+        # 55-94s on 16s files (faster-whisper transcribes the silence).
+        if len(x) >= 2 * 16000:
+            x = np.ascontiguousarray(x, dtype=np.float32)
+            frame = int(sr * 0.02)
+            n = len(x) - len(x) % frame
+            rms = np.sqrt(np.mean(np.square(x[:n].reshape(-1, frame)), axis=1))
+            thr = max(float(rms.max()) * 0.02, 1e-4)
+            idx = np.where(rms > thr)[0]
+            if len(idx):
+                a = max(int(idx[0]) * frame - int(0.3 * sr), 0)
+                b = min((int(idx[-1]) + 1) * frame + int(0.3 * sr), len(x))
+                x = x[a:b]
+        segments, info = self.asr.transcribe(x, language="hi")
         text = " ".join(s.text for s in segments).strip()
         return text, info
 

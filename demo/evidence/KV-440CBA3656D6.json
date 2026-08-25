@@ -5,9 +5,9 @@
     {
       "link": 1,
       "name": "audio",
-      "hash": "a3f7e2889b920dcb480ab4765bdd7e27497b768553615c91f17ae1de0fc3a996",
+      "hash": "4ea6d4c55d58dd7d1fdb261738d7719498dc803b52b47a7c547cc22d959dd4dc",
       "data": {
-        "packet_id": "ES-440CBA3656D6",
+        "packet_id": "KV-440CBA3656D6",
         "timestamp": "2026-08-11T13:30:15.298888+00:00",
         "audio_file": "a1_digital_arrest.mp3",
         "audio_sha256": "3f3e0203b060ea945953e2bfa1e6e0d000ff1b3dbd9d0a861a25f3c75337e776"
@@ -16,7 +16,7 @@
     {
       "link": 2,
       "name": "spoof_verdict",
-      "hash": "ed0c057b7c0897ea76ccfbf88a19455ec5b85f47aee1637765b30110f7c320d1",
+      "hash": "6288b1d0fae598af7b7c0dfa0b6253bb62ba8a0a7aea64cbc6b9e7b431be669c",
       "data": {
         "spoof": true,
         "spoof_score": 0.9999,
@@ -32,7 +32,7 @@
     {
       "link": 3,
       "name": "coercion_profile",
-      "hash": "64a555e2cd77a2ce7168a04a011cfcbff69aa80f69311781084f5c21b620c5ea",
+      "hash": "d5a0981a9df01be31eec3593098cea20ad6d5d136c825e7f219ece5eec85db24",
       "data": {
         "transcript": "नमस्ते, मैं CBI अदिकारी बोल रहा हूं.  अपके नाम पर एक पार्सल में द्रक्स मिला है, और आप पर गिराफतारी का वारन्त जारी हो गया है.  यह केस बहुत गमभीर है.  आपको तुरन्त पैसे ट्रान्सफर करने हूंगे विरिफिकेशन के लिए.  किसी को मत बताना, नहीं तो आपको जेल हो जाएगी.  अभी मेरा बताया हुवा काम करो, और लाईन पर रहो.",
         "language": "hi",
@@ -84,7 +84,7 @@
       }
     }
   ],
-  "root_hash": "64a555e2cd77a2ce7168a04a011cfcbff69aa80f69311781084f5c21b620c5ea",
+  "root_hash": "d5a0981a9df01be31eec3593098cea20ad6d5d136c825e7f219ece5eec85db24",
   "chain_algorithm": "sha256(hash_prev + canonical_json(link))",
   "model_meta": {
     "model": "AASIST-hindi (3-crop majority vote)",
@@ -92,5 +92,5 @@
     "version": "1.0",
     "processor": "elder-shield-b2-b4"
   },
-  "meta_hash": "c053311a13b6bfb065ac50c3929880444836a8a4347d283fb15540b1bb0dd97e"
+  "meta_hash": "86df7aed6824d44a9ddcb43a6687419aaf037e409f56585bba486e8d42592828"
 }
