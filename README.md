@@ -103,6 +103,7 @@ Models ship in `models/` (aasist-hindi.pt + AASIST weights) - no download needed
 - **Tamper-evident, not tamper-proof:** the sha256 chain detects edits but a re-computing attacker can re-verify a forged chain. A signed chain (ed25519) is R2.
 - **ASR is the latency floor:** spoof verdict ~71 ms, but Hindi ASR takes seconds on CPU; silence is trimmed before ASR (was 55-94 s on padded files, now bounded by the speech span).
 - **Attack-clip coverage:** detection is verified against synthesized Hindi speech (edge-tts) and ASVspoof-style artifacts, not real cloned voices; real-voice scams are caught primarily by the coercion layer.
+- **Fine-tune reproducibility:** the shipped aasist-hindi.pt weights were produced 2026-08-11 from a Hindi spoof/bonafide corpus that lived in scratch space and is gone; `b2_finetune.py` is the documented recipe but needs your own corpus. The inference-side battery (audio/stress/registries/mutation) is fully clone-runnable.
 
 ## References
 

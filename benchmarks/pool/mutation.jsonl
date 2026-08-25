@@ -1,0 +1,530 @@
+{"id": "KV-56D237C5DF22.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-56D237C5DF22.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-D1CFAD07A85E.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-D1CFAD07A85E.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-71EC4944ACDB.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-71EC4944ACDB.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-466DA8D9D025.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-466DA8D9D025.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-466DA8D9D025.M1_transcript", "mutation": "M1_transcript", "file": "KV-466DA8D9D025.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-D6921B42AA81.M1_transcript", "mutation": "M1_transcript", "file": "KV-D6921B42AA81.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-71038CE9EA6C.M1_transcript", "mutation": "M1_transcript", "file": "KV-71038CE9EA6C.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-E1A91D21627A.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-E1A91D21627A.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-466DA8D9D025.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-466DA8D9D025.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-43D774036FAD.M9_reorder", "mutation": "M9_reorder", "file": "KV-43D774036FAD.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-678BBEF1CDDE.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-678BBEF1CDDE.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-E1A91D21627A.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-E1A91D21627A.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-307AA0BC124D.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-307AA0BC124D.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-E85BA4C975F2.M9_reorder", "mutation": "M9_reorder", "file": "KV-E85BA4C975F2.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-A00B44F47778.M3_coercion", "mutation": "M3_coercion", "file": "KV-A00B44F47778.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-4492E9293AB8.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-4492E9293AB8.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-F2413C8334E0.M4_chain", "mutation": "M4_chain", "file": "KV-F2413C8334E0.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-A916B89A4709.M4_chain", "mutation": "M4_chain", "file": "KV-A916B89A4709.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-F5C776E490E0.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-F5C776E490E0.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-F2413C8334E0.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-F2413C8334E0.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-4492E9293AB8.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-4492E9293AB8.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-50DB8687E16D.M4_chain", "mutation": "M4_chain", "file": "KV-50DB8687E16D.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-F5C776E490E0.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-F5C776E490E0.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-9D8EFC0259BF.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-9D8EFC0259BF.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-A8B0CBB41286.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-A8B0CBB41286.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-B0492588BBA9.M1_transcript", "mutation": "M1_transcript", "file": "KV-B0492588BBA9.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-4C11A35F2980.M4_chain", "mutation": "M4_chain", "file": "KV-4C11A35F2980.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-31286E35B158.M8_truncate", "mutation": "M8_truncate", "file": "KV-31286E35B158.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-5CAC3BEB7777.M4_chain", "mutation": "M4_chain", "file": "KV-5CAC3BEB7777.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-9D8EFC0259BF.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-9D8EFC0259BF.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-56D237C5DF22.M9_reorder", "mutation": "M9_reorder", "file": "KV-56D237C5DF22.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-BDBB57B51FC0.M4_chain", "mutation": "M4_chain", "file": "KV-BDBB57B51FC0.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-775631DABBD0.M3_coercion", "mutation": "M3_coercion", "file": "KV-775631DABBD0.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-A017AC660120.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-A017AC660120.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-F2413C8334E0.M9_reorder", "mutation": "M9_reorder", "file": "KV-F2413C8334E0.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-698507450AA6.M8_truncate", "mutation": "M8_truncate", "file": "KV-698507450AA6.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-56D237C5DF22.M1_transcript", "mutation": "M1_transcript", "file": "KV-56D237C5DF22.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-678BBEF1CDDE.M8_truncate", "mutation": "M8_truncate", "file": "KV-678BBEF1CDDE.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-307AA0BC124D.M4_chain", "mutation": "M4_chain", "file": "KV-307AA0BC124D.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-B44DC9DC1E26.M1_transcript", "mutation": "M1_transcript", "file": "KV-B44DC9DC1E26.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-142C910416AF.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-142C910416AF.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-E66D66254DEB.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-E66D66254DEB.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-E18DB20F9FCA.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-E18DB20F9FCA.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-A51AC379613C.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-A51AC379613C.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-2400A65F3DAF.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-2400A65F3DAF.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-E85BA4C975F2.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-E85BA4C975F2.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-7C59B547DCD6.M3_coercion", "mutation": "M3_coercion", "file": "KV-7C59B547DCD6.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-7B4A15F0A9F1.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-7B4A15F0A9F1.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-D1CFAD07A85E.M4_chain", "mutation": "M4_chain", "file": "KV-D1CFAD07A85E.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-4492E9293AB8.M8_truncate", "mutation": "M8_truncate", "file": "KV-4492E9293AB8.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-775631DABBD0.M4_chain", "mutation": "M4_chain", "file": "KV-775631DABBD0.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-BDBB57B51FC0.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-BDBB57B51FC0.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-8816DA762C52.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-8816DA762C52.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-29F83E1158BE.M9_reorder", "mutation": "M9_reorder", "file": "KV-29F83E1158BE.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-5CAC3BEB7777.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-5CAC3BEB7777.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-678BBEF1CDDE.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-678BBEF1CDDE.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-0786BB3BEFAC.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-0786BB3BEFAC.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-43D774036FAD.M4_chain", "mutation": "M4_chain", "file": "KV-43D774036FAD.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-29F83E1158BE.M8_truncate", "mutation": "M8_truncate", "file": "KV-29F83E1158BE.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-5F718373B238.M9_reorder", "mutation": "M9_reorder", "file": "KV-5F718373B238.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-9CB98F02AA50.M8_truncate", "mutation": "M8_truncate", "file": "KV-9CB98F02AA50.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-440CBA3656D6.M1_transcript", "mutation": "M1_transcript", "file": "KV-440CBA3656D6.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-775631DABBD0.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-775631DABBD0.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-F5C776E490E0.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-F5C776E490E0.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-A51AC379613C.M9_reorder", "mutation": "M9_reorder", "file": "KV-A51AC379613C.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-A00B44F47778.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-A00B44F47778.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-29F83E1158BE.M3_coercion", "mutation": "M3_coercion", "file": "KV-29F83E1158BE.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-31286E35B158.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-31286E35B158.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-142C910416AF.M3_coercion", "mutation": "M3_coercion", "file": "KV-142C910416AF.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-5F7D66541179.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-5F7D66541179.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-A00B44F47778.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-A00B44F47778.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-B16F500A6D9C.M4_chain", "mutation": "M4_chain", "file": "KV-B16F500A6D9C.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-5CAC3BEB7777.M3_coercion", "mutation": "M3_coercion", "file": "KV-5CAC3BEB7777.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-71EC4944ACDB.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-71EC4944ACDB.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-7B4A15F0A9F1.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-7B4A15F0A9F1.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-43D774036FAD.M3_coercion", "mutation": "M3_coercion", "file": "KV-43D774036FAD.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-31286E35B158.M1_transcript", "mutation": "M1_transcript", "file": "KV-31286E35B158.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-142C910416AF.M1_transcript", "mutation": "M1_transcript", "file": "KV-142C910416AF.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-D6921B42AA81.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-D6921B42AA81.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-50DB8687E16D.M3_coercion", "mutation": "M3_coercion", "file": "KV-50DB8687E16D.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-7B4A15F0A9F1.M1_transcript", "mutation": "M1_transcript", "file": "KV-7B4A15F0A9F1.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A916B89A4709.M9_reorder", "mutation": "M9_reorder", "file": "KV-A916B89A4709.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-E85BA4C975F2.M3_coercion", "mutation": "M3_coercion", "file": "KV-E85BA4C975F2.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-E66AF809D6D8.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-E66AF809D6D8.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-18918F128A2F.M9_reorder", "mutation": "M9_reorder", "file": "KV-18918F128A2F.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-466DA8D9D025.M4_chain", "mutation": "M4_chain", "file": "KV-466DA8D9D025.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-E66D66254DEB.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-E66D66254DEB.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-7C59B547DCD6.M8_truncate", "mutation": "M8_truncate", "file": "KV-7C59B547DCD6.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-53046B412D9E.M4_chain", "mutation": "M4_chain", "file": "KV-53046B412D9E.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-4492E9293AB8.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-4492E9293AB8.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-FF30430B3558.M4_chain", "mutation": "M4_chain", "file": "KV-FF30430B3558.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-31286E35B158.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-31286E35B158.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-53046B412D9E.M9_reorder", "mutation": "M9_reorder", "file": "KV-53046B412D9E.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-D6921B42AA81.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-D6921B42AA81.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-E66D66254DEB.M1_transcript", "mutation": "M1_transcript", "file": "KV-E66D66254DEB.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-CB74E4363C23.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-CB74E4363C23.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-FDC0503CD09D.M1_transcript", "mutation": "M1_transcript", "file": "KV-FDC0503CD09D.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-4DDA539990BF.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-4DDA539990BF.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-0786BB3BEFAC.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-0786BB3BEFAC.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-8816DA762C52.M4_chain", "mutation": "M4_chain", "file": "KV-8816DA762C52.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-0786BB3BEFAC.M4_chain", "mutation": "M4_chain", "file": "KV-0786BB3BEFAC.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-56D237C5DF22.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-56D237C5DF22.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-5CAC3BEB7777.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-5CAC3BEB7777.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-142C910416AF.M9_reorder", "mutation": "M9_reorder", "file": "KV-142C910416AF.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-4C11A35F2980.M3_coercion", "mutation": "M3_coercion", "file": "KV-4C11A35F2980.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-142C910416AF.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-142C910416AF.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-C6117B9EEDE5.M8_truncate", "mutation": "M8_truncate", "file": "KV-C6117B9EEDE5.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-7B4A15F0A9F1.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-7B4A15F0A9F1.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-A51AC379613C.M8_truncate", "mutation": "M8_truncate", "file": "KV-A51AC379613C.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-B16F500A6D9C.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-B16F500A6D9C.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-B0492588BBA9.M4_chain", "mutation": "M4_chain", "file": "KV-B0492588BBA9.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-56D237C5DF22.M8_truncate", "mutation": "M8_truncate", "file": "KV-56D237C5DF22.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-A00B44F47778.M9_reorder", "mutation": "M9_reorder", "file": "KV-A00B44F47778.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-9D8EFC0259BF.M4_chain", "mutation": "M4_chain", "file": "KV-9D8EFC0259BF.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-71038CE9EA6C.M8_truncate", "mutation": "M8_truncate", "file": "KV-71038CE9EA6C.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-E85BA4C975F2.M4_chain", "mutation": "M4_chain", "file": "KV-E85BA4C975F2.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-E85BA4C975F2.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-E85BA4C975F2.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-9D8EFC0259BF.M8_truncate", "mutation": "M8_truncate", "file": "KV-9D8EFC0259BF.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-D1CFAD07A85E.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-D1CFAD07A85E.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-7B4A15F0A9F1.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-7B4A15F0A9F1.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-FDC0503CD09D.M4_chain", "mutation": "M4_chain", "file": "KV-FDC0503CD09D.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-E18DB20F9FCA.M1_transcript", "mutation": "M1_transcript", "file": "KV-E18DB20F9FCA.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-678BBEF1CDDE.M9_reorder", "mutation": "M9_reorder", "file": "KV-678BBEF1CDDE.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-5F7D66541179.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-5F7D66541179.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-F2E6785E4740.M4_chain", "mutation": "M4_chain", "file": "KV-F2E6785E4740.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-56D237C5DF22.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-56D237C5DF22.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-18918F128A2F.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-18918F128A2F.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-E85BA4C975F2.M1_transcript", "mutation": "M1_transcript", "file": "KV-E85BA4C975F2.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-9CB98F02AA50.M1_transcript", "mutation": "M1_transcript", "file": "KV-9CB98F02AA50.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-D1CFAD07A85E.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-D1CFAD07A85E.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-4DDA539990BF.M9_reorder", "mutation": "M9_reorder", "file": "KV-4DDA539990BF.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-53046B412D9E.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-53046B412D9E.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-F2413C8334E0.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-F2413C8334E0.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-C6117B9EEDE5.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-C6117B9EEDE5.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-E1A91D21627A.M1_transcript", "mutation": "M1_transcript", "file": "KV-E1A91D21627A.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-678BBEF1CDDE.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-678BBEF1CDDE.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-71038CE9EA6C.M3_coercion", "mutation": "M3_coercion", "file": "KV-71038CE9EA6C.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-50DB8687E16D.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-50DB8687E16D.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-5F7D66541179.M3_coercion", "mutation": "M3_coercion", "file": "KV-5F7D66541179.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-FF30430B3558.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-FF30430B3558.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-698507450AA6.M9_reorder", "mutation": "M9_reorder", "file": "KV-698507450AA6.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-678BBEF1CDDE.M3_coercion", "mutation": "M3_coercion", "file": "KV-678BBEF1CDDE.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-7B4A15F0A9F1.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-7B4A15F0A9F1.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-CB74E4363C23.M4_chain", "mutation": "M4_chain", "file": "KV-CB74E4363C23.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-CB74E4363C23.M3_coercion", "mutation": "M3_coercion", "file": "KV-CB74E4363C23.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-142C910416AF.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-142C910416AF.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-5CAC3BEB7777.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-5CAC3BEB7777.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-5CAC3BEB7777.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-5CAC3BEB7777.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-F5C776E490E0.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-F5C776E490E0.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-29F83E1158BE.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-29F83E1158BE.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-4DDA539990BF.M1_transcript", "mutation": "M1_transcript", "file": "KV-4DDA539990BF.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-F2E6785E4740.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-F2E6785E4740.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-F5C776E490E0.M3_coercion", "mutation": "M3_coercion", "file": "KV-F5C776E490E0.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-E1A91D21627A.M9_reorder", "mutation": "M9_reorder", "file": "KV-E1A91D21627A.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-A017AC660120.M9_reorder", "mutation": "M9_reorder", "file": "KV-A017AC660120.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-B16F500A6D9C.M8_truncate", "mutation": "M8_truncate", "file": "KV-B16F500A6D9C.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-A8B0CBB41286.M4_chain", "mutation": "M4_chain", "file": "KV-A8B0CBB41286.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-5F718373B238.M4_chain", "mutation": "M4_chain", "file": "KV-5F718373B238.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-4C11A35F2980.M8_truncate", "mutation": "M8_truncate", "file": "KV-4C11A35F2980.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-B0492588BBA9.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-B0492588BBA9.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-9CB98F02AA50.M3_coercion", "mutation": "M3_coercion", "file": "KV-9CB98F02AA50.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-7B4A15F0A9F1.M9_reorder", "mutation": "M9_reorder", "file": "KV-7B4A15F0A9F1.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-698507450AA6.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-698507450AA6.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-31286E35B158.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-31286E35B158.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-B0492588BBA9.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-B0492588BBA9.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-5F7D66541179.M9_reorder", "mutation": "M9_reorder", "file": "KV-5F7D66541179.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-71EC4944ACDB.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-71EC4944ACDB.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-53046B412D9E.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-53046B412D9E.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-53046B412D9E.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-53046B412D9E.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-FDC0503CD09D.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-FDC0503CD09D.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-E18DB20F9FCA.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-E18DB20F9FCA.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-E85BA4C975F2.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-E85BA4C975F2.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-E18DB20F9FCA.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-E18DB20F9FCA.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-A00B44F47778.M8_truncate", "mutation": "M8_truncate", "file": "KV-A00B44F47778.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-142C910416AF.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-142C910416AF.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-698507450AA6.M1_transcript", "mutation": "M1_transcript", "file": "KV-698507450AA6.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A8B0CBB41286.M1_transcript", "mutation": "M1_transcript", "file": "KV-A8B0CBB41286.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-F5C776E490E0.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-F5C776E490E0.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-71038CE9EA6C.M4_chain", "mutation": "M4_chain", "file": "KV-71038CE9EA6C.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-B0492588BBA9.M9_reorder", "mutation": "M9_reorder", "file": "KV-B0492588BBA9.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-43D774036FAD.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-43D774036FAD.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-A017AC660120.M1_transcript", "mutation": "M1_transcript", "file": "KV-A017AC660120.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-F2413C8334E0.M3_coercion", "mutation": "M3_coercion", "file": "KV-F2413C8334E0.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-A51AC379613C.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-A51AC379613C.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-18918F128A2F.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-18918F128A2F.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-C6117B9EEDE5.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-C6117B9EEDE5.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-E85BA4C975F2.M8_truncate", "mutation": "M8_truncate", "file": "KV-E85BA4C975F2.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-A00B44F47778.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-A00B44F47778.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-FDC0503CD09D.M9_reorder", "mutation": "M9_reorder", "file": "KV-FDC0503CD09D.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-142C910416AF.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-142C910416AF.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-4DDA539990BF.M3_coercion", "mutation": "M3_coercion", "file": "KV-4DDA539990BF.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-775631DABBD0.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-775631DABBD0.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-9D8EFC0259BF.M9_reorder", "mutation": "M9_reorder", "file": "KV-9D8EFC0259BF.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-D7D593681070.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-D7D593681070.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-D6921B42AA81.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-D6921B42AA81.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-4492E9293AB8.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-4492E9293AB8.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-F2E6785E4740.M1_transcript", "mutation": "M1_transcript", "file": "KV-F2E6785E4740.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-43D774036FAD.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-43D774036FAD.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-4492E9293AB8.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-4492E9293AB8.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-18918F128A2F.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-18918F128A2F.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-F5C776E490E0.M8_truncate", "mutation": "M8_truncate", "file": "KV-F5C776E490E0.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-FF30430B3558.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-FF30430B3558.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-FF30430B3558.M3_coercion", "mutation": "M3_coercion", "file": "KV-FF30430B3558.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-5CAC3BEB7777.M8_truncate", "mutation": "M8_truncate", "file": "KV-5CAC3BEB7777.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-A916B89A4709.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-A916B89A4709.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-C6117B9EEDE5.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-C6117B9EEDE5.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-C6117B9EEDE5.M4_chain", "mutation": "M4_chain", "file": "KV-C6117B9EEDE5.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-466DA8D9D025.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-466DA8D9D025.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-0786BB3BEFAC.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-0786BB3BEFAC.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-2400A65F3DAF.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-2400A65F3DAF.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-9CB98F02AA50.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-9CB98F02AA50.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-B44DC9DC1E26.M3_coercion", "mutation": "M3_coercion", "file": "KV-B44DC9DC1E26.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-F2413C8334E0.M1_transcript", "mutation": "M1_transcript", "file": "KV-F2413C8334E0.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-B0492588BBA9.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-B0492588BBA9.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-775631DABBD0.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-775631DABBD0.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-31286E35B158.M3_coercion", "mutation": "M3_coercion", "file": "KV-31286E35B158.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-B44DC9DC1E26.M8_truncate", "mutation": "M8_truncate", "file": "KV-B44DC9DC1E26.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-4DDA539990BF.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-4DDA539990BF.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-BDBB57B51FC0.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-BDBB57B51FC0.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-0786BB3BEFAC.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-0786BB3BEFAC.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-A00B44F47778.M1_transcript", "mutation": "M1_transcript", "file": "KV-A00B44F47778.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-D7D593681070.M4_chain", "mutation": "M4_chain", "file": "KV-D7D593681070.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-9CB98F02AA50.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-9CB98F02AA50.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-5F718373B238.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-5F718373B238.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-307AA0BC124D.M1_transcript", "mutation": "M1_transcript", "file": "KV-307AA0BC124D.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A8B0CBB41286.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-A8B0CBB41286.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-E66AF809D6D8.M9_reorder", "mutation": "M9_reorder", "file": "KV-E66AF809D6D8.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-A017AC660120.M3_coercion", "mutation": "M3_coercion", "file": "KV-A017AC660120.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-9D8EFC0259BF.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-9D8EFC0259BF.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-5F7D66541179.M8_truncate", "mutation": "M8_truncate", "file": "KV-5F7D66541179.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-A916B89A4709.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-A916B89A4709.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-BDBB57B51FC0.M9_reorder", "mutation": "M9_reorder", "file": "KV-BDBB57B51FC0.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-A51AC379613C.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-A51AC379613C.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-8816DA762C52.M9_reorder", "mutation": "M9_reorder", "file": "KV-8816DA762C52.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-D6921B42AA81.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-D6921B42AA81.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-E66D66254DEB.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-E66D66254DEB.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-440CBA3656D6.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-440CBA3656D6.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-4C11A35F2980.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-4C11A35F2980.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-A51AC379613C.M1_transcript", "mutation": "M1_transcript", "file": "KV-A51AC379613C.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A017AC660120.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-A017AC660120.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-E1A91D21627A.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-E1A91D21627A.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-71038CE9EA6C.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-71038CE9EA6C.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-307AA0BC124D.M9_reorder", "mutation": "M9_reorder", "file": "KV-307AA0BC124D.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-E66D66254DEB.M3_coercion", "mutation": "M3_coercion", "file": "KV-E66D66254DEB.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-A017AC660120.M8_truncate", "mutation": "M8_truncate", "file": "KV-A017AC660120.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-BDBB57B51FC0.M8_truncate", "mutation": "M8_truncate", "file": "KV-BDBB57B51FC0.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-29F83E1158BE.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-29F83E1158BE.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-440CBA3656D6.M4_chain", "mutation": "M4_chain", "file": "KV-440CBA3656D6.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-4492E9293AB8.M4_chain", "mutation": "M4_chain", "file": "KV-4492E9293AB8.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-BDBB57B51FC0.M3_coercion", "mutation": "M3_coercion", "file": "KV-BDBB57B51FC0.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-D7D593681070.M3_coercion", "mutation": "M3_coercion", "file": "KV-D7D593681070.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-9CB98F02AA50.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-9CB98F02AA50.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-2400A65F3DAF.M8_truncate", "mutation": "M8_truncate", "file": "KV-2400A65F3DAF.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-4DDA539990BF.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-4DDA539990BF.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-A916B89A4709.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-A916B89A4709.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-D7D593681070.M8_truncate", "mutation": "M8_truncate", "file": "KV-D7D593681070.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-F2413C8334E0.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-F2413C8334E0.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-A51AC379613C.M4_chain", "mutation": "M4_chain", "file": "KV-A51AC379613C.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-F2413C8334E0.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-F2413C8334E0.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-F2E6785E4740.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-F2E6785E4740.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-A017AC660120.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-A017AC660120.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-43D774036FAD.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-43D774036FAD.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-4492E9293AB8.M1_transcript", "mutation": "M1_transcript", "file": "KV-4492E9293AB8.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-71EC4944ACDB.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-71EC4944ACDB.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-A51AC379613C.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-A51AC379613C.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-43D774036FAD.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-43D774036FAD.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-775631DABBD0.M1_transcript", "mutation": "M1_transcript", "file": "KV-775631DABBD0.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A017AC660120.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-A017AC660120.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-4DDA539990BF.M4_chain", "mutation": "M4_chain", "file": "KV-4DDA539990BF.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-5F7D66541179.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-5F7D66541179.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-B16F500A6D9C.M3_coercion", "mutation": "M3_coercion", "file": "KV-B16F500A6D9C.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-4C11A35F2980.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-4C11A35F2980.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-E66AF809D6D8.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-E66AF809D6D8.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-56D237C5DF22.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-56D237C5DF22.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-7C59B547DCD6.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-7C59B547DCD6.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-440CBA3656D6.M9_reorder", "mutation": "M9_reorder", "file": "KV-440CBA3656D6.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-E18DB20F9FCA.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-E18DB20F9FCA.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-7C59B547DCD6.M1_transcript", "mutation": "M1_transcript", "file": "KV-7C59B547DCD6.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-CB74E4363C23.M1_transcript", "mutation": "M1_transcript", "file": "KV-CB74E4363C23.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-D1CFAD07A85E.M9_reorder", "mutation": "M9_reorder", "file": "KV-D1CFAD07A85E.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-FDC0503CD09D.M3_coercion", "mutation": "M3_coercion", "file": "KV-FDC0503CD09D.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-B44DC9DC1E26.M4_chain", "mutation": "M4_chain", "file": "KV-B44DC9DC1E26.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-E66AF809D6D8.M4_chain", "mutation": "M4_chain", "file": "KV-E66AF809D6D8.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-F2E6785E4740.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-F2E6785E4740.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-A8B0CBB41286.M9_reorder", "mutation": "M9_reorder", "file": "KV-A8B0CBB41286.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-7C59B547DCD6.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-7C59B547DCD6.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-D6921B42AA81.M9_reorder", "mutation": "M9_reorder", "file": "KV-D6921B42AA81.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-E66D66254DEB.M9_reorder", "mutation": "M9_reorder", "file": "KV-E66D66254DEB.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-BDBB57B51FC0.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-BDBB57B51FC0.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-8816DA762C52.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-8816DA762C52.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-18918F128A2F.M1_transcript", "mutation": "M1_transcript", "file": "KV-18918F128A2F.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-E1A91D21627A.M4_chain", "mutation": "M4_chain", "file": "KV-E1A91D21627A.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-D1CFAD07A85E.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-D1CFAD07A85E.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-0786BB3BEFAC.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-0786BB3BEFAC.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-E18DB20F9FCA.M3_coercion", "mutation": "M3_coercion", "file": "KV-E18DB20F9FCA.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-71EC4944ACDB.M1_transcript", "mutation": "M1_transcript", "file": "KV-71EC4944ACDB.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-FDC0503CD09D.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-FDC0503CD09D.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-C6117B9EEDE5.M1_transcript", "mutation": "M1_transcript", "file": "KV-C6117B9EEDE5.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-F2E6785E4740.M9_reorder", "mutation": "M9_reorder", "file": "KV-F2E6785E4740.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-18918F128A2F.M4_chain", "mutation": "M4_chain", "file": "KV-18918F128A2F.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-D1CFAD07A85E.M1_transcript", "mutation": "M1_transcript", "file": "KV-D1CFAD07A85E.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-B0492588BBA9.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-B0492588BBA9.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-4492E9293AB8.M9_reorder", "mutation": "M9_reorder", "file": "KV-4492E9293AB8.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-A8B0CBB41286.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-A8B0CBB41286.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-E66D66254DEB.M4_chain", "mutation": "M4_chain", "file": "KV-E66D66254DEB.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-2400A65F3DAF.M4_chain", "mutation": "M4_chain", "file": "KV-2400A65F3DAF.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-E1A91D21627A.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-E1A91D21627A.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-50DB8687E16D.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-50DB8687E16D.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-F5C776E490E0.M9_reorder", "mutation": "M9_reorder", "file": "KV-F5C776E490E0.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-466DA8D9D025.M9_reorder", "mutation": "M9_reorder", "file": "KV-466DA8D9D025.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-E66AF809D6D8.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-E66AF809D6D8.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-8816DA762C52.M8_truncate", "mutation": "M8_truncate", "file": "KV-8816DA762C52.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-D7D593681070.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-D7D593681070.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-C6117B9EEDE5.M3_coercion", "mutation": "M3_coercion", "file": "KV-C6117B9EEDE5.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-8816DA762C52.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-8816DA762C52.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-B44DC9DC1E26.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-B44DC9DC1E26.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-7B4A15F0A9F1.M8_truncate", "mutation": "M8_truncate", "file": "KV-7B4A15F0A9F1.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-698507450AA6.M4_chain", "mutation": "M4_chain", "file": "KV-698507450AA6.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-5F718373B238.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-5F718373B238.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-56D237C5DF22.M4_chain", "mutation": "M4_chain", "file": "KV-56D237C5DF22.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-D7D593681070.M9_reorder", "mutation": "M9_reorder", "file": "KV-D7D593681070.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-307AA0BC124D.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-307AA0BC124D.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-698507450AA6.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-698507450AA6.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-678BBEF1CDDE.M1_transcript", "mutation": "M1_transcript", "file": "KV-678BBEF1CDDE.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A51AC379613C.M3_coercion", "mutation": "M3_coercion", "file": "KV-A51AC379613C.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-B44DC9DC1E26.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-B44DC9DC1E26.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-307AA0BC124D.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-307AA0BC124D.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-307AA0BC124D.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-307AA0BC124D.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-5F718373B238.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-5F718373B238.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-FDC0503CD09D.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-FDC0503CD09D.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-71038CE9EA6C.M9_reorder", "mutation": "M9_reorder", "file": "KV-71038CE9EA6C.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-F2413C8334E0.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-F2413C8334E0.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-18918F128A2F.M8_truncate", "mutation": "M8_truncate", "file": "KV-18918F128A2F.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-0786BB3BEFAC.M3_coercion", "mutation": "M3_coercion", "file": "KV-0786BB3BEFAC.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-FF30430B3558.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-FF30430B3558.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-5CAC3BEB7777.M9_reorder", "mutation": "M9_reorder", "file": "KV-5CAC3BEB7777.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-307AA0BC124D.M3_coercion", "mutation": "M3_coercion", "file": "KV-307AA0BC124D.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-43D774036FAD.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-43D774036FAD.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-678BBEF1CDDE.M4_chain", "mutation": "M4_chain", "file": "KV-678BBEF1CDDE.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-9CB98F02AA50.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-9CB98F02AA50.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-E66D66254DEB.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-E66D66254DEB.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-8816DA762C52.M3_coercion", "mutation": "M3_coercion", "file": "KV-8816DA762C52.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-E18DB20F9FCA.M8_truncate", "mutation": "M8_truncate", "file": "KV-E18DB20F9FCA.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-53046B412D9E.M1_transcript", "mutation": "M1_transcript", "file": "KV-53046B412D9E.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-71038CE9EA6C.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-71038CE9EA6C.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-775631DABBD0.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-775631DABBD0.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-D7D593681070.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-D7D593681070.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-E66AF809D6D8.M3_coercion", "mutation": "M3_coercion", "file": "KV-E66AF809D6D8.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-4C11A35F2980.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-4C11A35F2980.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-F2413C8334E0.M8_truncate", "mutation": "M8_truncate", "file": "KV-F2413C8334E0.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-4C11A35F2980.M1_transcript", "mutation": "M1_transcript", "file": "KV-4C11A35F2980.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-7C59B547DCD6.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-7C59B547DCD6.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-8816DA762C52.M1_transcript", "mutation": "M1_transcript", "file": "KV-8816DA762C52.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-5F718373B238.M3_coercion", "mutation": "M3_coercion", "file": "KV-5F718373B238.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-D7D593681070.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-D7D593681070.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-71EC4944ACDB.M8_truncate", "mutation": "M8_truncate", "file": "KV-71EC4944ACDB.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-F2E6785E4740.M8_truncate", "mutation": "M8_truncate", "file": "KV-F2E6785E4740.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-D7D593681070.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-D7D593681070.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-B0492588BBA9.M8_truncate", "mutation": "M8_truncate", "file": "KV-B0492588BBA9.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-71038CE9EA6C.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-71038CE9EA6C.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-698507450AA6.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-698507450AA6.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-50DB8687E16D.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-50DB8687E16D.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-440CBA3656D6.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-440CBA3656D6.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-F5C776E490E0.M4_chain", "mutation": "M4_chain", "file": "KV-F5C776E490E0.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-466DA8D9D025.M8_truncate", "mutation": "M8_truncate", "file": "KV-466DA8D9D025.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-31286E35B158.M4_chain", "mutation": "M4_chain", "file": "KV-31286E35B158.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-5F7D66541179.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-5F7D66541179.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-31286E35B158.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-31286E35B158.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-9CB98F02AA50.M4_chain", "mutation": "M4_chain", "file": "KV-9CB98F02AA50.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-FF30430B3558.M1_transcript", "mutation": "M1_transcript", "file": "KV-FF30430B3558.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-B44DC9DC1E26.M9_reorder", "mutation": "M9_reorder", "file": "KV-B44DC9DC1E26.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-5F7D66541179.M4_chain", "mutation": "M4_chain", "file": "KV-5F7D66541179.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-5F7D66541179.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-5F7D66541179.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-7B4A15F0A9F1.M4_chain", "mutation": "M4_chain", "file": "KV-7B4A15F0A9F1.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-698507450AA6.M3_coercion", "mutation": "M3_coercion", "file": "KV-698507450AA6.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-7B4A15F0A9F1.M3_coercion", "mutation": "M3_coercion", "file": "KV-7B4A15F0A9F1.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-440CBA3656D6.M8_truncate", "mutation": "M8_truncate", "file": "KV-440CBA3656D6.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-29F83E1158BE.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-29F83E1158BE.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-4C11A35F2980.M9_reorder", "mutation": "M9_reorder", "file": "KV-4C11A35F2980.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-B16F500A6D9C.M1_transcript", "mutation": "M1_transcript", "file": "KV-B16F500A6D9C.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-D6921B42AA81.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-D6921B42AA81.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-A916B89A4709.M1_transcript", "mutation": "M1_transcript", "file": "KV-A916B89A4709.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-E66AF809D6D8.M8_truncate", "mutation": "M8_truncate", "file": "KV-E66AF809D6D8.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-D1CFAD07A85E.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-D1CFAD07A85E.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-43D774036FAD.M8_truncate", "mutation": "M8_truncate", "file": "KV-43D774036FAD.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-307AA0BC124D.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-307AA0BC124D.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-9D8EFC0259BF.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-9D8EFC0259BF.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-D1CFAD07A85E.M8_truncate", "mutation": "M8_truncate", "file": "KV-D1CFAD07A85E.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-29F83E1158BE.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-29F83E1158BE.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-D6921B42AA81.M8_truncate", "mutation": "M8_truncate", "file": "KV-D6921B42AA81.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-0786BB3BEFAC.M1_transcript", "mutation": "M1_transcript", "file": "KV-0786BB3BEFAC.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-FF30430B3558.M8_truncate", "mutation": "M8_truncate", "file": "KV-FF30430B3558.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-5F7D66541179.M1_transcript", "mutation": "M1_transcript", "file": "KV-5F7D66541179.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A916B89A4709.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-A916B89A4709.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-9D8EFC0259BF.M1_transcript", "mutation": "M1_transcript", "file": "KV-9D8EFC0259BF.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-8816DA762C52.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-8816DA762C52.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-9D8EFC0259BF.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-9D8EFC0259BF.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-FDC0503CD09D.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-FDC0503CD09D.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-698507450AA6.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-698507450AA6.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-A8B0CBB41286.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-A8B0CBB41286.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-56D237C5DF22.M3_coercion", "mutation": "M3_coercion", "file": "KV-56D237C5DF22.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-CB74E4363C23.M8_truncate", "mutation": "M8_truncate", "file": "KV-CB74E4363C23.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-53046B412D9E.M3_coercion", "mutation": "M3_coercion", "file": "KV-53046B412D9E.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-678BBEF1CDDE.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-678BBEF1CDDE.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-E66D66254DEB.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-E66D66254DEB.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-F2E6785E4740.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-F2E6785E4740.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-F5C776E490E0.M1_transcript", "mutation": "M1_transcript", "file": "KV-F5C776E490E0.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-F2E6785E4740.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-F2E6785E4740.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-E66AF809D6D8.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-E66AF809D6D8.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-B44DC9DC1E26.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-B44DC9DC1E26.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-71EC4944ACDB.M3_coercion", "mutation": "M3_coercion", "file": "KV-71EC4944ACDB.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-440CBA3656D6.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-440CBA3656D6.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-307AA0BC124D.M8_truncate", "mutation": "M8_truncate", "file": "KV-307AA0BC124D.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-2400A65F3DAF.M9_reorder", "mutation": "M9_reorder", "file": "KV-2400A65F3DAF.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-8816DA762C52.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-8816DA762C52.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-A017AC660120.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-A017AC660120.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-FDC0503CD09D.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-FDC0503CD09D.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-53046B412D9E.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-53046B412D9E.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-4DDA539990BF.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-4DDA539990BF.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-5F718373B238.M1_transcript", "mutation": "M1_transcript", "file": "KV-5F718373B238.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-CB74E4363C23.M9_reorder", "mutation": "M9_reorder", "file": "KV-CB74E4363C23.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-4DDA539990BF.M8_truncate", "mutation": "M8_truncate", "file": "KV-4DDA539990BF.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-D6921B42AA81.M3_coercion", "mutation": "M3_coercion", "file": "KV-D6921B42AA81.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-5F718373B238.M8_truncate", "mutation": "M8_truncate", "file": "KV-5F718373B238.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-B44DC9DC1E26.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-B44DC9DC1E26.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-142C910416AF.M8_truncate", "mutation": "M8_truncate", "file": "KV-142C910416AF.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-B0492588BBA9.M3_coercion", "mutation": "M3_coercion", "file": "KV-B0492588BBA9.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-5F718373B238.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-5F718373B238.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-7C59B547DCD6.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-7C59B547DCD6.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-466DA8D9D025.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-466DA8D9D025.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-29F83E1158BE.M1_transcript", "mutation": "M1_transcript", "file": "KV-29F83E1158BE.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-B16F500A6D9C.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-B16F500A6D9C.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-A00B44F47778.M4_chain", "mutation": "M4_chain", "file": "KV-A00B44F47778.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-E18DB20F9FCA.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-E18DB20F9FCA.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-E66D66254DEB.M8_truncate", "mutation": "M8_truncate", "file": "KV-E66D66254DEB.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-B16F500A6D9C.M9_reorder", "mutation": "M9_reorder", "file": "KV-B16F500A6D9C.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-FF30430B3558.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-FF30430B3558.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-53046B412D9E.M8_truncate", "mutation": "M8_truncate", "file": "KV-53046B412D9E.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-71EC4944ACDB.M9_reorder", "mutation": "M9_reorder", "file": "KV-71EC4944ACDB.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-E1A91D21627A.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-E1A91D21627A.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-D6921B42AA81.M4_chain", "mutation": "M4_chain", "file": "KV-D6921B42AA81.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-2400A65F3DAF.M3_coercion", "mutation": "M3_coercion", "file": "KV-2400A65F3DAF.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-50DB8687E16D.M8_truncate", "mutation": "M8_truncate", "file": "KV-50DB8687E16D.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-A8B0CBB41286.M8_truncate", "mutation": "M8_truncate", "file": "KV-A8B0CBB41286.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-31286E35B158.M9_reorder", "mutation": "M9_reorder", "file": "KV-31286E35B158.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-43D774036FAD.M1_transcript", "mutation": "M1_transcript", "file": "KV-43D774036FAD.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-4492E9293AB8.M3_coercion", "mutation": "M3_coercion", "file": "KV-4492E9293AB8.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-D1CFAD07A85E.M3_coercion", "mutation": "M3_coercion", "file": "KV-D1CFAD07A85E.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-71038CE9EA6C.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-71038CE9EA6C.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-440CBA3656D6.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-440CBA3656D6.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-7C59B547DCD6.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-7C59B547DCD6.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-E85BA4C975F2.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-E85BA4C975F2.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-F2E6785E4740.M3_coercion", "mutation": "M3_coercion", "file": "KV-F2E6785E4740.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-BDBB57B51FC0.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-BDBB57B51FC0.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-C6117B9EEDE5.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-C6117B9EEDE5.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-2400A65F3DAF.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-2400A65F3DAF.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-18918F128A2F.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-18918F128A2F.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-A00B44F47778.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-A00B44F47778.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-CB74E4363C23.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-CB74E4363C23.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-9CB98F02AA50.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-9CB98F02AA50.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-0786BB3BEFAC.M8_truncate", "mutation": "M8_truncate", "file": "KV-0786BB3BEFAC.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-BDBB57B51FC0.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-BDBB57B51FC0.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-B44DC9DC1E26.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-B44DC9DC1E26.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-FDC0503CD09D.M8_truncate", "mutation": "M8_truncate", "file": "KV-FDC0503CD09D.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-2400A65F3DAF.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-2400A65F3DAF.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-4DDA539990BF.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-4DDA539990BF.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-678BBEF1CDDE.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-678BBEF1CDDE.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-2400A65F3DAF.M1_transcript", "mutation": "M1_transcript", "file": "KV-2400A65F3DAF.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A00B44F47778.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-A00B44F47778.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-466DA8D9D025.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-466DA8D9D025.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-C6117B9EEDE5.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-C6117B9EEDE5.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-E66AF809D6D8.M1_transcript", "mutation": "M1_transcript", "file": "KV-E66AF809D6D8.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A017AC660120.M4_chain", "mutation": "M4_chain", "file": "KV-A017AC660120.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-BDBB57B51FC0.M1_transcript", "mutation": "M1_transcript", "file": "KV-BDBB57B51FC0.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-29F83E1158BE.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-29F83E1158BE.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-56D237C5DF22.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-56D237C5DF22.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-50DB8687E16D.M1_transcript", "mutation": "M1_transcript", "file": "KV-50DB8687E16D.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-E85BA4C975F2.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-E85BA4C975F2.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-E18DB20F9FCA.M4_chain", "mutation": "M4_chain", "file": "KV-E18DB20F9FCA.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-9CB98F02AA50.M9_reorder", "mutation": "M9_reorder", "file": "KV-9CB98F02AA50.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-775631DABBD0.M8_truncate", "mutation": "M8_truncate", "file": "KV-775631DABBD0.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-CB74E4363C23.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-CB74E4363C23.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-E18DB20F9FCA.M9_reorder", "mutation": "M9_reorder", "file": "KV-E18DB20F9FCA.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-775631DABBD0.M9_reorder", "mutation": "M9_reorder", "file": "KV-775631DABBD0.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-0786BB3BEFAC.M9_reorder", "mutation": "M9_reorder", "file": "KV-0786BB3BEFAC.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-A916B89A4709.M3_coercion", "mutation": "M3_coercion", "file": "KV-A916B89A4709.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-7C59B547DCD6.M4_chain", "mutation": "M4_chain", "file": "KV-7C59B547DCD6.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-D7D593681070.M1_transcript", "mutation": "M1_transcript", "file": "KV-D7D593681070.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-440CBA3656D6.M3_coercion", "mutation": "M3_coercion", "file": "KV-440CBA3656D6.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-698507450AA6.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-698507450AA6.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-29F83E1158BE.M4_chain", "mutation": "M4_chain", "file": "KV-29F83E1158BE.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-B16F500A6D9C.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-B16F500A6D9C.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-C6117B9EEDE5.M9_reorder", "mutation": "M9_reorder", "file": "KV-C6117B9EEDE5.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-5CAC3BEB7777.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-5CAC3BEB7777.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-53046B412D9E.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-53046B412D9E.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-5F718373B238.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-5F718373B238.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-71EC4944ACDB.M4_chain", "mutation": "M4_chain", "file": "KV-71EC4944ACDB.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-B16F500A6D9C.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-B16F500A6D9C.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-50DB8687E16D.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-50DB8687E16D.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-18918F128A2F.M3_coercion", "mutation": "M3_coercion", "file": "KV-18918F128A2F.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-50DB8687E16D.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-50DB8687E16D.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-71038CE9EA6C.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-71038CE9EA6C.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-A916B89A4709.M8_truncate", "mutation": "M8_truncate", "file": "KV-A916B89A4709.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-B0492588BBA9.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-B0492588BBA9.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-CB74E4363C23.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-CB74E4363C23.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-CB74E4363C23.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-CB74E4363C23.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-775631DABBD0.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-775631DABBD0.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-18918F128A2F.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-18918F128A2F.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-142C910416AF.M4_chain", "mutation": "M4_chain", "file": "KV-142C910416AF.json", "operation": "overwrite root_hash with 64 zeros"}
+{"id": "KV-50DB8687E16D.M9_reorder", "mutation": "M9_reorder", "file": "KV-50DB8687E16D.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-FF30430B3558.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-FF30430B3558.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-E1A91D21627A.M3_coercion", "mutation": "M3_coercion", "file": "KV-E1A91D21627A.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-4C11A35F2980.M10_duplicate", "mutation": "M10_duplicate", "file": "KV-4C11A35F2980.json", "operation": "duplicate 'spoof' key in chain[1].data with a tampered value (raw JSON)"}
+{"id": "KV-A8B0CBB41286.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-A8B0CBB41286.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-E1A91D21627A.M8_truncate", "mutation": "M8_truncate", "file": "KV-E1A91D21627A.json", "operation": "drop last chain link (JSON truncation of the chain)"}
+{"id": "KV-466DA8D9D025.M3_coercion", "mutation": "M3_coercion", "file": "KV-466DA8D9D025.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-71EC4944ACDB.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-71EC4944ACDB.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-31286E35B158.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-31286E35B158.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-7C59B547DCD6.M9_reorder", "mutation": "M9_reorder", "file": "KV-7C59B547DCD6.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-A8B0CBB41286.M3_coercion", "mutation": "M3_coercion", "file": "KV-A8B0CBB41286.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-FF30430B3558.M9_reorder", "mutation": "M9_reorder", "file": "KV-FF30430B3558.json", "operation": "reverse key order of chain[2].data (canonical order broken)"}
+{"id": "KV-B16F500A6D9C.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-B16F500A6D9C.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-E66AF809D6D8.M2_spoof_score", "mutation": "M2_spoof_score", "file": "KV-E66AF809D6D8.json", "operation": "set chain[1].data.spoof_score = 0.5"}
+{"id": "KV-440CBA3656D6.M6_timestamp", "mutation": "M6_timestamp", "file": "KV-440CBA3656D6.json", "operation": "set generated_at = '2099-01-01T00:00:00+00:00'"}
+{"id": "KV-9D8EFC0259BF.M3_coercion", "mutation": "M3_coercion", "file": "KV-9D8EFC0259BF.json", "operation": "flip chain[2].data.risk_state to the opposite of current"}
+{"id": "KV-A51AC379613C.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-A51AC379613C.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-5CAC3BEB7777.M1_transcript", "mutation": "M1_transcript", "file": "KV-5CAC3BEB7777.json", "operation": "append '[tampered]' to chain[2].data.transcript"}
+{"id": "KV-A916B89A4709.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-A916B89A4709.json", "operation": "inject top-level junk key '_mutation_junk'"}
+{"id": "KV-4C11A35F2980.M5_model_meta", "mutation": "M5_model_meta", "file": "KV-4C11A35F2980.json", "operation": "set model_meta.version = '9.9'"}
+{"id": "KV-2400A65F3DAF.M7_junk_key", "mutation": "M7_junk_key", "file": "KV-2400A65F3DAF.json", "operation": "inject top-level junk key '_mutation_junk'"}
